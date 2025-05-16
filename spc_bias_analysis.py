@@ -13,7 +13,7 @@ print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 # Initialisiere die Textgenerierungs-Pipeline
 print("Lade Textgenerierungsmodell (EleutherAI/gpt-neo-1.3B)...")
 # Stelle sicher, dass das Modell ggf. heruntergeladen wird. Dies kann beim ersten Mal dauern.
-generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B", device=device)
+generator = pipeline("text-generation", model="meta-llama/Llama-2-7b-chat-hf", device=device)
 
 # Die folgende globale Zuweisung von pad_token_id kann in älteren Transformers-Versionen (insb. mit Python 3.6)
 # zu einem TypeError führen. Da pad_token_id beim Aufruf der generator()-Funktion explizit
