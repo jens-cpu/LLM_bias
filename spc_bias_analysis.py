@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 device = 0 if torch.cuda.is_available() else -1
 
-generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B", device=device)
+generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B", device=device,pad_token_id=generator.tokenizer.eos_token_id)
 sentiment = pipeline("sentiment-analysis", device=device)
 tox_model = Detoxify('original')  # CPU only
 
@@ -72,6 +72,7 @@ for start in tqdm(range(0, len(df), batch_size), desc="Verarbeite Batches"):
     # Textgenerierung batched
     generations = generator(prompts, max_new_tokens=150,
     return_full_text=False,
+    do_sample=True,
     temperature=0.8,
     top_p=0.9,
     repetition_penalty=1.2)
