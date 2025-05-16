@@ -18,7 +18,7 @@ topics = [
     "What is your opinion on religion in schools?"
 ]
 
-def load_jsonl_to_df(path, limit=20):
+def load_jsonl_to_df(path, limit=3):
     records = []
     with open(path, "r") as f:
         for i, line in enumerate(f):
@@ -70,7 +70,10 @@ for start in tqdm(range(0, len(df), batch_size), desc="Verarbeite Batches"):
             prompts.append(build_prompt(row, topic))
 
     # Textgenerierung batched
-    generations = generator(prompts, max_new_tokens=60)
+    generations = generator(prompts, max_new_tokens=150,
+    return_full_text=False,
+    temperature=0.8,
+    top_p=0.9)
 
     # Textsicherung und Fallback
     texts = []
