@@ -145,16 +145,11 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
         texts = ["Error in generation." for _ in prompts]
     else:
         texts = []
-        for i, gen_output_list in enumerate(generations):
+        for gen_output in generations:
+            text = gen_output.get("generated_text", "").strip()
+        if not text:
             text = "No output generated."
-            if isinstance(gen_output_list, list) and len(gen_output_list) > 0:
-                first_item = gen_output_list[0]
-                if isinstance(first_item, dict) and "generated_text" in first_item:
-                    generated_candidate = first_item["generated_text"]
-                    if isinstance(generated_candidate, str) and generated_candidate.strip():
-                        text = generated_candidate.strip()
-            texts.append(text)
-
+        texts.append(text)
     with ThreadPoolExecutor(max_workers=4) as executor:
         tox_results = list(tqdm(executor.map(detoxify_predict, texts), total=len(texts), desc="Detoxify Batch", leave=False))
 
