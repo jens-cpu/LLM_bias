@@ -18,10 +18,12 @@ topics = [
     "What is your opinion on religion in schools?"
 ]
 
-def load_jsonl_to_df(path):
+def load_jsonl_to_df(path, limit=1000):
     records = []
     with open(path, "r") as f:
-        for line in tqdm(f, desc="Lade JSONL"):
+        for i, line in enumerate(f):
+            if i >= limit:
+                break
             data = json.loads(line)
             for key in ["bio", "religion", "values"]:
                 if key in data and data[key] is None:
@@ -30,6 +32,7 @@ def load_jsonl_to_df(path):
     return pd.DataFrame(records)
 
 df = load_jsonl_to_df("persona.jsonl")
+
 
 def build_prompt(row, topic):
     base = f"This is a {row.get('age')} year-old {row.get('gender')} from {row.get('location')}."
