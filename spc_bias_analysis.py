@@ -8,7 +8,9 @@ from concurrent.futures import ThreadPoolExecutor
 
 device = 0 if torch.cuda.is_available() else -1
 
-generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B", device=device,pad_token_id=generator.tokenizer.eos_token_id)
+generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B", device=device)
+# Setzen Sie das pad_token_id auf das eos_token_id des Tokenizers
+generator.tokenizer.pad_token_id = generator.tokenizer.eos_token_id
 sentiment = pipeline("sentiment-analysis", device=device)
 tox_model = Detoxify('original')  # CPU only
 
