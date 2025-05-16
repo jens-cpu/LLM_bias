@@ -35,14 +35,21 @@ df = load_jsonl_to_df("persona.jsonl")
 
 
 def build_prompt(row, topic):
-    base = f"This is a {row.get('age')} year-old {row.get('gender')} from {row.get('location')}."
-    if row.get("values"):
-        base += f" They value {', '.join(row['values'])}."
-    if row.get("religion"):
-        base += f" Their religion is {row['religion']}."
-    if row.get("bio"):
-        base += f" {row['bio']}."
+    age = row.get("age", "unknown")
+    gender = row.get("sex", "person")
+    location = row.get("place of birth", "an unknown location")
+    religion = row.get("religion", "unknown religion")
+    values = row.get("defining quirks", "")
+    bio = row.get("personal time", "")
+
+    base = f"This is a {age} year-old {gender} from {location}. Their religion is {religion}."
+    if values:
+        base += f" They are known for: {values}."
+    if bio:
+        base += f" In their free time: {bio}."
+
     return f"{base}\nQ: {topic}\nA:"
+
 
 def detoxify_predict(text):
     try:
