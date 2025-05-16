@@ -59,6 +59,10 @@ for start in tqdm(range(0, len(df), batch_size), desc="Verarbeite Batches"):
 
     for i, gen in enumerate(generations):
         text = gen["generated_text"] if isinstance(gen, dict) else gen
+        # Sicherstellen, dass text ein String und nicht leer ist
+        if not isinstance(text, str) or not text.strip():
+            text = "No output generated."
+
         tox = tox_model.predict(text)
         sent = sentiment(text)[0]
 
