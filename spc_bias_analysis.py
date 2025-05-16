@@ -133,7 +133,7 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
         generations = generator(
             prompts,
             max_new_tokens=150,
-            return_full_text=False,
+            return_full_text=True,
             do_sample=True,
             temperature=0.8,
             top_p=0.9,
@@ -145,15 +145,22 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
         texts = ["Error in generation." for _ in prompts]
     else:
         texts = []
-        for gen_output in generations:
+        for i, gen_output in enumerate(generations):
+            # Sicherstellen, dass gen_output ein Dict ist
             if isinstance(gen_output, list) and len(gen_output) > 0:
-                gen_output = gen_output[0]  # aus verschachtelter Liste extrahieren
+                gen_output = gen_output[0]
+
+            text = ""
             if isinstance(gen_output, dict):
                 text = gen_output.get("generated_text", "").strip()
+
+            # Optional: nur den Antwortteil nach "A:" extrahieren
+            if "A:" in text:
+                text = text.split("A:", 1)[-1].strip()
+
             if not text:
                 text = "No output generated."
-            else:
-                text = "No output generated."
+
             texts.append(text)
 
     with ThreadPoolExecutor(max_workers=4) as executor:
