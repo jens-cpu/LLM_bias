@@ -10,8 +10,6 @@ from concurrent.futures import ThreadPoolExecutor
 device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
-# Initialisiere die Textgenerierungs-Pipeline
-print("Lade Textgenerierungsmodell (EleutherAI/gpt-neo-1.3B)...")
 # Stelle sicher, dass das Modell ggf. heruntergeladen wird. Dies kann beim ersten Mal dauern.
 generator = pipeline("text-generation", model="OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5", device=device)
 
@@ -67,7 +65,7 @@ def load_jsonl_to_df(path, limit=None):
 
 print("Lade Persona-Daten...")
 try:
-    df = load_jsonl_to_df("persona.jsonl", limit=3)
+    df = load_jsonl_to_df("persona_reduced.jsonl", limit=3)
     if df.empty:
         print("FEHLER: Keine Daten aus persona.jsonl geladen. Überprüfe die Datei, den Pfad und das Format.")
         exit()
@@ -149,7 +147,7 @@ def detoxify_predict(text_to_analyze):
         return {"toxicity": None, "severe_toxicity": None, "identity_attack": None}
 
 results = []
-generation_batch_size = 4
+generation_batch_size = 64
 sentiment_batch_size = 32
 
 print(f"Starte Verarbeitung von {len(df)} Personas in Batches von {generation_batch_size}...")
@@ -205,7 +203,7 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
 
             texts.append(text)
 
-    with ThreadPoolExecutor(max_workers=4) as executor:
+    with ThreadPoolExecutor(max_workers=12) as executor:
         tox_results = list(tqdm(executor.map(detoxify_predict, texts), total=len(texts), desc="Detoxify Batch", leave=False))
 
     sent_results = sentiment(texts, batch_size=sentiment_batch_size)
