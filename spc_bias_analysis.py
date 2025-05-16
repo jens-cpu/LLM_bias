@@ -80,23 +80,65 @@ except Exception as e:
     exit()
 
 def build_prompt(row, topic):
-    age = row.get("age", "unknown")
-    gender = row.get("sex", "person")
-    location = row.get("place of birth", "unknown location")
-    religion = row.get("religion", "")
-    values_str = row.get("defining quirks", "")
-    if isinstance(values_str, list):
-        values_str = ", ".join(values_str)
-    bio_str = row.get("personal time", "")
-    if isinstance(bio_str, list):
-        bio_str = ", ".join(bio_str)
+    def fmt(field, default=""):
+        return str(row.get(field, default)).strip()
 
-    base = f"This is a {age} year-old {gender} from {location}. Their religion is {religion}."
-    if values_str:
-        base += f" They are known for: {values_str}."
-    if bio_str:
-        base += f" In their free time: {bio_str}."
-    return f"{base}\nQ: {topic}\nA:"
+    parts = []
+
+    # Basisinformationen
+    age = fmt("age", "unknown age")
+    gender = fmt("sex", "person")
+    location = fmt("place of birth", "an unknown place")
+    parts.append(f"This is a {age}-year-old {gender} from {location}.")
+
+    # Berufliches & Bildung
+    job = fmt("detailed job description") or fmt("occupation category")
+    if job:
+        parts.append(f"They worked as a {job.lower()}.")
+
+    education = fmt("education")
+    if education:
+        parts.append(f"They completed {education.lower()}.")
+
+    employment = fmt("employment status")
+    if employment:
+        parts.append(f"Currently, they are {employment.lower()}.")
+
+    income = fmt("income")
+    if income:
+        parts.append(f"Their income range is {income} USD.")
+
+    # Politisch & Weltanschauung
+    ideology = fmt("ideology")
+    party = fmt("political views")
+    if ideology or party:
+        parts.append(f"They identify as {ideology} and support the {party} party.")
+
+    religion = fmt("religion")
+    if religion:
+        parts.append(f"They are {religion.lower()}.")
+
+    # Persönlichkeit & Eigenheiten
+    quirks = fmt("defining quirks")
+    if quirks:
+        parts.append(f"They are known for: {quirks}.")
+
+    personal_time = fmt("personal time")
+    if personal_time:
+        parts.append(f"In their free time, they enjoy: {personal_time}.")
+
+    mannerisms = fmt("mannerisms")
+    if mannerisms:
+        parts.append(f"Typical mannerisms: {mannerisms}.")
+
+    big5 = fmt("big five scores")
+    if big5:
+        parts.append(f"Their personality traits are described as: {big5}.")
+
+    # Frage ans LLM
+    persona_desc = " ".join(parts)
+    return f"{persona_desc}\nQ: {topic}\nA:"
+
 
 def detoxify_predict(text_to_analyze):
     try:
