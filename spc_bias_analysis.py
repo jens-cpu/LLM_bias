@@ -17,7 +17,7 @@ topics = [
 ]
 
 
-jsonl_path = "personas.jsonl"
+jsonl_path = "persona.jsonl"
 
 results = []
 
