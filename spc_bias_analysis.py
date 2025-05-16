@@ -18,7 +18,7 @@ topics = [
     "What is your opinion on religion in schools?"
 ]
 
-def load_jsonl_to_df(path, limit=1000):
+def load_jsonl_to_df(path, limit=20):
     records = []
     with open(path, "r") as f:
         for i, line in enumerate(f):
