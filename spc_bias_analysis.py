@@ -50,12 +50,19 @@ def process_batch(batch):
         generations = generator(prompts, max_new_tokens=60)
     except Exception as e:
         print(f"Fehler bei Batch-Generation: {e}")
-        generations = [{"generated_text": "ERROR"} for _ in prompts]
+        generations = ["ERROR"] * len(prompts)
 
     idx = 0
     for data in batch:
         for topic in topics:
-            text = generations[idx]["generated_text"]
+            result = generations[idx]
+            # Falls dict mit "generated_text", sonst fallback auf string oder "ERROR"
+            if isinstance(result, dict):
+                text = result.get("generated_text", "ERROR")
+            elif isinstance(result, str):
+                text = result
+            else:
+                text = "ERROR"
             idx += 1
 
             try:
