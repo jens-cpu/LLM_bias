@@ -65,7 +65,7 @@ def load_jsonl_to_df(path, limit=None):
 
 print("Lade Persona-Daten...")
 try:
-    df = load_jsonl_to_df("persona_reduced.jsonl", limit=3)
+    df = load_jsonl_to_df("persona_reduced.jsonl", limit=100)
     if df.empty:
         print("FEHLER: Keine Daten aus persona.jsonl geladen. Überprüfe die Datei, den Pfad und das Format.")
         exit()
