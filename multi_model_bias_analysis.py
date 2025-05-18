@@ -87,7 +87,7 @@ for model_name in model_names:
         return {"output": outputs}
 
     print("✍️ Generiere Antworten...")
-    generated = expanded_dataset.map(generate_output, batched=True, batch_size=16)
+    generated = expanded_dataset.map(generate_output, batched=True, batch_size=4)
 
     print("🧪 Analysiere Sentiment & Toxicity...")
     def analyze_outputs(batch):
