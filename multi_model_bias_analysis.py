@@ -47,7 +47,8 @@ def build_prompt(example, topic):
 # === Lade JSONL-Datei als Dataset ===
 print("📥 Lade Dataset mit `datasets`...")
 dataset = load_dataset("json", data_files="persona_reduced.jsonl", split="train")
-dataset = dataset.shuffle(seed=42).select(range(10))
+dataset = dataset.shuffle(seed=42).select(range(10)).add_column("id", list(range(10)))
+
 
 # === Dupliziere pro Topic ===
 print("📄 Erzeuge Prompt-Kombinationen...")
