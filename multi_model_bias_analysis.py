@@ -11,7 +11,7 @@ print(f"📦 Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 model_names = [
     "EleutherAI/gpt-neo-1.3B",
-    "tiiuae/falcon-7b-instruct",
+    "tiiuae/falcon-rw-1b",
     "EleutherAI/gpt-neo-2.7B",
 ]
 
