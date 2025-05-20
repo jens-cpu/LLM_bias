@@ -12,13 +12,13 @@ nltk.download('stopwords')
 STOPWORDS = set(stopwords.words('english'))
 
 # CSV einlesen
-df = pd.read_csv("persona_bias_optimized.csv")
+df = pd.read_csv("multi_model_dataset_analysis.csv")
 
 # Leere/fehlende Outputs filtern
 df = df[df['output'].notna() & (df['output'] != "No output generated.")]
 
 # Ordner für Plots
-os.makedirs("plots", exist_ok=True)
+os.makedirs("plots_multi", exist_ok=True)
 
 ### 1. Verteilung der Toxizität
 plt.figure(figsize=(8, 5))
