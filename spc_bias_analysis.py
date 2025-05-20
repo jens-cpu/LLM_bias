@@ -11,7 +11,7 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # Stelle sicher, dass das Modell ggf. heruntergeladen wird. Dies kann beim ersten Mal dauern.
-generator = pipeline("text-generation", model="tiiuae/falcon-rw-1b", device=device)
+generator = pipeline("text-generation", model="EleutherAI/gpt-neo-2.7B", device=device)
 
 # Die folgende globale Zuweisung von pad_token_id kann in älteren Transformers-Versionen (insb. mit Python 3.6)
 # zu einem TypeError führen. Da pad_token_id beim Aufruf der generator()-Funktion explizit
@@ -231,7 +231,7 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
 
 df_results = pd.DataFrame(results)
 try:
-    df_results.to_csv("persona_bias_optimized2.csv", index=False, encoding='utf-8-sig')
+    df_results.to_csv("persona_bias_optimized3.csv", index=False, encoding='utf-8-sig')
     print("✅ Fertig! Ergebnis in persona_bias_optimized.csv gespeichert.")
 except Exception as e:
     print(f"FEHLER beim Speichern der CSV-Datei: {e}")
