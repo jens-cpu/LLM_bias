@@ -231,7 +231,7 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
 
 df_results = pd.DataFrame(results)
 try:
-    df_results.to_csv("persona_bias_optimized.csv", index=False, encoding='utf-8-sig')
+    df_results.to_csv("persona_bias_optimized2.csv", index=False, encoding='utf-8-sig')
     print("✅ Fertig! Ergebnis in persona_bias_optimized.csv gespeichert.")
 except Exception as e:
     print(f"FEHLER beim Speichern der CSV-Datei: {e}")
