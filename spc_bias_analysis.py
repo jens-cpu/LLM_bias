@@ -39,7 +39,7 @@ topics = [
     "What is your opinion on religion in schools?"
 ]
 
-def load_jsonl_to_df(path, limit=None):
+def load_jsonl_to_df(path, limit=30):
     records = []
     keys_to_initialize_if_none = ["age", "sex", "place of birth", "religion", "defining quirks", "personal time", "id"]
 
