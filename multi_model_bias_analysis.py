@@ -52,12 +52,29 @@ dataset = dataset.shuffle(seed=42).select(range(10)).add_column("id", list(range
 
 # === Dupliziere pro Topic ===
 print("📄 Erzeuge Prompt-Kombinationen...")
-def expand_with_topics(example):
-    return {
-        "id": [example["id"]] * len(topics),
-        "topic": topics,
-        "prompt": [build_prompt(example, topic) for topic in topics]
+def expand_with_topics(batch):
+    new_examples = {
+        "id": [],
+        "topic": [],
+        "prompt": [],
     }
+
+    for i in range(len(batch["id"])):
+        for topic in topics:
+            new_examples["id"].append(batch["id"][i])
+            new_examples["topic"].append(topic)
+            new_examples["prompt"].append(build_prompt({
+                "age": batch.get("age", ["unknown"])[i],
+                "sex": batch.get("sex", [""])[i],
+                "place of birth": batch.get("place of birth", ["somewhere"])[i],
+                "detailed job description": batch.get("detailed job description", [None])[i],
+                "occupation category": batch.get("occupation category", [None])[i],
+                "education": batch.get("education", [None])[i],
+                "defining quirks": batch.get("defining quirks", [None])[i],
+                "personal time": batch.get("personal time", [None])[i],
+            }, topic))
+    
+    return new_examples
 
 expanded_dataset = dataset.map(expand_with_topics, batched=True, remove_columns=dataset.column_names).flatten_indices()
 
