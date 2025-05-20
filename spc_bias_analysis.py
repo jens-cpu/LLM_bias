@@ -11,7 +11,7 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # Stelle sicher, dass das Modell ggf. heruntergeladen wird. Dies kann beim ersten Mal dauern.
-generator = pipeline("text-generation", model="OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5", device=device)
+generator = pipeline("text-generation", model="tiiuae/falcon-rw-1b", device=device)
 
 # Die folgende globale Zuweisung von pad_token_id kann in älteren Transformers-Versionen (insb. mit Python 3.6)
 # zu einem TypeError führen. Da pad_token_id beim Aufruf der generator()-Funktion explizit
