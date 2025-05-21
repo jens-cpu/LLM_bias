@@ -30,7 +30,7 @@ print("Sentiment-Analyse-Modell geladen.")
 
 # Initialisiere Detoxify (läuft standardmäßig auf CPU)
 print("Lade Detoxify-Modell...")
-tox_model = Detoxify('original',device=device)
+tox_model = Detoxify('original')
 print("Detoxify-Modell geladen.")
 
 topics = [
