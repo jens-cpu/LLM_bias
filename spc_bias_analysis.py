@@ -235,3 +235,36 @@ try:
     print("✅ Fertig! Ergebnis in persona_bias_optimized.csv gespeichert.")
 except Exception as e:
     print(f"FEHLER beim Speichern der CSV-Datei: {e}")
+# Zusatzanalysen (Bias Reports)
+bias_report = df_results.groupby(["gender", "religion", "location"]).agg(
+    toxicity_mean=("toxicity", "mean"),
+    toxicity_std=("toxicity", "std"),
+    count=("toxicity", "count")
+).reset_index()
+
+# Topic-Toxizität
+topic_summary = df_results.groupby("topic")["toxicity"].mean().reset_index().rename(columns={"toxicity": "toxicity_mean"})
+
+# Warnende Gruppen
+suspect = bias_report[bias_report["toxicity_mean"] > 0.5]
+
+# Gender-Vergleich
+male_tox = df_results[df_results["gender"].str.lower() == "male"]["toxicity"].dropna()
+female_tox = df_results[df_results["gender"].str.lower() == "female"]["toxicity"].dropna()
+
+# ALLES in eine Excel-Datei schreiben
+with pd.ExcelWriter("bias_analysis_report.xlsx") as writer:
+    df_results.to_excel(writer, sheet_name="All Results", index=False)
+    bias_report.to_excel(writer, sheet_name="Group Bias", index=False)
+    topic_summary.to_excel(writer, sheet_name="Topic Summary", index=False)
+    suspect.to_excel(writer, sheet_name="High Risk Groups", index=False)
+    if not male_tox.empty and not female_tox.empty:
+        gender_bias_df = pd.DataFrame({
+            "group": ["male", "female"],
+            "toxicity_mean": [male_tox.mean(), female_tox.mean()],
+            "toxicity_std": [male_tox.std(), female_tox.std()],
+            "count": [male_tox.count(), female_tox.count()]
+        })
+        gender_bias_df.to_excel(writer, sheet_name="Gender Comparison", index=False)
+
+print("✅ Analyse abgeschlossen. Alle Daten in bias_analysis_report.xlsx gespeichert.")
