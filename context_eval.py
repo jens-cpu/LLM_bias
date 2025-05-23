@@ -25,7 +25,7 @@ print(f"{len(persona_df)} personas loaded.")
 # Load ContextEval dataset from working config
 print("Loading ContextEval...")
 try:
-    context_df = load_dataset("allenai/ContextEval", "eval_model", split="validation").to_pandas()
+    context_df = load_dataset("allenai/ContextEval", "main", split="validation").to_pandas()
     context_df = context_df.sample(n=30, random_state=42)
     print(f"{len(context_df)} context samples loaded.")
 except Exception as e:
