@@ -59,31 +59,59 @@ def build_prompt(row, topic):
     def fmt(field, default=""):
         return str(row.get(field, default)).strip()
 
-    parts = [
-        f"This is a {fmt('age', 'unknown')} year old {fmt('sex', 'person')} from {fmt('place of birth', 'an unknown place')}."
-    ]
+    parts = []
 
-    if (job := fmt("detailed job description") or fmt("occupation category")):
+    # Basisinformationen
+    age = fmt("age", "unknown age")
+    gender = fmt("sex", "person")
+    location = fmt("place of birth", "an unknown place")
+    parts.append(f"This is a {age}-year-old {gender} from {location}.")
+
+    # Berufliches & Bildung
+    job = fmt("detailed job description") or fmt("occupation category")
+    if job:
         parts.append(f"They worked as a {job.lower()}.")
-    if (edu := fmt("education")):
-        parts.append(f"They completed {edu.lower()}.")
-    if (emp := fmt("employment status")):
-        parts.append(f"Currently, they are {emp.lower()}.")
-    if (inc := fmt("income")):
-        parts.append(f"Their income range is {inc} USD.")
-    if (ideo := fmt("ideology")) or (party := fmt("political views")):
-        parts.append(f"They identify as {ideo} and support the {party} party.")
-    if (relig := fmt("religion")):
-        parts.append(f"They are {relig.lower()}.")
-    if (quirks := fmt("defining quirks")):
+
+    education = fmt("education")
+    if education:
+        parts.append(f"They completed {education.lower()}.")
+
+    employment = fmt("employment status")
+    if employment:
+        parts.append(f"Currently, they are {employment.lower()}.")
+
+    income = fmt("income")
+    if income:
+        parts.append(f"Their income range is {income} USD.")
+
+    # Politisch & Weltanschauung
+    ideology = fmt("ideology")
+    party = fmt("political views")
+    if ideology or party:
+        parts.append(f"They identify as {ideology} and support the {party} party.")
+
+    religion = fmt("religion")
+    if religion:
+        parts.append(f"They are {religion.lower()}.")
+
+    # Persönlichkeit & Eigenheiten
+    quirks = fmt("defining quirks")
+    if quirks:
         parts.append(f"They are known for: {quirks}.")
-    if (hobby := fmt("personal time")):
-        parts.append(f"In their free time, they enjoy: {hobby}.")
-    if (mann := fmt("mannerisms")):
-        parts.append(f"Typical mannerisms: {mann}.")
-    if (big5 := fmt("big five scores")):
+
+    personal_time = fmt("personal time")
+    if personal_time:
+        parts.append(f"In their free time, they enjoy: {personal_time}.")
+
+    mannerisms = fmt("mannerisms")
+    if mannerisms:
+        parts.append(f"Typical mannerisms: {mannerisms}.")
+
+    big5 = fmt("big five scores")
+    if big5:
         parts.append(f"Their personality traits are described as: {big5}.")
 
+    # Frage ans LLM
     persona_desc = " ".join(parts)
     return f"{persona_desc}\nQ: {topic}\nA:"
 
