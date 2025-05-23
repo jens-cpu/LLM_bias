@@ -6,6 +6,7 @@ from detoxify import Detoxify
 import torch
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
+from datasets import Dataset
 
 # Ensure output directory exists
 os.makedirs("results", exist_ok=True)
@@ -54,20 +55,19 @@ df = load_jsonl_to_df("persona_reduced.jsonl", limit=10)
 print(f"Loaded {len(df)} personas.")
 
 # Build prompt
-
 def build_prompt(row, topic):
     def fmt(field, default=""):
         return str(row.get(field, default)).strip()
 
     parts = []
 
-    # Basisinformationen
+    # Basic info
     age = fmt("age", "unknown age")
     gender = fmt("sex", "person")
     location = fmt("place of birth", "an unknown place")
     parts.append(f"This is a {age}-year-old {gender} from {location}.")
 
-    # Berufliches & Bildung
+    # Work & education
     job = fmt("detailed job description") or fmt("occupation category")
     if job:
         parts.append(f"They worked as a {job.lower()}.")
@@ -84,7 +84,7 @@ def build_prompt(row, topic):
     if income:
         parts.append(f"Their income range is {income} USD.")
 
-    # Politisch & Weltanschauung
+    # Political & worldview
     ideology = fmt("ideology")
     party = fmt("political views")
     if ideology or party:
@@ -94,7 +94,7 @@ def build_prompt(row, topic):
     if religion:
         parts.append(f"They are {religion.lower()}.")
 
-    # Persönlichkeit & Eigenheiten
+    # Personality & quirks
     quirks = fmt("defining quirks")
     if quirks:
         parts.append(f"They are known for: {quirks}.")
@@ -111,12 +111,10 @@ def build_prompt(row, topic):
     if big5:
         parts.append(f"Their personality traits are described as: {big5}.")
 
-    # Frage ans LLM
     persona_desc = " ".join(parts)
     return f"{persona_desc}\nQ: {topic}\nA:"
 
-# Detoxify wrapper
-
+# Detoxify wrapper (safe)
 def detoxify_predict(text):
     try:
         return tox_model.predict(str(text))
@@ -128,11 +126,10 @@ model_list = [
     "facebook/opt-125m",
     "facebook/opt-350m",
     "EleutherAI/gpt-neo-1.3B",
-     "EleutherAI/gpt-j-6B",  # Uncomment if enough memory
+    # "EleutherAI/gpt-j-6B",  # Uncomment if enough memory
     # "meta-llama/Llama-2-7b-chat"  # Requires auth & HF transformers >= 4.31
 ]
 
-# Main evaluation loop
 for model_name in model_list:
     print(f"\n🔄 Testing model: {model_name}")
     try:
@@ -141,50 +138,70 @@ for model_name in model_list:
         print(f"❌ Failed to load model {model_name}: {e}")
         continue
 
-    results = []
-    batch_size = 16
-
-    for start in tqdm(range(0, len(df), batch_size), desc=f"Processing batches for {model_name}"):
-        batch_df = df.iloc[start:start+batch_size]
-        prompts, info = [], []
-
-        for _, row in batch_df.iterrows():
-            for topic in topics:
-                prompts.append(build_prompt(row, topic))
-                info.append({"row": row, "topic": topic})
-
-        try:
-            eos_id = generator.tokenizer.eos_token_id or 50256
-            outputs = generator(prompts, max_new_tokens=150, do_sample=True, temperature=0.8, top_p=0.9, pad_token_id=eos_id)
-        except Exception as e:
-            outputs = [{"generated_text": "Generation error: " + str(e)} for _ in prompts]
-
-        texts = [o["generated_text"].split("A:")[-1].strip() if isinstance(o, dict) else "" for o in outputs]
-        tox_results = list(tqdm(ThreadPoolExecutor().map(detoxify_predict, texts), total=len(texts), desc="Detoxify", leave=False))
-        sent_results = sentiment(texts, batch_size=8)
-
-        for i, out in enumerate(texts):
-            row = info[i]["row"]
-            topic = info[i]["topic"]
-            tox = tox_results[i]
-            sent = sent_results[i]
-
-            results.append({
-                "model": model_name,
-                "id": row.get("id", ""),
-                "gender": row.get("sex", ""),
-                "religion": row.get("religion", ""),
-                "location": row.get("place of birth", ""),
+    # Prepare prompts and metadata
+    records = []
+    for _, row in df.iterrows():
+        for topic in topics:
+            records.append({
+                "row": row,
                 "topic": topic,
-                "output": out,
-                "toxicity": tox.get("toxicity"),
-                "severe_toxicity": tox.get("severe_toxicity"),
-                "identity_attack": tox.get("identity_attack"),
-                "sentiment_label": sent.get("label"),
-                "sentiment_score": sent.get("score"),
+                "prompt": build_prompt(row, topic)
             })
 
-    df_model = pd.DataFrame(results)
+    # Convert to Dataset for efficient batching
+    import datasets
+    ds = Dataset.from_dict({"prompt": [r["prompt"] for r in records]})
+
+    # Generation step
+    def generate_batch(batch):
+        eos_id = generator.tokenizer.eos_token_id or 50256
+        outputs = generator(
+            batch["prompt"],
+            max_new_tokens=150,
+            do_sample=True,
+            temperature=0.8,
+            top_p=0.9,
+            pad_token_id=eos_id,
+        )
+        # Extract answer part after "A:"
+        generated_texts = [o["generated_text"].split("A:")[-1].strip() for o in outputs]
+        return {"output": generated_texts}
+
+    print("Generating texts...")
+    ds = ds.map(generate_batch, batched=True, batch_size=16)
+
+    # Detoxify step in batch (with ThreadPoolExecutor for speed)
+    print("Detoxifying outputs...")
+    outputs = ds["output"]
+    with ThreadPoolExecutor() as executor:
+        tox_results = list(tqdm(executor.map(detoxify_predict, outputs), total=len(outputs)))
+
+    # Sentiment step
+    print("Analyzing sentiment...")
+    sent_results = sentiment(outputs, batch_size=16)
+
+    # Combine all results
+    final_results = []
+    for i, r in enumerate(records):
+        tox = tox_results[i]
+        sent = sent_results[i]
+        row = r["row"]
+        final_results.append({
+            "model": model_name,
+            "id": row.get("id", ""),
+            "gender": row.get("sex", ""),
+            "religion": row.get("religion", ""),
+            "location": row.get("place of birth", ""),
+            "topic": r["topic"],
+            "output": ds[i]["output"],
+            "toxicity": tox.get("toxicity"),
+            "severe_toxicity": tox.get("severe_toxicity"),
+            "identity_attack": tox.get("identity_attack"),
+            "sentiment_label": sent.get("label"),
+            "sentiment_score": sent.get("score"),
+        })
+
+    df_out = pd.DataFrame(final_results)
     filename = model_name.replace("/", "_").replace("-", "_") + ".csv"
-    df_model.to_csv(f"results/{filename}", index=False, encoding="utf-8-sig")
+    df_out.to_csv(f"results/{filename}", index=False, encoding="utf-8-sig")
     print(f"✅ Results saved to results/{filename}")
