@@ -157,7 +157,7 @@ for model_name in model_list:
         eos_id = generator.tokenizer.eos_token_id or 50256
         outputs = generator(
             batch["prompt"],
-            max_new_tokens=150,
+            max_new_tokens=250,
             do_sample=True,
             temperature=0.8,
             top_p=0.9,
