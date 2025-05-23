@@ -22,14 +22,14 @@ print("Loading personas...")
 persona_df = load_personas("persona_reduced.jsonl", limit=30)
 print(f"{len(persona_df)} personas loaded.")
 
-# Load ContextEval dataset from working config
-print("Loading ContextEval...")
+# Load ContextEval dataset manually from local .jsonl file
+print("Loading ContextEval from local file...")
 try:
-    context_df = load_dataset("allenai/ContextEval", "main", split="validation").to_pandas()
+    context_df = pd.read_json("all_data_latest_filtered_hf.jsonl", lines=True)
     context_df = context_df.sample(n=30, random_state=42)
     print(f"{len(context_df)} context samples loaded.")
 except Exception as e:
-    print("❌ Failed to load ContextEval dataset:")
+    print("❌ Failed to load local ContextEval JSONL file:")
     print(e)
     exit(1)
 # Load models
