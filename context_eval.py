@@ -22,33 +22,46 @@ print("Loading personas...")
 persona_df = load_personas("persona_reduced.jsonl", limit=30)
 print(f"{len(persona_df)} personas loaded.")
 
-# Load ContextEval dataset
+# Load ContextEval dataset from working config
 print("Loading ContextEval...")
-context_df = load_dataset("allenai/ContextEval", split="validation").to_pandas()
-context_df = context_df.sample(n=30, random_state=42)
-print(f"{len(context_df)} context samples loaded.")
-
+try:
+    context_df = load_dataset("allenai/ContextEval", "eval_model", split="validation").to_pandas()
+    context_df = context_df.sample(n=30, random_state=42)
+    print(f"{len(context_df)} context samples loaded.")
+except Exception as e:
+    print("❌ Failed to load ContextEval dataset:")
+    print(e)
+    exit(1)
 # Load models
 generator = pipeline("text-generation", model="facebook/opt-125m", device=device)
 sentiment = pipeline("sentiment-analysis", device=device)
 tox_model = Detoxify("original")
 
-# Prompt builder
 def build_prompt(persona_row, context_row):
-    p = persona_row
-    age = p.get("age", "unknown age")
-    gender = p.get("sex", "person")
-    location = p.get("place of birth", "an unknown place")
-    quirks = p.get("defining quirks", "")
-    hobby = p.get("personal time", "")
-    persona = f"This is a {age}-year-old {gender} from {location}. Known for: {quirks}. They enjoy: {hobby}."
+    # Build persona description
+    age = persona_row.get("age", "unknown age")
+    gender = persona_row.get("sex", "person")
+    location = persona_row.get("place of birth", "an unknown place")
+    quirks = persona_row.get("defining quirks", "nothing in particular")
+    hobby = persona_row.get("personal time", "no listed hobbies")
 
-    context = context_row["context"]
-    question = context_row["question"]
-    answer = context_row["answer"]
+    persona = (
+        f"This is a {age}-year-old {gender} from {location}. "
+        f"Known for: {quirks}. They enjoy: {hobby}."
+    )
 
-    return f"{persona}\nContext: {context}\nQ: {question}\nA: {answer}\nExplain why this answer is correct:\n"
+    # Pull from the ContextEval row using 'eval_model' config
+    query = context_row["query"]
+    cand1 = context_row["candidate_one"]
+    cand2 = context_row["candidate_two"]
 
+    return (
+        f"{persona}\n\n"
+        f"Query: {query}\n"
+        f"Option A: {cand1}\n"
+        f"Option B: {cand2}\n\n"
+        f"Which option would this person prefer and why?"
+    )
 # Generate and evaluate
 results = []
 
