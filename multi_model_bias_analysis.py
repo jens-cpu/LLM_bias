@@ -50,7 +50,7 @@ def load_jsonl_to_df(path, limit=30):
                 continue
     return pd.DataFrame(records)
 
-df = load_jsonl_to_df("persona_reduced.jsonl", limit=30)
+df = load_jsonl_to_df("persona_reduced.jsonl", limit=10)
 print(f"Loaded {len(df)} personas.")
 
 # Build prompt
