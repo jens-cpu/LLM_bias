@@ -164,7 +164,7 @@ for model_name in model_list:
             pad_token_id=eos_id,
         )
         # Extract answer part after "A:"
-        generated_texts = [o["generated_text"].split("A:")[-1].strip() for o in outputs]
+        generated_texts = [o[0]["generated_text"].split("A:")[-1].strip() for o in outputs]
         return {"output": generated_texts}
 
     print("Generating texts...")
