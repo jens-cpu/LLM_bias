@@ -9,6 +9,7 @@ from detoxify import Detoxify
 import torch
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
+import re
 
 # Ensure output directory exists
 os.makedirs("biasplots", exist_ok=True)
@@ -17,10 +18,19 @@ os.makedirs("biasplots", exist_ok=True)
 device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
+# --- Modellname definieren ---
+model = "facebook/xglm-2.9B"
+
 # --- Modelle laden ---
-generator = pipeline("text-generation", model="EleutherAI/gpt-j-6B", device=device)
+generator = pipeline("text-generation", model=model, device=device)
 print(f"Hinweis: tokenizer.pad_token_id = {generator.tokenizer.pad_token_id}, wird explizit auf eos_token_id gesetzt.")
 print("Textgenerierungsmodell geladen.")
+
+# Modellname in einen Dateinamen-freundlichen String umwandeln
+model_safe_name = re.sub(r"[^a-zA-Z0-9]", "_", model)
+
+csv_filename = f"persona_bias_{model_safe_name}.csv"
+excel_filename = f"bias_analysis_report_{model_safe_name}.xlsx"
 
 print("Lade Sentiment-Analyse-Modell...")
 sentiment = pipeline("sentiment-analysis", device=device)
@@ -275,7 +285,7 @@ df_results = pd.DataFrame(results)
 
 # --- Ergebnisse speichern ---
 try:
-    df_results.to_csv("persona_bias.csv", index=False, encoding='utf-8-sig')
+    df_results.to_csv(csv_filename, index=False, encoding='utf-8-sig')
     print("✅ Ergebnisse in persona_bias_optimized_full.csv gespeichert.")
 except Exception as e:
     print(f"FEHLER beim Speichern der CSV-Datei: {e}")
@@ -293,7 +303,7 @@ grouped = df_results.groupby(["gender", "age_group", "religion", "location"]).ag
 filtered_grouped = grouped[grouped["toxicity_count"] >= 5]
 
 # --- Ergebnisse speichern ---
-with pd.ExcelWriter("persona_bias_detailed_analysis.xlsx") as writer:
+with pd.ExcelWriter(excel_filename) as writer:
     df_results.to_excel(writer, sheet_name="All Results", index=False)
     grouped.to_excel(writer, sheet_name="Grouped Analysis", index=False)
     filtered_grouped.to_excel(writer, sheet_name="Filtered Groups (>=5)", index=False)
