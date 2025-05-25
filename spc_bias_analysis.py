@@ -10,6 +10,7 @@ import torch
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 import re
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # Ensure output directory exists
 os.makedirs("biasplots", exist_ok=True)
@@ -19,10 +20,12 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # --- Modellname definieren ---
-model = "facebook/xglm-2.9B"
+model = "meta-llama/Llama-3.3-70B-Instruct"
+tokenizer = AutoTokenizer.from_pretrained(model, use_auth_token=True)
+model_instance = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype=torch.float16)
 
 # --- Modelle laden ---
-generator = pipeline("text-generation", model=model, device=device)
+generator = pipeline("text-generation", model=model_instance, device=device)
 print(f"Hinweis: tokenizer.pad_token_id = {generator.tokenizer.pad_token_id}, wird explizit auf eos_token_id gesetzt.")
 print("Textgenerierungsmodell geladen.")
 
