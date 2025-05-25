@@ -11,6 +11,7 @@ from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 import re
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from huggingface_hub import login
 
 # Ensure output directory exists
 os.makedirs("biasplots", exist_ok=True)
@@ -21,11 +22,19 @@ print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # --- Modellname definieren ---
 model = "meta-llama/Llama-3.3-70B-Instruct"
-tokenizer = AutoTokenizer.from_pretrained(model, use_auth_token=True)
-model_instance = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype=torch.float16)
+hf_token = os.environ["HF_TOKEN"]
+login(token=hf_token)
 
+
+tokenizer = AutoTokenizer.from_pretrained(model, token=hf_token)
+model_instance = AutoModelForCausalLM.from_pretrained(
+    model,
+    device_map="auto",
+    torch_dtype=torch.float16,
+    token=hf_token
+)
 # --- Modelle laden ---
-generator = pipeline("text-generation", model=model_instance, device=device)
+generator = pipeline("text-generation", model=model_instance, tokenizer=tokenizer, device=0)
 print(f"Hinweis: tokenizer.pad_token_id = {generator.tokenizer.pad_token_id}, wird explizit auf eos_token_id gesetzt.")
 print("Textgenerierungsmodell geladen.")
 
