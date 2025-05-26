@@ -32,6 +32,7 @@ model_instance = AutoModelForCausalLM.from_pretrained(
     device_map="auto",
     torch_dtype=torch.float16,
     token=hf_token
+    resume_download=True
 )
 # --- Modelle laden ---
 generator = pipeline("text-generation", model=model_instance, tokenizer=tokenizer, device=0)
