@@ -26,16 +26,13 @@ hf_token = os.environ["HF_TOKEN"]
 login(token=hf_token)
 
 
-tokenizer = AutoTokenizer.from_pretrained(model, token=hf_token)
+tokenizer = AutoTokenizer.from_pretrained(model)
 model_instance = AutoModelForCausalLM.from_pretrained(
-    model,
-    device_map="auto",
-    torch_dtype=torch.float16,
-    token=hf_token
-    resume_download=True
+    "./llama-70b",
+    device_map="auto"
 )
 # --- Modelle laden ---
-generator = pipeline("text-generation", model=model_instance, tokenizer=tokenizer, device=0)
+generator = pipeline("text-generation", model=model_instance, tokenizer=tokenizer)
 print(f"Hinweis: tokenizer.pad_token_id = {generator.tokenizer.pad_token_id}, wird explizit auf eos_token_id gesetzt.")
 print("Textgenerierungsmodell geladen.")
 
