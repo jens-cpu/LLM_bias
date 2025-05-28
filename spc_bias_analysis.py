@@ -23,7 +23,7 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # --- Modellname definieren ---
-model = "facebook/opt-125m"
+model = "deepseek-ai/DeepSeek-R1"
 hf_token = os.environ["HF_TOKEN"]
 login(token=hf_token)
 
