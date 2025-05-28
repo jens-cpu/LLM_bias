@@ -204,7 +204,7 @@ df["age_group"] = df["age"].apply(categorize_age)
 
 # --- Verarbeitung der Prompts ---
 results = []
-generation_batch_size = 64
+generation_batch_size = 5
 sentiment_batch_size = 32
 
 print(f"Starte Verarbeitung von {len(df)} Personas in Batches von {generation_batch_size}...")
@@ -431,7 +431,13 @@ try:
     print("=== Toxizitätsrate nach Geschlecht ===")
     print(metric_frame.by_group)
 
-    dp_diff = demographic_parity_difference(df_results["tox_label"], sensitive_features=df_results["gender"])
+    # dp_diff = demographic_parity_difference(df_results["tox_label"], sensitive_features=df_results["gender"])
+    dp_diff = demographic_parity_difference(
+    y_pred=df_results["tox_label"],
+    sensitive_features=df_results["gender"],
+    method="between_groups"  
+)
+
     print(f"Demographic Parity Difference (tox_label, gender): {dp_diff:.3f}")
 
     # Export als CSV
