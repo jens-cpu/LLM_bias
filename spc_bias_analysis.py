@@ -23,7 +23,7 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # --- Modellname definieren ---
-model = "EleutherAI/gpt-neox-20b"
+model = "openai-community/gpt2"
 hf_token = os.environ["HF_TOKEN"]
 login(token=hf_token)
 
@@ -424,6 +424,7 @@ try:
     metric_frame = MetricFrame(
         metrics={"tox_rate": lambda y_true, _: y_true.mean()},
         y_true=df_results["tox_label"],
+	y_pred=df_results["tox_label"],
         sensitive_features=df_results["gender"]
     )
 
