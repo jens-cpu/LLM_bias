@@ -441,7 +441,7 @@ try:
     metric_frame = MetricFrame(
         metrics={"tox_rate": lambda y_true, _: y_true.mean()},
         y_true=df_results["tox_label"],
-	    y_pred=df_results["tox_label"],
+	 y_pred=df_results["tox_label"],
         sensitive_features=df_results["gender"]
     )
 
@@ -450,6 +450,7 @@ try:
 
     # dp_diff = demographic_parity_difference(df_results["tox_label"], sensitive_features=df_results["gender"])
     dp_diff = demographic_parity_difference(
+    y_true=df_results["tox_label"],
     y_pred=df_results["tox_label"],
     sensitive_features=df_results["gender"],
     method="between_groups"  
