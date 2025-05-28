@@ -113,7 +113,7 @@ def load_jsonl_random(path, limit=None):
             except json.JSONDecodeError as e:
                 continue
 
-    if len(records) > limit:
+    if limit is not None and len(records) > limit:
         records = random.sample(records, limit)
 
     # IDs setzen, falls None
