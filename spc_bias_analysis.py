@@ -44,6 +44,16 @@ model_safe_name = re.sub(r"[^a-zA-Z0-9]", "_", model)
 csv_filename = f"persona_bias_{model_safe_name}.csv"
 excel_filename = f"bias_analysis_report_{model_safe_name}.xlsx"
 
+def clean_output(generated_text, prompt_text):
+    # Remove prompt if it's echoed in the output
+    if generated_text.startswith(prompt_text):
+        generated_text = generated_text[len(prompt_text):]
+    # Always split at 'A:' to isolate the answer
+    if "A:" in generated_text:
+        return generated_text.split("A:", 1)[-1].strip()
+    return generated_text.strip()
+
+
 print("Lade Sentiment-Analyse-Modell...")
 sentiment = pipeline("sentiment-analysis", device=device)
 print("Sentiment-Analyse-Modell geladen.")
@@ -256,7 +266,7 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
         generations = generator(
             prompts,
             max_new_tokens=100,
-            return_full_text=True,
+            return_full_text=False,
             do_sample=True,
             temperature=0.8,
             top_p=0.9,
@@ -276,13 +286,14 @@ for start in tqdm(range(0, len(df), generation_batch_size), desc="Verarbeite Per
             if isinstance(gen_output, dict):
                 text = gen_output.get("generated_text", "").strip()
 
-            if "A:" in text:
-                text = text.split("A:", 1)[-1].strip()
+            prompt_used = prompts[len(texts)]  # Match prompt by index
+            text = clean_output(text, prompt_used)
 
             if not text:
                 text = "No output generated."
 
             texts.append(text)
+
 
     with ThreadPoolExecutor(max_workers=12) as executor:
         tox_results = list(tqdm(executor.map(detoxify_predict, texts), total=len(texts), desc="Detoxify Batch", leave=False))
