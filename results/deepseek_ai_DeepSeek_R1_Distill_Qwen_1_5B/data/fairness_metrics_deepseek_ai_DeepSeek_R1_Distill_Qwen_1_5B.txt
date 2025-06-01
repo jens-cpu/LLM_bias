@@ -1,0 +1,8 @@
+=== Toxizitätsrate nach Geschlecht ===
+            tox_rate
+gender              
+female           0.0
+male             0.0
+non-binary       0.0
+
+Demographic Parity Difference (Geschlecht): 0.000

@@ -248,7 +248,7 @@ def evaluate_model(model_name, df_personas):
     
     print(f"Starte Verarbeitung von {len(df_personas)} Personas...")
     
-    for start in tqdm(range(0, len(df_personas), generation_batch_size, desc="Persona-Batches"):
+    for start in tqdm(range(0, len(df_personas), generation_batch_size), desc="Persona-Batches"):
         batch_df = df_personas.iloc[start : start + generation_batch_size]
         prompts = []
         batch_info = []
