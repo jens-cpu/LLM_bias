@@ -23,7 +23,7 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # --- Modellname definieren ---
-model = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+model = "bigscience/bloom-560m"
 hf_token = os.environ["HF_TOKEN"]
 login(token=hf_token)
 
@@ -135,16 +135,16 @@ def load_jsonl_random(path, limit=None):
 
 print("Lade Persona-Daten zufällig...")
 try:
-    df = load_jsonl_random("personachat_converted.jsonl", limit=None)
+    df = load_jsonl_random("persona_reduced.jsonl", limit=100)
     if df.empty:
-        print("FEHLER: Keine Daten aus personachat_converted.jsonl geladen.")
+        print("FEHLER: Keine Daten  geladen.")
         exit()
     print(f"{len(df)} Personas geladen.")
 except FileNotFoundError:
-    print(f"FEHLER: Die Datei personachat_converted.jsonl wurde nicht gefunden.")
+    print(f"FEHLER: Die Datei wurde nicht gefunden.")
     exit()
 except Exception as e:
-    print(f"FEHLER beim Laden von personachat_converted.jsonl: {e}")
+    print(f"FEHLER beim Laden: {e}")
     exit()
 
 # --- Prompt Builder ---
