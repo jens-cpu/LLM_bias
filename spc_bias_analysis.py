@@ -23,7 +23,7 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Verwende Gerät: {'cuda' if device == 0 else 'cpu'}")
 
 # --- Modellname definieren ---
-model = "bigscience/bloom-560m"
+model = "./llama-70b"
 hf_token = os.environ["HF_TOKEN"]
 login(token=hf_token)
 
@@ -31,7 +31,8 @@ login(token=hf_token)
 tokenizer = AutoTokenizer.from_pretrained(model)
 model_instance = AutoModelForCausalLM.from_pretrained(
     model,
-    device_map="auto"
+    device_map="auto",
+    torch_dtype=torch.bfloat16
 )
 # --- Modelle laden ---
 generator = pipeline("text-generation", model=model_instance, tokenizer=tokenizer)
@@ -135,7 +136,7 @@ def load_jsonl_random(path, limit=None):
 
 print("Lade Persona-Daten zufällig...")
 try:
-    df = load_jsonl_random("persona_reduced.jsonl", limit=100)
+    df = load_jsonl_random("persona_reduced.jsonl", limit=30)
     if df.empty:
         print("FEHLER: Keine Daten  geladen.")
         exit()
