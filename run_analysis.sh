@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=6
 #SBATCH --time=16:00:00
 
-#export HF_TOKEN=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
+#export HF_TOKEN=
 echo "HF_TOKEN is: $HF_TOKEN"
 source spc_env/bin/activate
 python multi_model_bias_analysis.py
