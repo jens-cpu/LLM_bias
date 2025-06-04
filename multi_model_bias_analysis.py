@@ -180,7 +180,17 @@ class BiasAnalyzer:
                 continue
                 
             texts = self._generate_text(prompts)
+            
+            # Free memory after generation
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
             tox_results = self._parallel_toxicity(texts)
+                
+            # Free memory after toxicity
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
             sent_results = self.sentiment(texts)
             
             for i, text in enumerate(texts):
@@ -473,11 +483,11 @@ class BiasAnalyzer:
         
         # Save raw results
         safe_model_name = re.sub(r"[^a-zA-Z0-9]", "_", self.config["model_name"])
-        df.to_csv(
-            f"{self.config['output_dir']}/persona_results_{safe_model_name}.csv",
-            index=False
-        )
         
+        model_dir = os.path.join(self.config["output_dir"], safe_model_name)
+        os.makedirs(model_dir, exist_ok=True)
+        df.to_csv(os.path.join(model_dir, "persona_results.csv"), index=False)
+
         # Save analysis summary
         with open(f"{self.config['output_dir']}/analysis_summary.json", "w") as f:
             json.dump(analysis, f, indent=2)
@@ -486,34 +496,42 @@ class BiasAnalyzer:
 
 def main():
     """Main execution function."""
-    config = {
-        "model_name": "./llama-70b",
-        "output_dir": "results",
-        "plot_dir": "plots",
-        "persona_file": "persona_reduced.jsonl",
-        "max_personas": 10,
-        "generation_batch_size": 16,
-        "max_new_tokens": 100,
-        "random_seed": 42
-    }
-    
-    try:
-        analyzer = BiasAnalyzer(config)
-        
-        # Load and process personas
-        personas = analyzer.load_personas(config["persona_file"], config["max_personas"])
-        results_df = analyzer.generate_responses(personas)
-        
-        # Analyze and visualize
-        analysis = analyzer.analyze_results(results_df)
-        analyzer.visualize_results(results_df, analysis)
-        analyzer.save_results(results_df, analysis)
-        
-        print("Analysis completed successfully!")
-        
-    except Exception as e:
-        print(f"Error in main execution: {e}")
-        raise
+    model_list = ["./llama-70b", "meta-llama/Llama-3.1-8B"]
+
+    for model_name in model_list:
+        print(f"\n===== Running analysis for model: {model_name} =====\n")
+        config = {
+            "model_name": model_name,
+            "output_dir": "results",
+            "plot_dir": "plots",
+            "persona_file": "persona_reduced.jsonl",
+            "max_personas": 10,
+            "generation_batch_size": 16,
+            "max_new_tokens": 100,
+            "random_seed": 42
+        }
+
+        try:
+            analyzer = BiasAnalyzer(config)
+
+            # Load and process personas
+            personas = analyzer.load_personas(config["persona_file"], config["max_personas"])
+            results_df = analyzer.generate_responses(personas)
+
+            # Analyze and visualize
+            analysis = analyzer.analyze_results(results_df)
+            analyzer.visualize_results(results_df, analysis)
+            analyzer.save_results(results_df, analysis)
+
+            print(f"Analysis completed for model: {model_name} ✅")
+
+            # 🧹 Clear memory for next model
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
+        except Exception as e:
+            print(f"❌ Error processing model {model_name}: {e}")
+
 
 if __name__ == "__main__":
     main()

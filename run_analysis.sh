@@ -1,11 +1,12 @@
 #!/bin/bash
+#SBATCH --job-name=bias_analysis
+#SBATCH --output=logs/output_%j.txt
+#SBATCH --error=logs/error_%j.txt
+#SBATCH --partition=kisski-h100
+#SBATCH --gres=gpu:H100:1
+#SBATCH --mem=256G
+#SBATCH --cpus-per-task=6
+#SBATCH --time=04:00:00
 
-# SLURM Job: 1 GPU, 64 GB RAM, 4 CPUs, 4 Stunden Laufzeit
-srun --partition=kisski \
-     --gres=gpu:A100:1 \
-     --mem=256G \
-     --cpus-per-task=6 \
-     --time=04:00:00 \
-     --pty bash -c "
-     source spc_env/bin/activate &&
-     python spc_bias_analysis.py"
+source spc_env/bin/activate
+python multi_model_bias_analysis.py
