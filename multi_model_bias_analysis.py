@@ -61,7 +61,6 @@ class BiasAnalyzer:
             self.config["model_name"],
             device_map="auto",
             attn_implementation="flash_attention_2",
-            load_in_4bit=True,
             torch_dtype=torch.float16 if "cuda" in self.device else torch.float32
         )
         
