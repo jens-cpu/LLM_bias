@@ -66,8 +66,7 @@ class BiasAnalyzer:
         self.generator = pipeline(
             "text-generation",
             model=self.model,
-            tokenizer=self.tokenizer,
-            device=self.device
+            tokenizer=self.tokenizer
         )
         
         # Analysis models
