@@ -60,7 +60,7 @@ class BiasAnalyzer:
         self.model = AutoModelForCausalLM.from_pretrained(
             self.config["model_name"],
             device_map="auto",
-            attn_implementation="flash_attention_2",
+           # attn_implementation="flash_attention_2",
             torch_dtype=torch.float16 if "cuda" in self.device else torch.float32
         )
         

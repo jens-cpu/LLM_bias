@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:A100:1
 #SBATCH --mem=256G
 #SBATCH --cpus-per-task=6
-#SBATCH --time=04:00:00
+#SBATCH --time=12:00:00
 
 source spc_env/bin/activate
 python multi_model_bias_analysis.py

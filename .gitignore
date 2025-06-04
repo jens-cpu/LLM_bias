@@ -2,3 +2,4 @@ spc_env/
 /llama-70b
 test_spc.py
 venv
+/bitsandbytes
