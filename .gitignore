@@ -3,3 +3,5 @@ spc_env/
 test_spc.py
 venv
 /bitsandbytes
+bias_eval.py
+toxicity_analysis_with_perspective.csv
