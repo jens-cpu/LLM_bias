@@ -3,3 +3,4 @@ spc_env/
 test_spc.py
 venv
 /bitsandbytes
+run_analysis.sh
