@@ -5,3 +5,4 @@ venv
 /bitsandbytes
 bias_eval.py
 toxicity_analysis_with_perspective.csv
+run_analysis.sh

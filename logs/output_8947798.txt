@@ -1,0 +1,23 @@
+================================================================================
+JobID = 8947798
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski, Nodelist = ggpu165
+================================================================================
+
+===== Running analysis for model: ./llama-70b =====
+
+Loading models...
+❌ Error processing model ./llama-70b: 'HF_TOKEN'
+
+===== Running analysis for model: meta-llama/Llama-3.1-8B =====
+
+Loading models...
+❌ Error processing model meta-llama/Llama-3.1-8B: 'HF_TOKEN'
+============ Job Information ===================================================
+Submitted: 2025-06-04T14:49:49
+Started: 2025-06-04T18:56:24
+Ended: 2025-06-04T18:56:51
+Elapsed: 1 min, Limit: 720 min, Difference: 719 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 10.00 core-hours
+================================================================================
