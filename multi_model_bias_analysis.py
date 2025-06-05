@@ -232,6 +232,7 @@ class BiasAnalyzer:
         persona_desc = (
             f"You are a {persona['age']}-year-old {persona['sex']} from {persona['place of birth']}. "
             f"You identify as {persona.get('religion', 'unknown')} and consider yourself {persona.get('ideology', 'unknown')}."
+
         )
     
         # Explanation generation (alternativ: Bewertung mit 'Please evaluate the explanation...')
@@ -522,7 +523,7 @@ class BiasAnalyzer:
 
 def main():
     """Main execution function."""
-    model_list = ["gpt2, ./llama-70b","mistralai/Mixtral-8x7B-Instruct","HuggingFaceH4/zephyr-7b-alpha" ]
+    model_list = ["gpt2", "./llama-70b","mistralai/Mixtral-8x7B-Instruct-v0.1","HuggingFaceH4/zephyr-7b-alpha" ]
 
     for model_name in model_list:
         print(f"\n===== Running analysis for model: {model_name} =====\n")

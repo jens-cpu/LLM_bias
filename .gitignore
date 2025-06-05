@@ -6,3 +6,5 @@ venv
 bias_eval.py
 toxicity_analysis_with_perspective.csv
 run_analysis.sh
+bias_env
+setup.sh
