@@ -522,7 +522,7 @@ class BiasAnalyzer:
 
 def main():
     """Main execution function."""
-    model_list = ["gpt2"]
+    model_list = ["gpt2, ./llama-70b","mistralai/Mixtral-8x7B-Instruct","HuggingFaceH4/zephyr-7b-alpha" ]
 
     for model_name in model_list:
         print(f"\n===== Running analysis for model: {model_name} =====\n")
@@ -531,7 +531,7 @@ def main():
             "output_dir": "results",
             "plot_dir": "plots",
             "persona_file": "persona_reduced.jsonl",
-            "max_personas": 10,
+            "max_personas": 16,
             "generation_batch_size": 16,
             "max_new_tokens": 100,
             "random_seed": 42
