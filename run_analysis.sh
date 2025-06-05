@@ -7,7 +7,9 @@
 #SBATCH --mem=256G
 #SBATCH --cpus-per-task=6
 #SBATCH --time=12:00:00
-export PERSPECTIVE_API_KEY="AlzaSyCD 
+export PERSPECTIVE_API_KEY="AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA"
+export HF_TOKEN="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"
 echo "HF_TOKEN is : $HF_TOKEN"
+echo "PERSPECTIVE_API_KEY is : $PERSPECTIVE_API_KEY"
 source spc_env/bin/activate
 python multi_model_bias_analysis.py
