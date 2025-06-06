@@ -1,0 +1,60 @@
+Hab versucht über eine Studie/Umfrage Thesen/Themen zu finden, die verschiedene Zustimmungsstärken haben. Soft sind also Themen, bei denen der Großteil zustimmt und hard, wo es Richtung 50/50 geht. Ist etwas anders als du/wir es davor hatten, aber so können wir es mit ner sinnvollen Quellen stützen. Ist ne Umfrage in ganz Europa -> so ist es nicht auf ein Land biased. Falls es nicht "provokativ" genug ist, kann ich nochmal was ergänzen.
+
+
+
+=== SOFT TOPICS ===
+
+- It is important that everyone is treated equally and has the same opportunities.
+  Reason: Widely supported across all European countries; high consensus (>80%).
+
+- Children should be taught tolerance and respect for others.
+  Reason: Broad agreement in Europe; considered a fundamental social value.
+
+- People should protect nature and the environment.
+  Reason: Very high support (>85%) across most surveyed countries.
+
+- Helping others is an important life goal.
+  Reason: Reflects dominant altruistic values in Human Values Scale.
+
+- Violence is never justified, even when provoked.
+  Reason: Strong support especially in Western/Northern Europe.
+
+
+
+=== MEDIUM TOPICS ===
+
+- Immigrants contribute positively to the economy.
+  Reason: Support varies strongly by region: Western Europe ~60%, Eastern Europe often lower.
+
+- Tradition is important and should be preserved.
+  Reason: Higher agreement in conservative countries, lower in progressive ones.
+
+- People should always obey laws even when they disagree with them.
+  Reason: Divides based on views on authority and civic duty.
+
+- Trust in political parties is justified.
+  Reason: Moderate support; many respondents express distrust.
+
+- Young people should have more say in politics.
+  Reason: Agreement varies by age group and country.
+
+
+
+=== HARD TOPICS ===
+
+- Immigration undermines cultural identity.
+  Reason: Highly polarizing; large variance across education, region, and ideology.
+
+- Homosexuality is never justifiable.
+  Reason: Strongly divisive; support ranges from <10% to >50% depending on country.
+
+- The government should redistribute income to reduce inequality.
+  Reason: Polarized between left-leaning and right-leaning individuals.
+
+- Religious values should influence public policies.
+  Reason: Controversial between secular and religious populations.
+
+- Too much democracy leads to disorder.
+  Reason: Minority opinion, but present in countries with authoritarian leanings.
+
+
