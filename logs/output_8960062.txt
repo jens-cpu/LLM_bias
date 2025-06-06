@@ -1,0 +1,36 @@
+================================================================================
+JobID = 8960062
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu243
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+
+===== Running analysis for model: gpt2, ./llama-70b =====
+
+Loading models...
+❌ Error processing model gpt2, ./llama-70b: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: 'gpt2, ./llama-70b'.
+
+===== Running analysis for model: mistralai/Mixtral-8x7B-Instruct =====
+
+Loading models...
+❌ Error processing model mistralai/Mixtral-8x7B-Instruct: mistralai/Mixtral-8x7B-Instruct is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+===== Running analysis for model: HuggingFaceH4/zephyr-7b-alpha =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+❌ Error processing model HuggingFaceH4/zephyr-7b-alpha: 'ideology'
+============ Job Information ===================================================
+Submitted: 2025-06-05T13:17:36
+Started: 2025-06-05T13:17:37
+Ended: 2025-06-05T13:22:27
+Elapsed: 5 min, Limit: 720 min, Difference: 715 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 87.50 core-hours
+================================================================================

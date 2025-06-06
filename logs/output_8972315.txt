@@ -1,0 +1,45 @@
+================================================================================
+JobID = 8972315
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu241
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+
+===== Running analysis for model: gpt2 =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+❌ Error processing model gpt2: 'ideology'
+
+===== Running analysis for model: ./llama-70b =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+❌ Error processing model ./llama-70b: 'ideology'
+
+===== Running analysis for model: mistralai/Mixtral-8x7B-Instruct-v0.1 =====
+
+Loading models...
+❌ Error processing model mistralai/Mixtral-8x7B-Instruct-v0.1: mistralai/Mixtral-8x7B-Instruct-v0.1 does not appear to have files named ('model-00008-of-00019.safetensors', 'model-00011-of-00019.safetensors', 'model-00012-of-00019.safetensors', 'model-00013-of-00019.safetensors', 'model-00014-of-00019.safetensors', 'model-00015-of-00019.safetensors', 'model-00016-of-00019.safetensors', 'model-00017-of-00019.safetensors', 'model-00018-of-00019.safetensors', 'model-00019-of-00019.safetensors'). Checkout 'https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1/tree/main'for available files.
+
+===== Running analysis for model: HuggingFaceH4/zephyr-7b-alpha =====
+
+Loading models...
+❌ Error processing model HuggingFaceH4/zephyr-7b-alpha: [Errno 122] Disk quota exceeded: '/user/j.schrammek02/u17297/.cache/huggingface/stored_tokens'
+============ Job Information ===================================================
+Submitted: 2025-06-05T17:47:12
+Started: 2025-06-05T17:47:35
+Ended: 2025-06-06T01:48:10
+Elapsed: 481 min, Limit: 720 min, Difference: 239 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 8417.50 core-hours
+================================================================================

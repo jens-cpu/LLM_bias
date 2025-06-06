@@ -1,0 +1,24 @@
+================================================================================
+JobID = 8958219
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu243
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+
+===== Running analysis for model: ./llama-70b =====
+
+Loading models...
+Downloading: "https://github.com/unitaryai/detoxify/releases/download/v0.1-alpha/toxic_original-c1212f89.ckpt" to /user/j.schrammek02/u17297/.cache/torch/hub/checkpoints/toxic_original-c1212f89.ckpt
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 10 personas.
+Generating responses...
+============ Job Information ===================================================
+Submitted: 2025-06-05T11:37:41
+Started: 2025-06-05T11:37:42
+Ended: 2025-06-05T13:15:36
+Elapsed: 98 min, Limit: 720 min, Difference: 622 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 1715.00 core-hours
+================================================================================

@@ -1,0 +1,43 @@
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Device set to use cuda:0
+Device set to use cuda
+Processing personas:   0%|          | 0/1 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:25,  1.83it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:03, 11.04it/s][A
+Toxicity analysis:  35%|███▌      | 17/48 [00:01<00:01, 19.06it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:01, 16.21it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:01, 19.22it/s][A
+Toxicity analysis:  58%|█████▊    | 28/48 [00:01<00:01, 18.45it/s][A
+Toxicity analysis:  65%|██████▍   | 31/48 [00:01<00:00, 19.14it/s][A
+Toxicity analysis:  71%|███████   | 34/48 [00:02<00:00, 19.54it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:02<00:00, 19.30it/s][A
+Toxicity analysis:  83%|████████▎ | 40/48 [00:02<00:00, 17.97it/s][A
+Toxicity analysis:  88%|████████▊ | 42/48 [00:02<00:00, 17.03it/s][A
+Toxicity analysis:  98%|█████████▊| 47/48 [00:02<00:00, 20.23it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 1/1 [00:31<00:00, 31.40s/it]Processing personas: 100%|██████████| 1/1 [00:31<00:00, 31.40s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Loading checkpoint shards:   0%|          | 0/30 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/30 [00:08<04:05,  8.48s/it]Loading checkpoint shards:   7%|▋         | 2/30 [00:16<03:47,  8.13s/it]Loading checkpoint shards:  10%|█         | 3/30 [00:22<03:18,  7.34s/it]Loading checkpoint shards:  13%|█▎        | 4/30 [00:29<03:01,  6.99s/it]Loading checkpoint shards:  17%|█▋        | 5/30 [00:35<02:46,  6.65s/it]Loading checkpoint shards:  20%|██        | 6/30 [00:51<03:56,  9.85s/it]Loading checkpoint shards:  23%|██▎       | 7/30 [00:59<03:32,  9.25s/it]Loading checkpoint shards:  27%|██▋       | 8/30 [01:17<04:24, 12.00s/it]Loading checkpoint shards:  30%|███       | 9/30 [01:36<04:57, 14.15s/it]Loading checkpoint shards:  33%|███▎      | 10/30 [01:41<03:48, 11.42s/it]Loading checkpoint shards:  37%|███▋      | 11/30 [01:49<03:19, 10.52s/it]Loading checkpoint shards:  40%|████      | 12/30 [01:58<02:58,  9.90s/it]Loading checkpoint shards:  43%|████▎     | 13/30 [02:07<02:45,  9.75s/it]Loading checkpoint shards:  47%|████▋     | 14/30 [02:16<02:32,  9.50s/it]Loading checkpoint shards:  50%|█████     | 15/30 [02:26<02:22,  9.47s/it]Loading checkpoint shards:  53%|█████▎    | 16/30 [02:40<02:33, 10.96s/it]Loading checkpoint shards:  57%|█████▋    | 17/30 [02:55<02:38, 12.22s/it]Loading checkpoint shards:  60%|██████    | 18/30 [03:03<02:09, 10.76s/it]Loading checkpoint shards:  63%|██████▎   | 19/30 [03:13<01:56, 10.58s/it]Loading checkpoint shards:  67%|██████▋   | 20/30 [03:19<01:31,  9.17s/it]Loading checkpoint shards:  70%|███████   | 21/30 [03:26<01:19,  8.78s/it]Loading checkpoint shards:  73%|███████▎  | 22/30 [03:32<01:02,  7.79s/it]Loading checkpoint shards:  77%|███████▋  | 23/30 [03:41<00:57,  8.16s/it]Loading checkpoint shards:  80%|████████  | 24/30 [04:00<01:08, 11.43s/it]Loading checkpoint shards:  83%|████████▎ | 25/30 [04:17<01:05, 13.15s/it]Loading checkpoint shards:  87%|████████▋ | 26/30 [04:39<01:03, 15.87s/it]Loading checkpoint shards:  90%|█████████ | 27/30 [05:04<00:55, 18.41s/it]Loading checkpoint shards:  93%|█████████▎| 28/30 [05:10<00:29, 14.72s/it]Loading checkpoint shards:  97%|█████████▋| 29/30 [05:31<00:16, 16.68s/it]Loading checkpoint shards: 100%|██████████| 30/30 [05:35<00:00, 12.87s/it]Loading checkpoint shards: 100%|██████████| 30/30 [05:35<00:00, 11.19s/it]
+Some parameters are on the meta device because they were offloaded to the cpu.
+Device set to use cuda:0
+Device set to use cuda
+Processing personas:   0%|          | 0/1 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:22,  2.11it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:03, 12.88it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:02, 15.21it/s][A
+Toxicity analysis:  33%|███▎      | 16/48 [00:01<00:01, 16.14it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:01, 16.45it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:01, 18.34it/s][A
+Toxicity analysis:  56%|█████▋    | 27/48 [00:01<00:01, 17.43it/s][A
+Toxicity analysis:  60%|██████    | 29/48 [00:01<00:01, 17.67it/s][A
+Toxicity analysis:  65%|██████▍   | 31/48 [00:01<00:00, 17.95it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:02<00:00, 17.33it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:02<00:00, 17.16it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:02<00:00, 15.23it/s][A
+Toxicity analysis:  81%|████████▏ | 39/48 [00:02<00:00, 15.97it/s][A
+Toxicity analysis:  88%|████████▊ | 42/48 [00:02<00:00, 18.06it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:02<00:00, 20.15it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 1/1 [7:44:12<00:00, 27852.10s/it]Processing personas: 100%|██████████| 1/1 [7:44:12<00:00, 27852.10s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Fetching 19 files:   5%|▌         | 1/19 [08:35<2:34:32, 515.14s/it]Fetching 19 files:  11%|█         | 2/19 [08:39<1:00:49, 214.67s/it]Fetching 19 files:  37%|███▋      | 7/19 [09:23<16:05, 80.48s/it]   
