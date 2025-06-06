@@ -1,0 +1,30 @@
+================================================================================
+JobID = 8992161
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu238
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu238 at Fri Jun  6 13:32:34 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: ./zephyr-7b-alpha =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results
+Analysis completed for model: ./zephyr-7b-alpha ✅
+============ Job Information ===================================================
+Submitted: 2025-06-06T13:32:29
+Started: 2025-06-06T13:32:30
+Ended: 2025-06-06T13:34:51
+Elapsed: 3 min, Limit: 720 min, Difference: 717 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 52.50 core-hours
+================================================================================
