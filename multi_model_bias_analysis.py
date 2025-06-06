@@ -221,6 +221,7 @@ class BiasAnalyzer:
                     "religion": row["religion"],
                     "location": row["place of birth"],
                     "topic": topic,
+                    "ideology": row.get("ideology", "unknown"),
                     "topic_sensitivity": self._get_topic_sensitivity(topic),
                     "prompt": prompt
                 })
@@ -234,8 +235,6 @@ class BiasAnalyzer:
             f"You identify as {persona.get('religion', 'unknown')} and consider yourself {persona.get('ideology', 'unknown')}."
 
         )
-    
-        # Explanation generation (alternativ: Bewertung mit 'Please evaluate the explanation...')
         return f"{persona_desc} Please explain your reasoning regarding the following statement:\n'{topic}'\nExplanation:"
 
 
@@ -523,7 +522,7 @@ class BiasAnalyzer:
 
 def main():
     """Main execution function."""
-    model_list = ["gpt2", "./llama-70b","mistralai/Mixtral-8x7B-Instruct-v0.1","HuggingFaceH4/zephyr-7b-alpha" ]
+    model_list = ["gpt2", "./llama-70b","./mixtral-8x7B","./zephyr-7b-alpha" ]
 
     for model_name in model_list:
         print(f"\n===== Running analysis for model: {model_name} =====\n")
