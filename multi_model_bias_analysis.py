@@ -286,17 +286,31 @@ class BiasAnalyzer:
     def _get_toxicity(self, text: str) -> Dict:
         """Get toxicity metrics for a single text."""
         try:
+            # Handle empty or invalid text
             if not isinstance(text, str) or not text.strip():
-                return {k: None for k in ["toxicity", "severe_toxicity", "identity_attack"]}
+                return {
+                    "toxicity": 0.0,
+                    "severe_toxicity": 0.0,
+                    "identity_attack": 0.0
+                }
                 
+            # Get toxicity predictions
             result = self.tox_model.predict(text)
+            
+            # Ensure all values are floats and return
             return {
-                "toxicity": result["toxicity"],
-                "severe_toxicity": result["severe_toxicity"],
-                "identity_attack": result["identity_attack"]
+                "toxicity": float(result["toxicity"]),
+                "severe_toxicity": float(result["severe_toxicity"]),
+                "identity_attack": float(result["identity_attack"])
             }
-        except:
-            return {k: None for k in ["toxicity", "severe_toxicity", "identity_attack"]}
+        except Exception as e:
+            # Log error and return safe defaults
+            print(f"Toxicity analysis error: {e}")
+            return {
+                "toxicity": 0.0,
+                "severe_toxicity": 0.0,
+                "identity_attack": 0.0
+            }
 
     def analyze_results(self, df: pd.DataFrame) -> Dict:
         """Perform comprehensive analysis of results."""
@@ -322,12 +336,16 @@ class BiasAnalyzer:
         return analysis
 
     def _grouped_analysis(self, df: pd.DataFrame, group_col: str) -> pd.DataFrame:
-        """Calculate grouped statistics."""
-        return df.groupby(group_col).agg({
+        """Calculate grouped statistics with flattened column names."""
+        grouped = df.groupby(group_col).agg({
             "toxicity": ["mean", "std", "count"],
             "sentiment_score": ["mean", "std"],
             "identity_attack": ["mean"]
-        }).reset_index()
+        })
+        # Flatten multi-index columns
+        grouped.columns = ['_'.join(col).strip() for col in grouped.columns.values]
+        grouped = grouped.reset_index()
+        return grouped
 
     def _calculate_fairness_metrics(self, df: pd.DataFrame) -> Dict:
         """Calculate fairness metrics for different groups."""
@@ -341,7 +359,11 @@ class BiasAnalyzer:
                     y_pred=df["toxic_label"],
                     sensitive_features=df[group]
                 )
-                
+                # Convert group keys to strings
+                by_group = {
+                    str(k): v 
+                    for k, v in metric_frame.by_group.items()
+                }
                 fairness[group] = {
                     "by_group": metric_frame.by_group.to_dict(),
                     "demographic_parity": demographic_parity_difference(
@@ -508,9 +530,21 @@ class BiasAnalyzer:
             if isinstance(obj, pd.DataFrame):
                 return obj.to_dict(orient="records")
             elif isinstance(obj, dict):
-                return {k: convert_analysis_to_serializable(v) for k, v in obj.items()}
+                new_dict = {}
+                for k, v in obj.items():
+                    # Recursively convert all keys to strings
+                    try:
+                        k_str = str(k)
+                    except Exception:
+                        k_str = repr(k)
+                    new_dict[k_str] = convert_analysis_to_serializable(v)
+                return new_dict
+            elif isinstance(obj, (list, tuple)):
+                return [convert_analysis_to_serializable(i) for i in obj]
             else:
                 return obj
+
+
 
         analysis_serializable = convert_analysis_to_serializable(analysis)
         
@@ -522,7 +556,7 @@ class BiasAnalyzer:
 
 def main():
     """Main execution function."""
-    model_list = ["gpt2", "./llama-70b","./mixtral-8x7B","./zephyr-7b-alpha" ]
+    model_list = ["./zephyr-7b-alpha"] #["gpt2"]#, "./llama-70b","./mixtral-8x7B","./zephyr-7b-alpha" ]
 
     for model_name in model_list:
         print(f"\n===== Running analysis for model: {model_name} =====\n")
