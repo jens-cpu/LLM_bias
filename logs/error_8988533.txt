@@ -1,0 +1,23 @@
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Device set to use cuda:0
+Device set to use cuda
+Processing personas:   0%|          | 0/1 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:19,  2.42it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:10,  4.24it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:02, 13.29it/s][A
+Toxicity analysis:  29%|██▉       | 14/48 [00:00<00:01, 19.91it/s][A
+Toxicity analysis:  35%|███▌      | 17/48 [00:01<00:01, 16.08it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:01, 16.60it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:01, 19.04it/s][A
+Toxicity analysis:  58%|█████▊    | 28/48 [00:01<00:00, 20.80it/s][A
+Toxicity analysis:  65%|██████▍   | 31/48 [00:01<00:00, 19.99it/s][A
+Toxicity analysis:  71%|███████   | 34/48 [00:02<00:00, 17.27it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:02<00:00, 19.15it/s][A
+Toxicity analysis:  83%|████████▎ | 40/48 [00:02<00:00, 19.90it/s][A
+Toxicity analysis:  90%|████████▉ | 43/48 [00:02<00:00, 17.66it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 1/1 [00:31<00:00, 31.36s/it]Processing personas: 100%|██████████| 1/1 [00:31<00:00, 31.36s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Loading checkpoint shards:   0%|          | 0/30 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/30 [00:06<03:14,  6.70s/it]Loading checkpoint shards:   7%|▋         | 2/30 [00:15<03:40,  7.89s/it]Loading checkpoint shards:  10%|█         | 3/30 [00:22<03:23,  7.52s/it]Loading checkpoint shards:  13%|█▎        | 4/30 [00:33<03:51,  8.91s/it]Loading checkpoint shards:  17%|█▋        | 5/30 [00:43<03:56,  9.46s/it]Loading checkpoint shards:  20%|██        | 6/30 [00:52<03:41,  9.21s/it]Loading checkpoint shards:  23%|██▎       | 7/30 [01:01<03:27,  9.04s/it]Loading checkpoint shards:  27%|██▋       | 8/30 [01:08<03:08,  8.58s/it]Loading checkpoint shards:  30%|███       | 9/30 [01:16<02:52,  8.21s/it]Loading checkpoint shards:  33%|███▎      | 10/30 [01:25<02:47,  8.37s/it]Loading checkpoint shards:  37%|███▋      | 11/30 [01:31<02:29,  7.89s/it]Loading checkpoint shards:  40%|████      | 12/30 [01:39<02:18,  7.68s/it]Loading checkpoint shards:  43%|████▎     | 13/30 [01:50<02:28,  8.72s/it]Loading checkpoint shards:  47%|████▋     | 14/30 [01:57<02:14,  8.38s/it]Loading checkpoint shards:  50%|█████     | 15/30 [02:06<02:07,  8.48s/it]Loading checkpoint shards:  53%|█████▎    | 16/30 [02:13<01:51,  7.98s/it]Loading checkpoint shards:  57%|█████▋    | 17/30 [02:21<01:45,  8.13s/it]Loading checkpoint shards:  60%|██████    | 18/30 [02:28<01:33,  7.80s/it]Loading checkpoint shards:  63%|██████▎   | 19/30 [02:39<01:34,  8.59s/it]Loading checkpoint shards:  67%|██████▋   | 20/30 [02:48<01:28,  8.82s/it]slurmstepd: error: *** JOB 8988533 ON ggpu221 CANCELLED AT 2025-06-06T10:02:08 ***

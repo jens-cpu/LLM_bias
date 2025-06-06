@@ -1,0 +1,37 @@
+================================================================================
+JobID = 8987748
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu221
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Fri Jun  6 09:31:37 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: gpt2 =====
+
+Loading models...
+❌ Error processing model gpt2: [Errno 13] Permission denied: '/scratch/u17297'
+
+===== Running analysis for model: ./llama-70b =====
+
+Loading models...
+❌ Error processing model ./llama-70b: [Errno 13] Permission denied: '/scratch/u17297'
+
+===== Running analysis for model: ./mixtral-8x7B =====
+
+Loading models...
+❌ Error processing model ./mixtral-8x7B: [Errno 13] Permission denied: '/scratch/u17297'
+
+===== Running analysis for model: ./zephyr-7b-alpha =====
+
+Loading models...
+❌ Error processing model ./zephyr-7b-alpha: [Errno 13] Permission denied: '/scratch/u17297'
+============ Job Information ===================================================
+Submitted: 2025-06-06T09:31:09
+Started: 2025-06-06T09:31:33
+Ended: 2025-06-06T09:32:04
+Elapsed: 1 min, Limit: 720 min, Difference: 719 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 17.50 core-hours
+================================================================================

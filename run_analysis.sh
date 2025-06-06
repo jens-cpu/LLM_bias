@@ -10,10 +10,10 @@
 export HF_TOKEN="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"
 export PERSPECTIVE_API_KEY="AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA"
 # Quota-freundlich
-export HF_HOME=/scratch/$USER/hf_cache
-export TRANSFORMERS_CACHE=/scratch/$USER/hf_cache
-export TORCH_HOME=/scratch/$USER/torch_cache
-mkdir -p logs results plots /scratch/$USER/hf_cache /scratch/$USER/torch_cache
+export HF_HOME=/$HOME/hf_cache
+export TRANSFORMERS_CACHE=/$HOME/hf_cache
+export TORCH_HOME=/$HOME/torch_cache
+mkdir -p logs results plots $HF_HOME $TORCH_HOME
 echo "HF_TOKEN is : $HF_TOKEN"
 echo "PERSPECTIVE_API_KEY is : $PERSPECTIVE_API_KEY"
 echo "Running on: $(hostname) at $(date)"

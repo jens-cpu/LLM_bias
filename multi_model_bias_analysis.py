@@ -516,7 +516,7 @@ class BiasAnalyzer:
         
         # Save analysis summary
         with open(f"{self.config['output_dir']}/analysis_summary.json", "w") as f:
-            json.dump(analysis, f, indent=2)
+            json.dump(analysis_serializable, f, indent=2)
             
         print(f"Results saved to {self.config['output_dir']}")
 

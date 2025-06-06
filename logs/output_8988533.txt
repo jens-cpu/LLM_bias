@@ -1,0 +1,33 @@
+================================================================================
+JobID = 8988533
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu221
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Fri Jun  6 09:58:17 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: gpt2 =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+❌ Error processing model gpt2: keys must be str, int, float, bool or None, not tuple
+
+===== Running analysis for model: ./llama-70b =====
+
+Loading models...
+============ Job Information ===================================================
+Submitted: 2025-06-06T09:57:38
+Started: 2025-06-06T09:58:13
+Ended: 2025-06-06T10:02:08
+Elapsed: 4 min, Limit: 720 min, Difference: 716 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 70.00 core-hours
+================================================================================

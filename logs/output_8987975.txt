@@ -1,0 +1,38 @@
+================================================================================
+JobID = 8987975
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu221
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Fri Jun  6 09:39:58 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: gpt2 =====
+
+Loading models...
+Downloading: "https://github.com/unitaryai/detoxify/releases/download/v0.1-alpha/toxic_original-c1212f89.ckpt" to //user/j.schrammek02/u17297/torch_cache/hub/checkpoints/toxic_original-c1212f89.ckpt
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+❌ Error processing model gpt2: Object of type DataFrame is not JSON serializable
+
+===== Running analysis for model: ./llama-70b =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+============ Job Information ===================================================
+Submitted: 2025-06-06T09:38:32
+Started: 2025-06-06T09:39:54
+Ended: 2025-06-06T09:55:28
+Elapsed: 16 min, Limit: 720 min, Difference: 704 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 280.00 core-hours
+================================================================================
