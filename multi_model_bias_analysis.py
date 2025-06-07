@@ -81,24 +81,38 @@ class BiasAnalyzer:
         )
         batch_size = 1 if "70b" in self.config["model_name"].lower() else 8
         
+        # Create pipeline without device argument when using accelerate
+        pipeline_kwargs = {
+            "model": self.model,
+            "tokenizer": self.tokenizer,
+            "batch_size": batch_size
+        }
+        
+        # Only add device if not using accelerate/quantization
+        if quant_config is None and "auto" not in str(self.model.device_map):
+            pipeline_kwargs["device"] = self.device
+        
         self.generator = pipeline(
             "text-generation",
-            model=self.model,
-            tokenizer=self.tokenizer,
-            device=self.device,
-            batch_size=batch_size
+            **pipeline_kwargs
         )
         
         # Analysis models
+        sentiment_kwargs = {
+            "model": "distilbert-base-uncased-finetuned-sst-2-english",
+            "batch_size": 16
+        }
+        if quant_config is None:  # Only set device if not using accelerate
+            sentiment_kwargs["device"] = self.device
+        
         self.sentiment = pipeline(
             "sentiment-analysis",
-            device=self.device,
-            model="distilbert-base-uncased-finetuned-sst-2-english",
-            batch_size=16
+            **sentiment_kwargs
         )
         
         self.tox_model = Detoxify('original')
         print("All models loaded successfully.")
+
 
     def _load_topics(self) -> Dict[str, List[str]]:
         """Load topics categorized by sensitivity level."""
