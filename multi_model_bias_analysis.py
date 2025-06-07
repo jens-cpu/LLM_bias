@@ -556,7 +556,7 @@ class BiasAnalyzer:
 
 def main():
     """Main execution function."""
-    model_list = ["./zephyr-7b-alpha"] #["gpt2"]#, "./llama-70b","./mixtral-8x7B","./zephyr-7b-alpha" ]
+    model_list = ["./zephyr-7b-alpha","gpt2", "./llama-70b","./mixtral-8x7B" ]
 
     for model_name in model_list:
         print(f"\n===== Running analysis for model: {model_name} =====\n")

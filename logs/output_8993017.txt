@@ -1,0 +1,51 @@
+================================================================================
+JobID = 8993017
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu239
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu239 at Fri Jun  6 14:16:27 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: ./zephyr-7b-alpha =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results
+Analysis completed for model: ./zephyr-7b-alpha ✅
+
+===== Running analysis for model: gpt2 =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results
+Analysis completed for model: gpt2 ✅
+
+===== Running analysis for model: ./llama-70b =====
+
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+============ Job Information ===================================================
+Submitted: 2025-06-06T14:16:19
+Started: 2025-06-06T14:16:23
+Ended: 2025-06-06T20:52:56
+Elapsed: 397 min, Limit: 720 min, Difference: 323 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 6947.50 core-hours
+================================================================================

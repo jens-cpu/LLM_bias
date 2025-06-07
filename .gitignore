@@ -10,3 +10,4 @@ bias_env
 setup.sh
 /mixtral-8x7B
 /zephyr-7b-alpha
+/flash-attention
