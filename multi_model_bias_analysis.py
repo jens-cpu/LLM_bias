@@ -48,12 +48,14 @@ class BiasAnalyzer:
         os.makedirs("offload", exist_ok=True)
 
     def _load_models(self) -> None:
-        """Load all required models."""
+        """Load all required models with optimizations for large models."""
         print("Loading models...")
         
         # Authenticate with Hugging Face
         login(token=os.environ["HF_TOKEN"])
         
+        # Configure quantization for large models
+        self.using_quantization = False
         quant_config = None
         if "70b" in self.config["model_name"].lower():
             quant_config = BitsAndBytesConfig(
@@ -62,6 +64,7 @@ class BiasAnalyzer:
                 bnb_4bit_use_double_quant=True,
                 bnb_4bit_quant_type="nf4"
             )
+            self.using_quantization = True
             print("Using 4-bit quantization for LLaMA-70B")
 
         # Text generation model
@@ -71,25 +74,32 @@ class BiasAnalyzer:
         )
         self.tokenizer.pad_token = self.tokenizer.eos_token
         
+        # Load model with appropriate settings
+        model_kwargs = {
+            "device_map": "auto",
+            "torch_dtype": torch.float16 if "cuda" in self.device else torch.float32,
+            "low_cpu_mem_usage": True,
+        }
+        if quant_config:
+            model_kwargs["quantization_config"] = quant_config
+        
         self.model = AutoModelForCausalLM.from_pretrained(
             self.config["model_name"],
-            device_map="auto",
-            quantization_config=quant_config,
-            torch_dtype=torch.float16 if "cuda" in self.device else torch.float32,
-            low_cpu_mem_usage=True,
-            offload_folder="offload"
+            **model_kwargs
         )
-        batch_size = 1 if "70b" in self.config["model_name"].lower() else 8
         
-        # Create pipeline without device argument when using accelerate
+        # Determine if we're using device_map (accelerate)
+        self.using_device_map = hasattr(self.model, "hf_device_map")
+        
+        # Create text generation pipeline
         pipeline_kwargs = {
             "model": self.model,
             "tokenizer": self.tokenizer,
-            "batch_size": batch_size
+            "batch_size": 1 if self.using_quantization else 8
         }
         
-        # Only add device if not using accelerate/quantization
-        if quant_config is None and "auto" not in str(self.model.device_map):
+        # Only add device if not using device_map/quantization
+        if not self.using_device_map and not self.using_quantization:
             pipeline_kwargs["device"] = self.device
         
         self.generator = pipeline(
@@ -97,12 +107,12 @@ class BiasAnalyzer:
             **pipeline_kwargs
         )
         
-        # Analysis models
+        # Create sentiment analysis pipeline
         sentiment_kwargs = {
             "model": "distilbert-base-uncased-finetuned-sst-2-english",
             "batch_size": 16
         }
-        if quant_config is None:  # Only set device if not using accelerate
+        if not self.using_device_map and not self.using_quantization:
             sentiment_kwargs["device"] = self.device
         
         self.sentiment = pipeline(
@@ -110,6 +120,7 @@ class BiasAnalyzer:
             **sentiment_kwargs
         )
         
+        # Load toxicity model
         self.tox_model = Detoxify('original')
         print("All models loaded successfully.")
 
