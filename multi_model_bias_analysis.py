@@ -3,6 +3,7 @@ import os
 import random
 import re
 import warnings
+import argparse
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, List, Optional, Tuple
 from exp_score import ExplanationScorer
@@ -19,7 +20,8 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     pipeline,
-    set_seed
+    set_seed,
+    BitsAndBytesConfig
 )
 
 # Suppress warnings for cleaner output
@@ -43,6 +45,7 @@ class BiasAnalyzer:
         """Create necessary output directories."""
         os.makedirs(self.config["output_dir"], exist_ok=True)
         os.makedirs(self.config["plot_dir"], exist_ok=True)
+        os.makedirs("offload", exist_ok=True)
 
     def _load_models(self) -> None:
         """Load all required models."""
@@ -51,6 +54,16 @@ class BiasAnalyzer:
         # Authenticate with Hugging Face
         login(token=os.environ["HF_TOKEN"])
         
+        quant_config = None
+        if "70b" in self.config["model_name"].lower():
+            quant_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.float16,
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_quant_type="nf4"
+            )
+            print("Using 4-bit quantization for LLaMA-70B")
+
         # Text generation model
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.config["model_name"],
@@ -61,21 +74,27 @@ class BiasAnalyzer:
         self.model = AutoModelForCausalLM.from_pretrained(
             self.config["model_name"],
             device_map="auto",
-           # attn_implementation="flash_attention_2",
-            torch_dtype=torch.float16 if "cuda" in self.device else torch.float32
+            quantization_config=quant_config,
+            torch_dtype=torch.float16 if "cuda" in self.device else torch.float32,
+            low_cpu_mem_usage=True,
+            offload_folder="offload"
         )
+        batch_size = 1 if "70b" in self.config["model_name"].lower() else 8
         
         self.generator = pipeline(
             "text-generation",
             model=self.model,
-            tokenizer=self.tokenizer
+            tokenizer=self.tokenizer,
+            device=self.device,
+            batch_size=batch_size
         )
         
         # Analysis models
         self.sentiment = pipeline(
             "sentiment-analysis",
             device=self.device,
-            model="distilbert-base-uncased-finetuned-sst-2-english"
+            model="distilbert-base-uncased-finetuned-sst-2-english",
+            batch_size=16
         )
         
         self.tox_model = Detoxify('original')
@@ -246,16 +265,27 @@ class BiasAnalyzer:
 
     def _generate_text(self, prompts: List[str]) -> List[str]:
         """Generate text responses for given prompts."""
+        generation_params = {
+            "max_new_tokens": self.config.get("max_new_tokens", 100),
+            "do_sample": True,
+            "temperature": 0.7,
+            "top_p": 0.9,
+            "num_return_sequences": 1,
+            "pad_token_id": self.tokenizer.eos_token_id,
+        }
+        
+        # Add optimized parameters for large models
+        if "70b" in self.config["model_name"].lower():
+            generation_params.update({
+                "use_cache": True,
+                "output_scores": False,
+                "return_dict_in_generate": False,
+            })
         
         try:
             outputs = self.generator(
                 prompts,
-                max_new_tokens=self.config.get("max_new_tokens", 100),
-                do_sample=True,
-                temperature=0.7,
-                top_p=0.9,
-                num_return_sequences=1,
-                pad_token_id=self.tokenizer.eos_token_id
+                **generation_params
             )
             
             return [self._clean_output(o[0]["generated_text"], p) 
@@ -263,7 +293,8 @@ class BiasAnalyzer:
             
         except Exception as e:
             print(f"Generation error: {e}")
-            return ["Generation error"] * len(prompts)
+            return ["Generation error"] * len(prompts)    
+
 
     def _clean_output(self, text: str, prompt: str) -> str:
         """Clean generated text by removing prompt and normalizing."""
@@ -273,8 +304,9 @@ class BiasAnalyzer:
         return text or "No response generated"
 
     def _parallel_toxicity(self, texts: List[str]) -> List[Dict]:
-        """Run toxicity analysis in parallel."""
-        with ThreadPoolExecutor(max_workers=8) as executor:
+        """Run toxicity analysis with adaptive parallelization."""
+        max_workers = 2 if "70b" in self.config["model_name"].lower() else 8
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
             results = list(tqdm(
                 executor.map(self._get_toxicity, texts),
                 total=len(texts),
@@ -555,43 +587,71 @@ class BiasAnalyzer:
         print(f"Results saved to {self.config['output_dir']}")
 
 def main():
-    """Main execution function."""
-    model_list = ["./zephyr-7b-alpha","gpt2", "./llama-70b","./mixtral-8x7B" ]
+    """Main execution function with improved argument handling."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--models", nargs="+", default=[
+        #"zephyr-7b-alpha",
+        "gpt2",
+        #"llama-70b",
+        #"mixtral-8x7B"
+    ])
+    parser.add_argument("--max_personas", type=int, default=16)
+    parser.add_argument("--batch_size", type=int, default=8)
+    args = parser.parse_args()
 
-    for model_name in model_list:
-        print(f"\n===== Running analysis for model: {model_name} =====\n")
+    for model_name in args.models:
+        print(f"\n===== Running analysis for model: {model_name} =====")
+        
+        # Adjust parameters for large models
+        if "70b" in model_name.lower() or "8x7" in model_name.lower():
+            max_p = min(args.max_personas, 4)  # Reduced for large models
+            batch_size = 1
+        else:
+            max_p = args.max_personas
+            batch_size = args.batch_size
+
         config = {
             "model_name": model_name,
             "output_dir": "results",
             "plot_dir": "plots",
             "persona_file": "persona_reduced.jsonl",
-            "max_personas": 16,
-            "generation_batch_size": 16,
+            "max_personas": max_p,
+            "generation_batch_size": batch_size,
             "max_new_tokens": 100,
             "random_seed": 42
         }
 
         try:
             analyzer = BiasAnalyzer(config)
-
-            # Load and process personas
             personas = analyzer.load_personas(config["persona_file"], config["max_personas"])
-            results_df = analyzer.generate_responses(personas)
-
-            # Analyze and visualize
+            
+            # Process in smaller chunks for large models
+            if "70b" in model_name.lower():
+                chunk_size = 2
+                all_results = []
+                for i in range(0, len(personas), chunk_size):
+                    chunk = personas.iloc[i:i+chunk_size]
+                    results = analyzer.generate_responses(chunk)
+                    all_results.append(results)
+                results_df = pd.concat(all_results)
+            else:
+                results_df = analyzer.generate_responses(personas)
+            
             analysis = analyzer.analyze_results(results_df)
             analyzer.visualize_results(results_df, analysis)
             analyzer.save_results(results_df, analysis)
 
             print(f"Analysis completed for model: {model_name} ✅")
-
-            # 🧹 Clear memory for next model
+            
+            # Clear memory aggressively
+            del analyzer
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
 
         except Exception as e:
             print(f"❌ Error processing model {model_name}: {e}")
-
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
 
 if __name__ == "__main__":
     main()
