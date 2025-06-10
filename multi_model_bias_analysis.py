@@ -42,9 +42,15 @@ class BiasAnalyzer:
         return "cuda" if torch.cuda.is_available() else "cpu"
 
     def _setup_directories(self) -> None:
-        """Create necessary output directories."""
-        os.makedirs(self.config["output_dir"], exist_ok=True)
-        os.makedirs(self.config["plot_dir"], exist_ok=True)
+        """Create model-specific output directories."""
+        safe_model_name = re.sub(r"[^a-zA-Z0-9]", "_", self.config["model_name"])
+        
+        # Create model-specific directories
+        self.model_output_dir = os.path.join(self.config["output_dir"], safe_model_name)
+        self.model_plot_dir = os.path.join(self.config["plot_dir"], safe_model_name)
+        
+        os.makedirs(self.model_output_dir, exist_ok=True)
+        os.makedirs(self.model_plot_dir, exist_ok=True)
         os.makedirs("offload", exist_ok=True)
 
     def _load_models(self) -> None:
@@ -508,7 +514,7 @@ class BiasAnalyzer:
         plt.title("Toxicity vs. Sentiment")
         
         plt.tight_layout()
-        plt.savefig(f"{self.config['plot_dir']}/toxicity_distributions.png")
+        plt.savefig(os.path.join(self.model_plot_dir, "toxicity_distributions.png"))
         plt.close()
 
     def _plot_sentiment_analysis(self, df: pd.DataFrame) -> None:
@@ -534,7 +540,7 @@ class BiasAnalyzer:
         plt.title("Sentiment Score Distribution")
         
         plt.tight_layout()
-        plt.savefig(f"{self.config['plot_dir']}/sentiment_analysis.png")
+        plt.savefig(os.path.join(self.model_plot_dir, "sentiment_analysis.png"))
         plt.close()
 
     def _plot_sensitivity_impact(self, df: pd.DataFrame) -> None:
@@ -548,7 +554,7 @@ class BiasAnalyzer:
             order=["soft", "medium", "high"]
         )
         plt.title("Toxicity by Topic Sensitivity Level")
-        plt.savefig(f"{self.config['plot_dir']}/sensitivity_impact.png")
+        plt.savefig(os.path.join(self.model_plot_dir, "sensivity_impact.png"))    
         plt.close()
 
     def _plot_fairness_metrics(self, fairness: Dict) -> None:
@@ -572,7 +578,7 @@ class BiasAnalyzer:
         plt.axhline(0, color='black', linestyle='--')
         plt.title("Demographic Parity Difference (Lower is Better)")
         plt.ylabel("DP Difference")
-        plt.savefig(f"{self.config['plot_dir']}/fairness_metrics.png")
+        plt.savefig(os.path.join(self.model_plot_dir, "fairness_metrics.png"))
         plt.close()
 
     def save_results(self, df: pd.DataFrame, analysis: Dict) -> None:
@@ -584,7 +590,8 @@ class BiasAnalyzer:
         
         model_dir = os.path.join(self.config["output_dir"], safe_model_name)
         os.makedirs(model_dir, exist_ok=True)
-        df.to_csv(os.path.join(model_dir, "persona_results.csv"), index=False)
+        df.to_csv(os.path.join(self.model_output_dir, "persona_results.csv"), index=False)
+
 
         def convert_analysis_to_serializable(obj):
             if isinstance(obj, pd.DataFrame):
@@ -609,10 +616,10 @@ class BiasAnalyzer:
         analysis_serializable = convert_analysis_to_serializable(analysis)
         
         # Save analysis summary
-        with open(f"{self.config['output_dir']}/analysis_summary.json", "w") as f:
+        with open(os.path.join(self.model_output_dir, "analysis_summary.json"), "w") as f:
             json.dump(analysis_serializable, f, indent=2)
             
-        print(f"Results saved to {self.config['output_dir']}")
+        print(f"Results saved to {self.model_output_dir}")
 
 def main():
     """Main execution function with improved argument handling."""
