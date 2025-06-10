@@ -1,0 +1,88 @@
+================================================================================
+JobID = 9023650
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu221
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Sat Jun  7 14:55:57 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: zephyr-7b-alpha =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results
+Analysis completed for model: zephyr-7b-alpha ✅
+
+===== Running analysis for model: gpt2 =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results
+Analysis completed for model: gpt2 ✅
+
+===== Running analysis for model: llama-70b =====
+Loading models...
+Using 4-bit quantization for LLaMA-70B
+❌ Error processing model llama-70b: 
+🚨 Forgot to compile the bitsandbytes library? 🚨
+1. You're not using the package but checked-out the source code
+2. You MUST compile from source
+
+Attempted to use bitsandbytes native library functionality but it's not available.
+
+This typically happens when:
+1. bitsandbytes doesn't ship with a pre-compiled binary for your CUDA version
+2. The library wasn't compiled properly during installation from source
+
+To make bitsandbytes work, the compiled library version MUST exactly match the linked CUDA version.
+If your CUDA version doesn't have a pre-compiled binary, you MUST compile from source.
+
+You have two options:
+1. COMPILE FROM SOURCE (required if no binary exists):
+   https://huggingface.co/docs/bitsandbytes/main/en/installation#cuda-compile
+2. Use BNB_CUDA_VERSION to specify a DIFFERENT CUDA version from the detected one, which is installed on your machine and matching an available pre-compiled version listed above
+
+Original error: Configured CUDA binary not found at /mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/bitsandbytes/libbitsandbytes_cuda126.so
+
+🔍 Run this command for detailed diagnostics:
+python -m bitsandbytes
+
+If you've tried everything and still have issues:
+1. Include ALL version info (operating system, bitsandbytes, pytorch, cuda, python)
+2. Describe what you've tried in detail
+3. Open an issue with this information:
+   https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Native code method attempted to call: lib.cquantize_blockwise_fp16_nf4()
+
+===== Running analysis for model: mixtral-8x7B =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 4 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results
+Analysis completed for model: mixtral-8x7B ✅
+============ Job Information ===================================================
+Submitted: 2025-06-07T14:55:45
+Started: 2025-06-07T14:55:53
+Ended: 2025-06-07T15:35:40
+Elapsed: 40 min, Limit: 720 min, Difference: 680 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 700.00 core-hours
+================================================================================

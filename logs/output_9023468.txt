@@ -1,0 +1,21 @@
+================================================================================
+JobID = 9023468
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu221
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Sat Jun  7 14:47:53 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: gpt2 =====
+Loading models...
+❌ Error processing model gpt2: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+============ Job Information ===================================================
+Submitted: 2025-06-07T14:45:51
+Started: 2025-06-07T14:47:49
+Ended: 2025-06-07T14:48:54
+Elapsed: 2 min, Limit: 720 min, Difference: 718 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 35.00 core-hours
+================================================================================

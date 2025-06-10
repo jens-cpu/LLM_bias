@@ -1,0 +1,29 @@
+================================================================================
+JobID = 9023580
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu221
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Sat Jun  7 14:52:33 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: gpt2 =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 16 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results
+Analysis completed for model: gpt2 ✅
+============ Job Information ===================================================
+Submitted: 2025-06-07T14:52:19
+Started: 2025-06-07T14:52:30
+Ended: 2025-06-07T14:53:11
+Elapsed: 1 min, Limit: 720 min, Difference: 719 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 17.50 core-hours
+================================================================================

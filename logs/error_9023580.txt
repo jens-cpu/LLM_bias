@@ -1,0 +1,21 @@
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Device set to use cuda:0
+Device set to use cuda:0
+Processing personas:   0%|          | 0/2 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/24 [00:00<?, ?it/s][A
+Toxicity analysis:   4%|▍         | 1/24 [00:00<00:12,  1.89it/s][A
+Toxicity analysis:  38%|███▊      | 9/24 [00:00<00:01, 13.08it/s][A
+Toxicity analysis:  46%|████▌     | 11/24 [00:01<00:01, 12.54it/s][A
+Toxicity analysis:  71%|███████   | 17/24 [00:01<00:00, 15.68it/s][A
+Toxicity analysis: 100%|██████████| 24/24 [00:01<00:00, 24.22it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 1/2 [00:04<00:04,  4.57s/it]
+Toxicity analysis:   0%|          | 0/24 [00:00<?, ?it/s][A
+Toxicity analysis:   4%|▍         | 1/24 [00:00<00:11,  2.01it/s][A
+Toxicity analysis:  38%|███▊      | 9/24 [00:00<00:00, 16.08it/s][A
+Toxicity analysis:  50%|█████     | 12/24 [00:00<00:00, 15.81it/s][A
+Toxicity analysis:  62%|██████▎   | 15/24 [00:01<00:00, 16.77it/s][A
+Toxicity analysis:  75%|███████▌  | 18/24 [00:01<00:00, 18.04it/s][A
+Toxicity analysis:  88%|████████▊ | 21/24 [00:01<00:00, 20.54it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 2/2 [00:07<00:00,  3.84s/it]Processing personas: 100%|██████████| 2/2 [00:07<00:00,  3.95s/it]

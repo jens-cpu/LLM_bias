@@ -1,0 +1,22 @@
+================================================================================
+JobID = 9031424
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu221
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Sat Jun  7 23:01:21 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: meta-llama/Llama-3.3-70B-Instruct =====
+Loading models...
+Using 4-bit quantization for LLaMA-70B
+❌ Error processing model meta-llama/Llama-3.3-70B-Instruct: meta-llama/Llama-3.3-70B-Instruct does not appear to have files named ('model-00009-of-00030.safetensors', 'model-00010-of-00030.safetensors', 'model-00011-of-00030.safetensors', 'model-00012-of-00030.safetensors', 'model-00013-of-00030.safetensors', 'model-00014-of-00030.safetensors', 'model-00015-of-00030.safetensors', 'model-00016-of-00030.safetensors', 'model-00017-of-00030.safetensors', 'model-00018-of-00030.safetensors', 'model-00019-of-00030.safetensors', 'model-00020-of-00030.safetensors', 'model-00021-of-00030.safetensors', 'model-00022-of-00030.safetensors', 'model-00023-of-00030.safetensors', 'model-00024-of-00030.safetensors', 'model-00025-of-00030.safetensors', 'model-00026-of-00030.safetensors', 'model-00027-of-00030.safetensors', 'model-00028-of-00030.safetensors', 'model-00029-of-00030.safetensors', 'model-00030-of-00030.safetensors'). Checkout 'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/tree/main'for available files.
+============ Job Information ===================================================
+Submitted: 2025-06-07T23:01:17
+Started: 2025-06-07T23:01:18
+Ended: 2025-06-07T23:10:31
+Elapsed: 10 min, Limit: 720 min, Difference: 710 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 175.00 core-hours
+================================================================================

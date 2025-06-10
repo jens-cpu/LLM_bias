@@ -1,0 +1,8 @@
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu221 at Sat Jun  7 22:58:57 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: meta-llama/Llama-3.3-70B-Instruct =====
+Loading models...
+Using 4-bit quantization for LLaMA-70B

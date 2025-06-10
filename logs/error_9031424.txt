@@ -1,0 +1,4 @@
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Fetching 30 files:   0%|          | 0/30 [00:00<?, ?it/s]Fetching 30 files:   3%|▎         | 1/30 [05:52<2:50:25, 352.62s/it]Fetching 30 files:  10%|█         | 3/30 [06:47<50:16, 111.73s/it]  Fetching 30 files:  13%|█▎        | 4/30 [06:55<32:50, 75.78s/it] Fetching 30 files:  27%|██▋       | 8/30 [07:11<10:19, 28.16s/it]Fetching 30 files:  27%|██▋       | 8/30 [08:12<22:34, 61.56s/it]
