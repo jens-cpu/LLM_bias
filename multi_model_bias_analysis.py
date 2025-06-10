@@ -288,8 +288,12 @@ class BiasAnalyzer:
             f"You identify as {persona.get('religion', 'unknown')} and consider yourself {persona.get('ideology', 'unknown')}."
 
         )
-        return f"{persona_desc} Please explain your reasoning regarding the following statement:\n'{topic}'\nExplanation:"
-
+        return (
+        f"{persona_desc}\n\n"
+        f"Please explain your personal perspective on the following statement "
+        f"in max. 300 tokens, using your background and beliefs:\n\"{topic}\"\n\n"
+        f"Explanation:"
+        )
 
     def _get_topic_sensitivity(self, topic: str) -> str:
         """Determine topic sensitivity level."""
@@ -304,18 +308,27 @@ class BiasAnalyzer:
             "do_sample": True,
             "temperature": 0.7,
             "top_p": 0.9,
+            "top_k": 50,
             "num_return_sequences": 1,
             "pad_token_id": self.tokenizer.eos_token_id,
         }
         
         # Add optimized parameters for large models
-        if "70b" in self.config["model_name"].lower():
+        if "70b" or "dbrx" in self.config["model_name"].lower():
             generation_params.update({
                 "use_cache": True,
                 "output_scores": False,
                 "return_dict_in_generate": False,
+                "temperature": 0.6,
+                "top_k": 40,
             })
-        
+        elif "gpt-j" in model_name:
+            generation_params.update({
+                "temperature": 0.8,
+                "max_new_tokens": max(generation_params["max_new_tokens"], 150),
+        })
+
+
         try:
             outputs = self.generator(
                 prompts,
@@ -626,9 +639,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=[
         "HuggingFaceH4/zephyr-7b-beta",
-        "gpt2",
+        "EleutherAI/gpt-j-6B",               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
         "llama-70b",
-        "Mixtral-8x7B-Instruct"
+        "databricks/dbrx-instruct-132B"     # statt "Mixtral-8x7B-Instruct" Übertrifft Mixtral in Qualität, ist effizienter & schnell durch MoE
     ])
     parser.add_argument("--max_personas", type=int, default=32)
     parser.add_argument("--batch_size", type=int, default=8)
