@@ -8,6 +8,6 @@ toxicity_analysis_with_perspective.csv
 run_analysis.sh
 bias_env
 setup.sh
-/mixtral-8x7B
+/Mixtral-8x7B-Instruct
 /zephyr-7b-alpha
 /flash-attention

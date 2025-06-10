@@ -1,0 +1,33 @@
+================================================================================
+JobID = 9086059
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu238
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu238 at Tue Jun 10 11:22:17 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: HuggingFaceH4/zephyr-7b-beta =====
+Loading models...
+❌ Error processing model HuggingFaceH4/zephyr-7b-beta: [Errno 122] Disk quota exceeded: '//user/j.schrammek02/u17297/hf_cache/stored_tokens'
+
+===== Running analysis for model: gpt2 =====
+Loading models...
+❌ Error processing model gpt2: [Errno 122] Disk quota exceeded: '//user/j.schrammek02/u17297/hf_cache/stored_tokens'
+
+===== Running analysis for model: llama-70b =====
+Loading models...
+❌ Error processing model llama-70b: [Errno 122] Disk quota exceeded: '//user/j.schrammek02/u17297/hf_cache/stored_tokens'
+
+===== Running analysis for model: Mixtral-8x7B-Instruct =====
+Loading models...
+❌ Error processing model Mixtral-8x7B-Instruct: [Errno 122] Disk quota exceeded: '//user/j.schrammek02/u17297/hf_cache/stored_tokens'
+============ Job Information ===================================================
+Submitted: 2025-06-10T11:22:09
+Started: 2025-06-10T11:22:13
+Ended: 2025-06-10T11:22:39
+Elapsed: 1 min, Limit: 720 min, Difference: 719 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 17.50 core-hours
+================================================================================

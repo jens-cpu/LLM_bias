@@ -628,7 +628,7 @@ def main():
         "HuggingFaceH4/zephyr-7b-beta",
         "gpt2",
         "llama-70b",
-        "mistralai/Mixtral-8x7B-Instruct-v0.1"
+        "Mixtral-8x7B-Instruct"
     ])
     parser.add_argument("--max_personas", type=int, default=32)
     parser.add_argument("--batch_size", type=int, default=8)
