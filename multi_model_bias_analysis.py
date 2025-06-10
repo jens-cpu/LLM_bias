@@ -645,9 +645,9 @@ def main():
     """Main execution function with improved argument handling."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=[
-        "HuggingFaceH4/zephyr-7b-beta",
-        "EleutherAI/gpt-j-6B",               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
-        "llama-70b",
+        #"HuggingFaceH4/zephyr-7b-beta",
+        #"EleutherAI/gpt-j-6B",               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
+        #"llama-70b",
         "data_brcks"     # statt "Mixtral-8x7B-Instruct" Übertrifft Mixtral in Qualität, ist effizienter & schnell durch MoE
     ])
     parser.add_argument("--max_personas", type=int, default=32)
