@@ -73,13 +73,14 @@ class BiasAnalyzer:
             self.using_quantization = True
             print("Using 4-bit quantization for LLaMA-70B")
 
-        # Text generation model
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            self.config["model_name"],
-            padding_side="left"
-        )
+        model_name = self.config["model_name"]
+        if "gpt-j-6b" in model_name.lower():
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+        else:
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name, padding_side="left")
+
         self.tokenizer.pad_token = self.tokenizer.eos_token
-        
+
         # Load model with appropriate settings
         model_kwargs = {
             "device_map": "auto",
@@ -93,7 +94,11 @@ class BiasAnalyzer:
             self.config["model_name"],
             **model_kwargs
         )
-        
+            # Sanity check: warn if any tensor still on meta device
+        for name, param in self.model.named_parameters():
+            if param.device.type == "meta":
+                print(f"⚠️ Parameter {name} is on meta device! Model did not load correctly.")
+
         # Determine if we're using device_map (accelerate)
         self.using_device_map = hasattr(self.model, "hf_device_map")
         
@@ -101,7 +106,9 @@ class BiasAnalyzer:
         pipeline_kwargs = {
             "model": self.model,
             "tokenizer": self.tokenizer,
-            "batch_size": 1 if self.using_quantization else 8
+            "batch_size": 1 if self.using_quantization else 8,
+            "truncation": True,
+            "padding": True
         }
         
         # Only add device if not using device_map/quantization
@@ -322,7 +329,7 @@ class BiasAnalyzer:
                 "temperature": 0.6,
                 "top_k": 40,
             })
-        elif "gpt-j" in model_name:
+        elif "gpt-j" in self.config["model_name"].lower():
             generation_params.update({
                 "temperature": 0.8,
                 "max_new_tokens": max(generation_params["max_new_tokens"], 150),
