@@ -641,7 +641,7 @@ def main():
         "HuggingFaceH4/zephyr-7b-beta",
         "EleutherAI/gpt-j-6B",               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
         "llama-70b",
-        "databricks/dbrx-instruct-132B"     # statt "Mixtral-8x7B-Instruct" Übertrifft Mixtral in Qualität, ist effizienter & schnell durch MoE
+        "databricks/dbrx-instruct"     # statt "Mixtral-8x7B-Instruct" Übertrifft Mixtral in Qualität, ist effizienter & schnell durch MoE
     ])
     parser.add_argument("--max_personas", type=int, default=32)
     parser.add_argument("--batch_size", type=int, default=8)
@@ -665,7 +665,7 @@ def main():
             "persona_file": "persona_reduced.jsonl",
             "max_personas": max_p,
             "generation_batch_size": batch_size,
-            "max_new_tokens": 300,
+            "max_new_tokens": 200,
             "random_seed": 44
         }
 
@@ -691,7 +691,7 @@ def main():
 
             print(f"Analysis completed for model: {model_name} ✅")
             
-            # Clear memory aggressively
+            # Clear memory 
             del analyzer
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
