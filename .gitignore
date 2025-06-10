@@ -11,3 +11,4 @@ setup.sh
 /Mixtral-8x7B-Instruct
 /zephyr-7b-alpha
 /flash-attention
+/data_brcks
