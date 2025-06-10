@@ -1,0 +1,56 @@
+================================================================================
+JobID = 9090607
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu244
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu244 at Tue Jun 10 14:34:08 CEST 2025
+Using Python: /usr/local/bin/python
+
+===== Running analysis for model: HuggingFaceH4/zephyr-7b-beta =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 32 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/HuggingFaceH4_zephyr_7b_beta
+Analysis completed for model: HuggingFaceH4/zephyr-7b-beta ✅
+
+===== Running analysis for model: EleutherAI/gpt-j-6B =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 32 personas.
+Generating responses...
+❌ Error processing model EleutherAI/gpt-j-6B: The size of tensor a (674) must match the size of tensor b (512) at non-singleton dimension 1
+
+===== Running analysis for model: llama-70b =====
+Loading models...
+Using 4-bit quantization for LLaMA-70B
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 4 personas.
+Generating responses...
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/llama_70b
+Analysis completed for model: llama-70b ✅
+
+===== Running analysis for model: databricks/dbrx-instruct-132B =====
+Loading models...
+❌ Error processing model databricks/dbrx-instruct-132B: databricks/dbrx-instruct-132B is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+============ Job Information ===================================================
+Submitted: 2025-06-10T14:33:23
+Started: 2025-06-10T14:34:05
+Ended: 2025-06-10T14:48:13
+Elapsed: 15 min, Limit: 720 min, Difference: 705 min
+CPUs: 6, Nodes: 1
+Estimated Consumption: 262.50 core-hours
+================================================================================
