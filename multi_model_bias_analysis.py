@@ -683,6 +683,9 @@ def main():
             analyzer = BiasAnalyzer(config)
             personas = analyzer.load_personas(config["persona_file"], config["max_personas"])
             
+            if "gpt-j" in model_name.lower():
+                config["max_personas"] = 200
+            
             # Process in smaller chunks for large models
             if "70b" in model_name.lower():
                 chunk_size = 2
