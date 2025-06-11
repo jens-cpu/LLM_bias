@@ -319,11 +319,12 @@ class BiasAnalyzer:
             "top_p": 0.9,
             "top_k": 50,
             "num_return_sequences": 1,
+            "repetition_penalty": 1.5,
             "pad_token_id": self.tokenizer.eos_token_id,
         }
         
         # Add optimized parameters for large models
-        if "70b" or "dbrx" in self.config["model_name"].lower():
+        if "70b" in self.config["model_name"].lower():
             generation_params.update({
                 "use_cache": True,
                 "output_scores": False,
@@ -647,9 +648,9 @@ def main():
     """Main execution function with improved argument handling."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=[
-        #"HuggingFaceH4/zephyr-7b-beta",
-        #"EleutherAI/gpt-j-6B",               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
-        #"llama-70b",
+        "HuggingFaceH4/zephyr-7b-beta",
+        "EleutherAI/gpt-j-6B",               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
+        "llama-70b",
         "tiiuae/falcon-7b"     # gleich groß wie databricks out of box use widely tested no MOE problems
     ])
     parser.add_argument("--max_personas", type=int, default=32)
@@ -674,7 +675,7 @@ def main():
             "persona_file": "persona_reduced.jsonl",
             "max_personas": max_p,
             "generation_batch_size": batch_size,
-            "max_new_tokens": 200,
+            "max_new_tokens": 300,
             "random_seed": 44
         }
 
