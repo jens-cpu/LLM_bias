@@ -23,8 +23,6 @@ echo "Running on: $(hostname) at $(date)"
 echo "Using Python: $(which python)"
 echo "Memory info:"
 free -h
-nvidia-smi
 
 source spc_env/bin/activate
-# DO NOT run accelerate config in batch
 accelerate launch multi_model_bias_analysis.py
