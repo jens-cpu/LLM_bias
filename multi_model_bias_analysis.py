@@ -86,12 +86,14 @@ class BiasAnalyzer:
             "device_map": "auto",
             "torch_dtype": torch.float16 if "cuda" in self.device else torch.float32,
             "low_cpu_mem_usage": True,
+            
         }
         if quant_config:
             model_kwargs["quantization_config"] = quant_config
         
         self.model = AutoModelForCausalLM.from_pretrained(
             self.config["model_name"],
+            trust_remote_code=True,
             **model_kwargs
         )
             # Sanity check: warn if any tensor still on meta device
