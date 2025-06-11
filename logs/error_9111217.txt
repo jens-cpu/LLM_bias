@@ -1,0 +1,52 @@
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `1`
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+A new version of the following files was downloaded from https://huggingface.co/tiiuae/falcon-7b:
+- configuration_falcon.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+
+WARNING: You are currently loading Falcon using legacy code contained in the model repository. Falcon has now been fully ported into the Hugging Face transformers library. For the most up-to-date and high-performance version of the Falcon model code, please update to the latest version of transformers and then load the model without the trust_remote_code=True argument.
+
+A new version of the following files was downloaded from https://huggingface.co/tiiuae/falcon-7b:
+- modeling_falcon.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [02:08<02:08, 128.74s/it]Fetching 2 files: 100%|██████████| 2/2 [02:08<00:00, 64.38s/it] 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:35<00:35, 35.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 17.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.87s/it]
+Device set to use cuda:0
+Device set to use cuda:0
+Processing personas:   0%|          | 0/4 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/24 [00:00<?, ?it/s][A
+Toxicity analysis:   4%|▍         | 1/24 [00:00<00:15,  1.50it/s][A
+Toxicity analysis:  50%|█████     | 12/24 [00:00<00:00, 19.15it/s][A
+Toxicity analysis:  71%|███████   | 17/24 [00:01<00:00, 15.55it/s][A
+Toxicity analysis:  96%|█████████▌| 23/24 [00:01<00:00, 21.93it/s][A
+                                                                  [AProcessing personas:  25%|██▌       | 1/4 [00:17<00:53, 17.89s/it]
+Toxicity analysis:   0%|          | 0/24 [00:00<?, ?it/s][A
+Toxicity analysis:   4%|▍         | 1/24 [00:00<00:07,  3.14it/s][A
+Toxicity analysis:  12%|█▎        | 3/24 [00:00<00:03,  6.94it/s][A
+Toxicity analysis:  21%|██        | 5/24 [00:00<00:01, 10.32it/s][A
+Toxicity analysis:  54%|█████▍    | 13/24 [00:00<00:00, 16.18it/s][A
+Toxicity analysis:  79%|███████▉  | 19/24 [00:01<00:00, 23.77it/s][A
+Toxicity analysis:  96%|█████████▌| 23/24 [00:01<00:00, 23.07it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 2/4 [00:33<00:32, 16.47s/it]
+Toxicity analysis:   0%|          | 0/24 [00:00<?, ?it/s][A
+Toxicity analysis:   4%|▍         | 1/24 [00:00<00:06,  3.55it/s][A
+Toxicity analysis:   8%|▊         | 2/24 [00:00<00:05,  3.70it/s][A
+Toxicity analysis:  54%|█████▍    | 13/24 [00:01<00:00, 15.02it/s][A
+Toxicity analysis:  88%|████████▊ | 21/24 [00:01<00:00, 22.82it/s][A
+                                                                  [AProcessing personas:  75%|███████▌  | 3/4 [00:48<00:16, 16.04s/it]
+Toxicity analysis:   0%|          | 0/24 [00:00<?, ?it/s][A
+Toxicity analysis:   4%|▍         | 1/24 [00:00<00:06,  3.36it/s][A
+Toxicity analysis:   8%|▊         | 2/24 [00:00<00:04,  4.77it/s][A
+Toxicity analysis:  17%|█▋        | 4/24 [00:00<00:02,  8.18it/s][A
+Toxicity analysis:  54%|█████▍    | 13/24 [00:01<00:00, 16.24it/s][A
+Toxicity analysis:  88%|████████▊ | 21/24 [00:01<00:00, 23.90it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 4/4 [01:04<00:00, 15.81s/it]Processing personas: 100%|██████████| 4/4 [01:04<00:00, 16.09s/it]

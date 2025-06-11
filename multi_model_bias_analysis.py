@@ -650,7 +650,7 @@ def main():
         #"HuggingFaceH4/zephyr-7b-beta",
         #"EleutherAI/gpt-j-6B",               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
         #"llama-70b",
-        "data_brcks"     # statt "Mixtral-8x7B-Instruct" Übertrifft Mixtral in Qualität, ist effizienter & schnell durch MoE
+        "tiiuae/falcon-7b"     # gleich groß wie databricks out of box use widely tested no MOE problems
     ])
     parser.add_argument("--max_personas", type=int, default=32)
     parser.add_argument("--batch_size", type=int, default=8)
