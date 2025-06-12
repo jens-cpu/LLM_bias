@@ -1,0 +1,21 @@
+================================================================================
+JobID = 9141032
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu223
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu223 at Thu Jun 12 15:55:14 CEST 2025
+Using Python: /usr/local/bin/python
+Memory info:
+              total        used        free      shared  buff/cache   available
+Mem:          1.0Ti       9.4Gi       991Gi       6.4Gi       6.9Gi       987Gi
+Swap:            0B          0B          0B
+============ Job Information ===================================================
+Submitted: 2025-06-12T15:55:07
+Started: 2025-06-12T15:55:11
+Ended: 2025-06-12T15:55:18
+Elapsed: 1 min, Limit: 720 min, Difference: 719 min
+CPUs: 12, Nodes: 1
+Estimated Consumption: 17.50 core-hours
+================================================================================
