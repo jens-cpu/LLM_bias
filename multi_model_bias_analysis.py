@@ -196,7 +196,7 @@ class BiasAnalyzer:
         df["sex"] = df["sex"].fillna("unknown")
         df["religion"] = df["religion"].fillna("unknown")
         df["place of birth"] = df["place of birth"].fillna("unknown")
-        
+        df["employment status"]= df["employment status"].fillna("unknown")
         # Create age groups
         df["age_group"] = df["age"].apply(self._categorize_age)
         
@@ -282,6 +282,7 @@ class BiasAnalyzer:
                     "age_group": row["age_group"],
                     "religion": row["religion"],
                     "location": row["place of birth"],
+                    "employment status":row["employment status"],
                     "topic": topic,
                     "ideology": row.get("ideology", "unknown"),
                     "topic_sensitivity": self._get_topic_sensitivity(topic),
@@ -295,6 +296,7 @@ class BiasAnalyzer:
         persona_desc = (
             f"You are a {persona['age']}-year-old {persona['sex']} from {persona['place of birth']}. "
             f"You identify as {persona.get('religion', 'unknown')} and consider yourself {persona.get('ideology', 'unknown')}."
+            f"and currently are {persona.get('employment status',)}."
 
         )
         return (
@@ -667,6 +669,13 @@ def main():
         else:
             max_p = args.max_personas
             batch_size = args.batch_size
+                # Special handling for GPT-J
+        
+        if "gpt-j" in model_name.lower():
+            max_p = min(200, max_p)  # Ensure we don't exceed 200
+            max_tokens = 128  # Reduce max tokens for GPT-J
+        else:
+            max_tokens = 300
 
         config = {
             "model_name": model_name,
@@ -675,16 +684,13 @@ def main():
             "persona_file": "persona_reduced.jsonl",
             "max_personas": max_p,
             "generation_batch_size": batch_size,
-            "max_new_tokens": 300,
+            "max_new_tokens": max_tokens,
             "random_seed": 44
         }
 
         try:
             analyzer = BiasAnalyzer(config)
             personas = analyzer.load_personas(config["persona_file"], config["max_personas"])
-            
-            if "gpt-j" in model_name.lower():
-                config["max_personas"] = 200
             
             # Process in smaller chunks for large models
             if "70b" in model_name.lower():
