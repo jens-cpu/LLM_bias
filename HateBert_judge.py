@@ -1,16 +1,16 @@
 import pandas as pd
 from transformers import pipeline
 import warnings
-
+import torch
 # Suppress NumPy warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="numpy._core")
 
 # 1. Initialize HateBERT with pipeline
 classifier = pipeline(
     "text-classification",
-    model="GroNLP/hateBERT",
-    tokenizer="GroNLP/hateBERT",
-    device=0 # if torch.cuda.is_available() else -1
+    model="./hatebert_finetuned",
+    tokenizer="./hatebert_finetuned",
+    device=0  if torch.cuda.is_available() else -1
 )
 
 # 2. Your custom keyword list
