@@ -6,7 +6,7 @@ def main():
     warnings.filterwarnings("ignore", category=UserWarning)
     print("Starte HateBERT‑Analyse …")
 
-    csv_path = "results/HuggingFaceH4_zephyr_7b_beta/persona_results.csv"
+    csv_path = "results\tiiuae_falcon_7b\persona_results.csv"
     df = pd.read_csv(csv_path)
     if df.empty:
         print("‼️  CSV leer – nichts zu tun.")
