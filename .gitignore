@@ -12,3 +12,8 @@ setup.sh
 /zephyr-7b-alpha
 /flash-attention
 /data_brcks
+#HateBert_judge.py
+ergebnisse_toxizitaet.csv
+toxicity_results.csv
+#train.csv
+#training_days.py
