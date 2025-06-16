@@ -64,15 +64,13 @@ class WeightedHateBERT(torch.nn.Module):
         self.loss_fn = torch.nn.CrossEntropyLoss(weight=class_weights)
 
     def forward(self, **inputs):
-        labels = inputs["labels"]
-        input_ids = inputs["input_ids"]
-        attention_mask = inputs.get("attention_mask", None)
-
-        outputs = self.model(input_ids=input_ids, attention_mask=attention_mask)
+        labels = inputs.get("labels")
+        outputs = self.model(**inputs)
         logits = outputs.logits
-        loss = self.loss_fn(logits, labels)
+        loss = None
+        if labels is not None:
+            loss = self.loss_fn(logits, labels)
         return {"loss": loss, "logits": logits}
-
 
 model = WeightedHateBERT(model_name, class_weights)
 
