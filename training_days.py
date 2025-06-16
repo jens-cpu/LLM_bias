@@ -81,3 +81,5 @@ trainer = Trainer(
 )
 
 trainer.train()
+trainer.save_model("./hatebert_finetuned_v3")
+tokenizer.save_pretrained("./hatebert_finetuned_v3")
