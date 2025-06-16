@@ -43,4 +43,4 @@ def analyze_toxicity(csv_path, output_dir="toxicity_results"):
     print(f"✅ Ergebnisse in {output_path} gespeichert\nBeispiel:\n{df.head(2)[['output', 'hatebert_toxicity']]}")
 
 if __name__ == "__main__":
-    analyze_toxicity("IHR_CSV_PFAD.csv")
+    analyze_toxicity("results/tiiuae_falcon_7b/persona_results.csv")
