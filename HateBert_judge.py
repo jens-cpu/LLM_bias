@@ -1,13 +1,15 @@
 import pandas as pd
 from transformers import pipeline
 import torch, warnings
-
+from pathlib import Path
 def main():
     warnings.filterwarnings("ignore", category=UserWarning)
     print("Starte HateBERT‑Analyse …")
 
-    csv_path = "results\tiiuae_falcon_7b\persona_results.csv"
+    csv_path = "results/EleutherAI_gpt_j_6B/persona_results.csv"
+    output_path = f"toxicity_results_{Path(csv_path).stem}.csv"
     df = pd.read_csv(csv_path)
+    print(f"Gelesen {len(df)} Einträge aus {csv_path}")
     if df.empty:
         print("‼️  CSV leer – nichts zu tun.")
         return
@@ -56,8 +58,8 @@ def main():
 
     df["toxicity"]   = [r[0] for r in results]
     df["explanation"] = [r[1] for r in results]
-    df.to_csv("toxicity_results.csv", index=False)
-    print("✅ Fertig – Ergebnisse gespeichert in toxicity_results.csv")
+    df.to_csv("output_path", index=False)
+    print(f"✅ Fertig – Ergebnisse gespeichert in {output_path}")
 
 if __name__ == "__main__":
     main()
