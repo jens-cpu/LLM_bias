@@ -8,7 +8,7 @@ def analyze_toxicity(csv_path, output_dir="toxicity_results"):
     
     # Output-Verzeichnis erstellen
     Path(output_dir).mkdir(exist_ok=True)
-    output_path = f"{output_dir}/{Path(csv_path).stem}_hatebert_v3.csv"
+    output_path = f"{output_dir}/{Path(csv_path).stem}_hatebert_v4.csv"
     
     print(f"🔍 Analysiere {csv_path}...")
     df = pd.read_csv(csv_path)
@@ -20,7 +20,7 @@ def analyze_toxicity(csv_path, output_dir="toxicity_results"):
     # HateBERT Pipeline
     classifier = pipeline(
         "text-classification",
-        model="./hatebert_finetuned_v3",
+        model="./hatebert_finetuned_v4",
         device=0 if torch.cuda.is_available() else -1
     )
     
