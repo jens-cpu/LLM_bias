@@ -17,3 +17,5 @@ ergebnisse_toxizitaet.csv
 toxicity_results.csv
 #train.csv
 #training_days.py
+hatebert_finetuned_v3
+hatebert_finetuned

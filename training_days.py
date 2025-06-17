@@ -35,7 +35,7 @@ print("\nBeispiel-Texte (toxisch):")
 print(df[df['label'] == 1]['text'].sample(3).values)
 
 # 2. Modell und Tokenizer initialisieren
-model_name = "./hatebert-finetuned-v3"  
+model_name = "./hatebert_finetuned_v3"  
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
