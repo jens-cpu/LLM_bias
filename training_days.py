@@ -37,7 +37,7 @@ print(df[df['label'] == 1]['text'].sample(3).values)
 
 
 # 2. Tokenizer & Basis-Konfig laden
-model_name = "./hatebert_finetuned_v3"
+model_name = "GroNLP/hateBERT"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 config = AutoConfig.from_pretrained(model_name, num_labels=2)
 
@@ -92,7 +92,8 @@ class WeightedHateBERT(torch.nn.Module):
         super().__init__()
         self.model = AutoModelForSequenceClassification.from_pretrained(model_name, config=config)
         self.class_weights = class_weights
-        self.loss_fct = FocalLoss(class_weights=self.class_weights)
+        self.loss_fct = torch.nn.CrossEntropyLoss(weight=self.class_weights)
+
 
     def forward(self, input_ids, attention_mask, labels=None):
         outputs = self.model(
@@ -111,20 +112,21 @@ class WeightedHateBERT(torch.nn.Module):
 
 # 9. TrainingArguments
 training_args = TrainingArguments(
-    output_dir="./hatebert_finetuned_v4",
-    evaluation_strategy="epoch",
-    save_strategy="epoch",
-    learning_rate=5e-5,
+    output_dir="./hatebert_finetuned_v5",
+    evaluation_strategy="steps",
+    save_strategy="steps",
+    eval_steps=1000,
+    learning_rate=2e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=32,
-    num_train_epochs=5,
+    num_train_epochs=3,
     warmup_ratio=0.1,
     gradient_accumulation_steps=1,
     fp16=torch.cuda.is_available(),
     load_best_model_at_end=True,
     metric_for_best_model="f1",
     greater_is_better=True,
-    logging_steps=100,
+    logging_steps=500,
     report_to="none"
 )
 
@@ -159,9 +161,9 @@ trainer.train()
 
 # 12. Speichern
 
-trainer.save_model("./hatebert_finetuned_v4")
-model.model.save_pretrained("./hatebert_finetuned_v4")
-tokenizer.save_pretrained("./hatebert_finetuned_v4")
+trainer.save_model("./hatebert_finetuned_v5")
+model.model.save_pretrained("./hatebert_finetuned_v5")
+tokenizer.save_pretrained("./hatebert_finetuned_v5")
 
 
 # 13. Evaluation visualisieren
