@@ -75,17 +75,16 @@ class_weights = torch.tensor(class_weights, dtype=torch.float).to("cuda" if torc
 
 # 7. Focal Loss
 class FocalLoss(torch.nn.Module):
-    def __init__(self, alpha=0.25, gamma=2):
+    def __init__(self, alpha=0.25, gamma=2, class_weights=None):
         super().__init__()
         self.alpha = alpha
         self.gamma = gamma
+        self.class_weights = class_weights
 
     def forward(self, inputs, targets):
-        ce_loss = CrossEntropyLoss(reduction='none')(inputs, targets)
-        pt = torch.exp(-ce_loss)
-        loss = self.alpha * (1 - pt) ** self.gamma * ce_loss
-        return loss.mean()
-
+        ce = CrossEntropyLoss(weight=self.class_weights, reduction='none')(inputs, targets)
+        pt = torch.exp(-ce)
+        return (self.alpha * (1-pt) ** self.gamma * ce).mean()
 
 # 8. Custom Model
 class WeightedHateBERT(torch.nn.Module):
@@ -93,7 +92,7 @@ class WeightedHateBERT(torch.nn.Module):
         super().__init__()
         self.model = AutoModelForSequenceClassification.from_pretrained(model_name, config=config)
         self.class_weights = class_weights
-        self.loss_fct = FocalLoss()
+        self.loss_fct = FocalLoss(class_weights=self.class_weights)
 
     def forward(self, input_ids, attention_mask, labels=None):
         outputs = self.model(
