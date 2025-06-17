@@ -6,7 +6,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, Text
 def load_pipeline(model_path):
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForSequenceClassification.from_pretrained(model_path)
-    return TextClassificationPipeline(model=model, tokenizer=tokenizer, return_all_scores=False)
+    return TextClassificationPipeline(model=model, tokenizer=tokenizer, return_all_scores=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -17,9 +17,10 @@ if __name__ == "__main__":
 
     pipe = load_pipeline(args.model)
     scores = pipe(args.text)[0]
-
+    print(scores)
+#    scores = scores
     score_toxic = next(s["score"] for s in scores if s["label"] == "LABEL_1")
     toxic_flag = 1 if score_toxic >= args.threshold else 0
 
     print(f"Text: {args.text}")
-    print(f"Label: {label} | Score: {score:.3f} → toxic_flag={toxic_flag}")
+    print(f"Score for toxic: {score_toxic:.3f} → toxic_flag={toxic_flag}")

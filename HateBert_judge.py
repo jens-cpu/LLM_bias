@@ -10,7 +10,7 @@ def analyze_llm_outputs(csv_path, output_dir="toxicity_results"):
     warnings.filterwarnings("ignore")
     
     Path(output_dir).mkdir(exist_ok=True)
-    output_path = f"{output_dir}/{Path(csv_path).stem}_hatebert_v4.csv"
+    output_path = f"{output_dir}/{Path(csv_path).stem}_hatebert_v5.csv"
     print(f"🔍 Lade und verarbeite {csv_path}...")
     df = pd.read_csv(csv_path)
     df['output'] = df['output'].fillna("").astype(str)
@@ -18,8 +18,8 @@ def analyze_llm_outputs(csv_path, output_dir="toxicity_results"):
     # 3. Modell initialisieren mit optimierten Einstellungen
     classifier = pipeline(
         task="text-classification",
-        model="./hatebert_finetuned_v4",
-        tokenizer="./hatebert_finetuned_v4",
+        model="./hatebert_finetuned_v5",
+        tokenizer="./hatebert_finetuned_v5",
         device=0 if torch.cuda.is_available() else -1,
         truncation=True,
         max_length=512,
