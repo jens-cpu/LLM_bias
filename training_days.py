@@ -9,7 +9,10 @@ from transformers import (
     TrainingArguments,
     Trainer
 )
-from datasets import Dataset
+from datasets import (
+    Dataset,
+    ClassLabel
+    )
 from sklearn.metrics import (
     accuracy_score, 
     f1_score, 
@@ -49,10 +52,20 @@ def tokenize_function(examples):
     )
 
 
+# 4. Datensätze vorbereiten - KORRIGIERTE VERSION
 dataset = Dataset.from_pandas(df)
-tokenized_dataset = dataset.map(tokenize_function, batched=True)
-train_test = tokenized_dataset.train_test_split(test_size=0.2, stratify_by_column="label")
 
+# Label-Spalte in ClassLabel umwandeln
+dataset = dataset.cast_column("label", ClassLabel(names=["non_toxic", "toxic"]))
+
+# Jetzt tokenisieren (nach dem Casting)
+tokenized_dataset = dataset.map(tokenize_function, batched=True)
+
+# Stratified Split durchführen
+train_test = tokenized_dataset.train_test_split(
+    test_size=0.2, 
+    stratify_by_column="label"
+)
 # 5. Klassen-Gewichte berechnen
 class_weights = compute_class_weight(
     class_weight="balanced",
