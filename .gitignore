@@ -19,3 +19,4 @@ toxicity_results.csv
 #training_days.py
 hatebert_finetuned_v3
 hatebert_finetuned
+hatebert_finetuned_v4

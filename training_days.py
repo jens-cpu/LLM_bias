@@ -158,7 +158,9 @@ trainer = Trainer(
 trainer.train()
 
 # 12. Speichern
+
 trainer.save_model("./hatebert_finetuned_v4")
+model.model.save_pretrained("./hatebert_finetuned_v4")
 tokenizer.save_pretrained("./hatebert_finetuned_v4")
 
 
