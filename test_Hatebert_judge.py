@@ -34,13 +34,13 @@ def test_with_toxicity_prompts():
     
     return df
 
-def analyze_texts(df, output_path="toxicity_results/test_prompts_hatebert.csv"):
+def analyze_texts(df, output_path="toxicity_results/test_prompts_hatebert_v3.csv"):
     Path("toxicity_results").mkdir(exist_ok=True)
     
     # HateBERT Pipeline
     classifier = pipeline(
         "text-classification",
-        model="./hatebert_finetuned",
+        model="./hatebert_finetuned_v3",
         device=0 if torch.cuda.is_available() else -1
     )
     
