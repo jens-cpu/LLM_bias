@@ -11,7 +11,7 @@ def load_pipeline(model_path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--text", type=str, required=True)
-    parser.add_argument("--model", type=str, default="./hatebert_finetuned_v4")
+    parser.add_argument("--model", type=str, default="./hatebert_finetuned_v5")
     args = parser.parse_args()
 
     pipe = load_pipeline(args.model)
