@@ -3,16 +3,15 @@ import numpy as np
 import torch
 import seaborn as sns
 import matplotlib.pyplot as plt
+
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
     TrainingArguments,
-    Trainer
+    Trainer,
+    AutoConfig
 )
-from datasets import (
-    Dataset,
-    ClassLabel
-    )
+from datasets import Dataset, ClassLabel
 from sklearn.metrics import (
     accuracy_score, 
     f1_score, 
@@ -22,51 +21,50 @@ from sklearn.metrics import (
 from sklearn.utils.class_weight import compute_class_weight
 from torch.nn import CrossEntropyLoss
 
+
 # 1. Daten laden und bereinigen
 df = pd.read_csv("train.csv")
-
-# Kombinierte Labels und bereinigen
 df['label'] = (df[['toxic','severe_toxic','obscene','threat','insult','identity_hate']].sum(axis=1) > 0).astype(int)
 df = df.rename(columns={'comment_text': 'text'})
 df = df[['text', 'label']].dropna()
-df = df[df['text'].str.strip().astype(bool)]  # Leere Texte entfernen
+df = df[df['text'].str.strip().astype(bool)]
 
-# Klassenverteilung analysieren
+# Klassenverteilung anzeigen
 print("\nKlassenverteilung:")
 print(df['label'].value_counts(normalize=True))
 print("\nBeispiel-Texte (toxisch):")
 print(df[df['label'] == 1]['text'].sample(3).values)
 
-# 2. Modell und Tokenizer initialisieren
-model_name = "./hatebert_finetuned_v3"  
+
+# 2. Tokenizer & Basis-Konfig laden
+model_name = "./hatebert_finetuned_v3"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+config = AutoConfig.from_pretrained(model_name, num_labels=2)
 
 
+# 3. Tokenizer-Funktion
 def tokenize_function(examples):
     return tokenizer(
         examples["text"],
         padding="max_length",
         truncation=True,
-        max_length=256,
-        return_tensors="pt"
+        max_length=256
     )
 
 
-# 4. Datensätze vorbereiten - KORRIGIERTE VERSION
+# 4. Datensätze vorbereiten
 dataset = Dataset.from_pandas(df)
-
-# Label-Spalte in ClassLabel umwandeln
 dataset = dataset.cast_column("label", ClassLabel(names=["non_toxic", "toxic"]))
-
-# Jetzt tokenisieren (nach dem Casting)
 tokenized_dataset = dataset.map(tokenize_function, batched=True)
 
-# Stratified Split durchführen
+# 5. Split
 train_test = tokenized_dataset.train_test_split(
     test_size=0.2, 
     stratify_by_column="label"
 )
-# 5. Klassen-Gewichte berechnen
+
+
+# 6. Klassen-Gewichte
 class_weights = compute_class_weight(
     class_weight="balanced",
     classes=np.unique(df['label']),
@@ -74,7 +72,8 @@ class_weights = compute_class_weight(
 )
 class_weights = torch.tensor(class_weights, dtype=torch.float).to("cuda" if torch.cuda.is_available() else "cpu")
 
-# 6. Custom Model mit Focal Loss
+
+# 7. Focal Loss
 class FocalLoss(torch.nn.Module):
     def __init__(self, alpha=0.25, gamma=2):
         super().__init__()
@@ -82,15 +81,17 @@ class FocalLoss(torch.nn.Module):
         self.gamma = gamma
 
     def forward(self, inputs, targets):
-        bce_loss = CrossEntropyLoss(reduction='none')(inputs, targets)
-        pt = torch.exp(-bce_loss)
-        loss = self.alpha * (1-pt)**self.gamma * bce_loss
+        ce_loss = CrossEntropyLoss(reduction='none')(inputs, targets)
+        pt = torch.exp(-ce_loss)
+        loss = self.alpha * (1 - pt) ** self.gamma * ce_loss
         return loss.mean()
 
+
+# 8. Custom Model
 class WeightedHateBERT(torch.nn.Module):
     def __init__(self, model_name, class_weights):
         super().__init__()
-        self.model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
+        self.model = AutoModelForSequenceClassification.from_pretrained(model_name, config=config)
         self.class_weights = class_weights
         self.loss_fct = FocalLoss()
 
@@ -105,7 +106,11 @@ class WeightedHateBERT(torch.nn.Module):
             outputs.loss = loss
         return outputs
 
-# 7. Training-Argumente
+    def save_pretrained(self, save_directory):
+        self.model.save_pretrained(save_directory)
+
+
+# 9. TrainingArguments
 training_args = TrainingArguments(
     output_dir="./hatebert_finetuned_v4",
     evaluation_strategy="epoch",
@@ -124,24 +129,23 @@ training_args = TrainingArguments(
     report_to="none"
 )
 
-# 8. Metriken und Evaluation
+
+# 10. Metriken
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
     preds = np.argmax(logits, axis=-1)
-    
-    # Threshold-Optimierung
     probs = torch.softmax(torch.tensor(logits), dim=1)[:, 1].numpy()
     precision, recall, thresholds = precision_recall_curve(labels, probs)
     optimal_idx = np.argmax(precision * recall)
     optimal_threshold = thresholds[optimal_idx]
-    
     return {
         "accuracy": accuracy_score(labels, preds),
         "f1": f1_score(labels, preds),
         "optimal_threshold": optimal_threshold
     }
 
-# 9. Trainer initialisieren
+
+# 11. Trainer & Training
 model = WeightedHateBERT(model_name, class_weights).to(class_weights.device)
 
 trainer = Trainer(
@@ -152,12 +156,14 @@ trainer = Trainer(
     compute_metrics=compute_metrics
 )
 
-# 10. Training durchführen
 trainer.train()
+
+# 12. Speichern
 trainer.save_model("./hatebert_finetuned_v4")
 tokenizer.save_pretrained("./hatebert_finetuned_v4")
 
-# 11. Evaluation visualisieren
+
+# 13. Evaluation visualisieren
 val_pred = trainer.predict(train_test["test"])
 probs = torch.softmax(torch.tensor(val_pred.predictions), dim=1)[:, 1].numpy()
 
@@ -181,5 +187,5 @@ plt.title('Precision-Recall Curve')
 plt.savefig('precision_recall_curve.png')
 plt.close()
 
-print("\nTraining abgeschlossen. Beste Metriken:")
+print("\n✅ Training abgeschlossen. Beste Metriken:")
 print(trainer.state.best_metric)
