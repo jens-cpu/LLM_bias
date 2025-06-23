@@ -652,12 +652,12 @@ def main():
     parser.add_argument("--models", nargs="+", default=[
         "HuggingFaceH4/zephyr-7b-beta",
         "EleutherAI/gpt-j-6B",
-        "Qwen/Qwen3-32B"               # statt "gpt2" Moderne Architektur, starke Leistung in Code, Open-Source, skalierbar
+        "Qwen32B"               
         #"llama-70b",
-        "Falcon3-7B-Instruct"     # gleich groß wie databricks out of box use widely tested no MOE problems
+        "Falcon7B"     
     ])
-    parser.add_argument("--max_personas", type=int, default=32)
-    parser.add_argument("--batch_size", type=int, default=8)
+    parser.add_argument("--max_personas", type=int, default=64)
+    parser.add_argument("--batch_size", type=int, default=16)
     args = parser.parse_args()
 
     for model_name in args.models:
