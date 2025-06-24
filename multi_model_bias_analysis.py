@@ -54,141 +54,141 @@ class BiasAnalyzer:
         os.makedirs("offload", exist_ok=True)
 
     def _load_models(self) -> None:
-    """Load all required models with optimizations for large models."""
-    print("Loading models...")
+        """Load all required models with optimizations for large models."""
+        print("Loading models...")
 
-    model_path = self.config["model_path"]
-    model_name = self.config["model_name"]
+        model_path = self.config["model_path"]
+        model_name = self.config["model_name"]
 
-    # Authenticate only if loading from Hugging Face Hub
-    if not os.path.isdir(model_path):
-        print(f"Authenticating with Hugging Face Hub for model {model_path}...")
+        # Authenticate only if loading from Hugging Face Hub
+        if not os.path.isdir(model_path):
+            print(f"Authenticating with Hugging Face Hub for model {model_path}...")
+            try:
+                login(token=os.environ["HF_TOKEN"])
+            except Exception as e:
+                print(f"Warning: Could not authenticate with HF Hub: {e}")
+
+        # Configure quantization for large models
+        self.using_quantization = False
+        quant_config = None
+        if any(size in model_name.lower() for size in ["70b", "65b", "40b"]):
+            quant_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.float16,
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_quant_type="nf4"
+            )
+            self.using_quantization = True
+            print(f"Using 4-bit quantization for {model_name}")
+
+        # Tokenizer loading with model-specific settings
+        tokenizer_kwargs = {
+            "padding_side": "left",
+            "trust_remote_code": True  # Needed for many custom models
+        }
+        
+        if "gpt-j" in model_name.lower():
+            tokenizer_kwargs.update({"use_fast": False})
+        elif "qwen" in model_name.lower():
+            tokenizer_kwargs.update({"use_fast": True})
+        
         try:
-            login(token=os.environ["HF_TOKEN"])
+            self.tokenizer = AutoTokenizer.from_pretrained(model_path, **tokenizer_kwargs)
+            if not self.tokenizer.pad_token:
+                self.tokenizer.pad_token = self.tokenizer.eos_token
         except Exception as e:
-            print(f"Warning: Could not authenticate with HF Hub: {e}")
+            print(f"Error loading tokenizer: {e}")
+            raise
 
-    # Configure quantization for large models
-    self.using_quantization = False
-    quant_config = None
-    if any(size in model_name.lower() for size in ["70b", "65b", "40b"]):
-        quant_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4"
-        )
-        self.using_quantization = True
-        print(f"Using 4-bit quantization for {model_name}")
+        # Model loading configuration
+        model_kwargs = {
+            "device_map": "auto",
+            "torch_dtype": torch.bfloat16 if "falcon" in model_name.lower() else torch.float16,
+            "low_cpu_mem_usage": True,
+            "trust_remote_code": True
+        }
 
-    # Tokenizer loading with model-specific settings
-    tokenizer_kwargs = {
-        "padding_side": "left",
-        "trust_remote_code": True  # Needed for many custom models
-    }
-    
-    if "gpt-j" in model_name.lower():
-        tokenizer_kwargs.update({"use_fast": False})
-    elif "qwen" in model_name.lower():
-        tokenizer_kwargs.update({"use_fast": True})
-    
-    try:
-        self.tokenizer = AutoTokenizer.from_pretrained(model_path, **tokenizer_kwargs)
-        if not self.tokenizer.pad_token:
-            self.tokenizer.pad_token = self.tokenizer.eos_token
-    except Exception as e:
-        print(f"Error loading tokenizer: {e}")
-        raise
+        # Model-specific adjustments
+        if "qwen" in model_name.lower():
+            model_kwargs["use_flash_attention_2"] = True
+        elif "llama" in model_name.lower():
+            model_kwargs["attn_implementation"] = "sdpa"
 
-    # Model loading configuration
-    model_kwargs = {
-        "device_map": "auto",
-        "torch_dtype": torch.bfloat16 if "falcon" in model_name.lower() else torch.float16,
-        "low_cpu_mem_usage": True,
-        "trust_remote_code": True
-    }
+        if quant_config:
+            model_kwargs["quantization_config"] = quant_config
 
-    # Model-specific adjustments
-    if "qwen" in model_name.lower():
-        model_kwargs["use_flash_attention_2"] = True
-    elif "llama" in model_name.lower():
-        model_kwargs["attn_implementation"] = "sdpa"
-
-    if quant_config:
-        model_kwargs["quantization_config"] = quant_config
-
-    try:
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_path,
-            **model_kwargs
-        )
-    except Exception as e:
-        print(f"Error loading model: {e}")
-        # Try without flash attention if that was the issue
-        if "use_flash_attention_2" in model_kwargs:
-            del model_kwargs["use_flash_attention_2"]
+        try:
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_path,
                 **model_kwargs
             )
-        else:
-            raise
-
-    # Sanity check
-    for name, param in self.model.named_parameters():
-        if param.device.type == "meta":
-            print(f"⚠️ Parameter {name} is on meta device! Model did not load correctly.")
-
-    self.using_device_map = hasattr(self.model, "hf_device_map")
-
-    # Generation pipeline
-    pipeline_kwargs = {
-        "model": self.model,
-        "tokenizer": self.tokenizer,
-        "batch_size": 1 if self.using_quantization else 8,
-        "truncation": True,
-        "padding": True
-    }
-    if not self.using_device_map and not self.using_quantization:
-        pipeline_kwargs["device"] = self.device
-
-    self.generator = pipeline("text-generation", **pipeline_kwargs)
-
-    # Sentiment analysis
-    sentiment_kwargs = {
-        "model": "distilbert-base-uncased-finetuned-sst-2-english",
-        "batch_size": 16,
-        "device": self.device if not self.using_device_map else None
-    }
-    self.sentiment = pipeline("sentiment-analysis", **sentiment_kwargs)
-
-    # Toxicity model with multiple fallback options
-    self.tox_model = None
-    self.tox_model_type = "none"
-    
-    # Try loading Detoxify first
-    try:
-        self.tox_model = Detoxify('original')
-        self.tox_model_type = "detoxify"
-        print("Loaded Detoxify for toxicity analysis")
-    except Exception as e:
-        print(f"Could not load Detoxify: {e}")
-        
-        # Fallback to transformers pipeline
-        try:
-            self.tox_model = pipeline("text-classification",
-                                    model="unitary/toxic-bert",
-                                    device=self.device)
-            self.tox_model_type = "toxic-bert"
-            print("Loaded toxic-bert as fallback toxicity model")
         except Exception as e:
-            print(f"Could not load toxic-bert: {e}")
+            print(f"Error loading model: {e}")
+            # Try without flash attention if that was the issue
+            if "use_flash_attention_2" in model_kwargs:
+                del model_kwargs["use_flash_attention_2"]
+                self.model = AutoModelForCausalLM.from_pretrained(
+                    model_path,
+                    **model_kwargs
+                )
+            else:
+                raise
+
+        # Sanity check
+        for name, param in self.model.named_parameters():
+            if param.device.type == "meta":
+                print(f"⚠️ Parameter {name} is on meta device! Model did not load correctly.")
+
+        self.using_device_map = hasattr(self.model, "hf_device_map")
+
+        # Generation pipeline
+        pipeline_kwargs = {
+            "model": self.model,
+            "tokenizer": self.tokenizer,
+            "batch_size": 1 if self.using_quantization else 8,
+            "truncation": True,
+            "padding": True
+        }
+        if not self.using_device_map and not self.using_quantization:
+            pipeline_kwargs["device"] = self.device
+
+        self.generator = pipeline("text-generation", **pipeline_kwargs)
+
+        # Sentiment analysis
+        sentiment_kwargs = {
+            "model": "distilbert-base-uncased-finetuned-sst-2-english",
+            "batch_size": 16,
+            "device": self.device if not self.using_device_map else None
+        }
+        self.sentiment = pipeline("sentiment-analysis", **sentiment_kwargs)
+
+        # Toxicity model with multiple fallback options
+        self.tox_model = None
+        self.tox_model_type = "none"
+        
+        # Try loading Detoxify first
+        try:
+            self.tox_model = Detoxify('original')
+            self.tox_model_type = "detoxify"
+            print("Loaded Detoxify for toxicity analysis")
+        except Exception as e:
+            print(f"Could not load Detoxify: {e}")
             
-            # Final fallback to simple keyword-based scoring
-            print("Using simple keyword-based toxicity scoring")
-            self.tox_model_type = "keywords"
-    
-    print("All models loaded successfully.")
+            # Fallback to transformers pipeline
+            try:
+                self.tox_model = pipeline("text-classification",
+                                        model="unitary/toxic-bert",
+                                        device=self.device)
+                self.tox_model_type = "toxic-bert"
+                print("Loaded toxic-bert as fallback toxicity model")
+            except Exception as e:
+                print(f"Could not load toxic-bert: {e}")
+                
+                # Final fallback to simple keyword-based scoring
+                print("Using simple keyword-based toxicity scoring")
+                self.tox_model_type = "keywords"
+        
+        print("All models loaded successfully.")
 
 
 
