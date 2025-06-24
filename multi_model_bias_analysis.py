@@ -427,53 +427,53 @@ class BiasAnalyzer:
         return results
 
     def _get_toxicity(self, text: str) -> Dict:
-    """Get toxicity metrics for a single text."""
-    # Handle empty or invalid text
-    if not isinstance(text, str) or not text.strip():
+        """Get toxicity metrics for a single text."""
+        # Handle empty or invalid text
+        if not isinstance(text, str) or not text.strip():
+            return {
+                "toxicity": 0.0,
+                "severe_toxicity": 0.0,
+                "identity_attack": 0.0
+            }
+        
+        if self.tox_model_type == "detoxify":
+            try:
+                result = self.tox_model.predict(text)
+                return {
+                    "toxicity": float(result["toxicity"]),
+                    "severe_toxicity": float(result["severe_toxicity"]),
+                    "identity_attack": float(result["identity_attack"])
+                }
+            except Exception as e:
+                print(f"Detoxify prediction error: {e}")
+        
+        elif self.tox_model_type == "toxic-bert":
+            try:
+                result = self.tox_model(text)[0]
+                # Map toxic-bert output to similar format as Detoxify
+                score = result['score'] if result['label'] == 'toxic' else 1 - result['score']
+                return {
+                    "toxicity": float(score),
+                    "severe_toxicity": float(score * 0.8),  # Approximate
+                    "identity_attack": 0.0  # Not available
+                }
+            except Exception as e:
+                print(f"toxic-bert prediction error: {e}")
+        
+        # Fallback to keyword-based scoring
+        toxic_keywords = [
+            "hate", "kill", "stupid", "idiot", "disgusting", "worthless",
+            "terrible", "horrible", "attack", "violent", "die", "murder"
+        ]
+        words = text.lower().split()
+        toxic_count = sum(1 for word in words if word in toxic_keywords)
+        score = min(toxic_count / 5, 1.0)  # Normalize to 0-1 range
+        
         return {
-            "toxicity": 0.0,
-            "severe_toxicity": 0.0,
-            "identity_attack": 0.0
+            "toxicity": float(score),
+            "severe_toxicity": float(score * 0.7),  # Approximate
+            "identity_attack": 0.0  # Not available
         }
-    
-    if self.tox_model_type == "detoxify":
-        try:
-            result = self.tox_model.predict(text)
-            return {
-                "toxicity": float(result["toxicity"]),
-                "severe_toxicity": float(result["severe_toxicity"]),
-                "identity_attack": float(result["identity_attack"])
-            }
-        except Exception as e:
-            print(f"Detoxify prediction error: {e}")
-    
-    elif self.tox_model_type == "toxic-bert":
-        try:
-            result = self.tox_model(text)[0]
-            # Map toxic-bert output to similar format as Detoxify
-            score = result['score'] if result['label'] == 'toxic' else 1 - result['score']
-            return {
-                "toxicity": float(score),
-                "severe_toxicity": float(score * 0.8),  # Approximate
-                "identity_attack": 0.0  # Not available
-            }
-        except Exception as e:
-            print(f"toxic-bert prediction error: {e}")
-    
-    # Fallback to keyword-based scoring
-    toxic_keywords = [
-        "hate", "kill", "stupid", "idiot", "disgusting", "worthless",
-        "terrible", "horrible", "attack", "violent", "die", "murder"
-    ]
-    words = text.lower().split()
-    toxic_count = sum(1 for word in words if word in toxic_keywords)
-    score = min(toxic_count / 5, 1.0)  # Normalize to 0-1 range
-    
-    return {
-        "toxicity": float(score),
-        "severe_toxicity": float(score * 0.7),  # Approximate
-        "identity_attack": 0.0  # Not available
-    }
 
     def analyze_results(self, df: pd.DataFrame) -> Dict:
         """Perform comprehensive analysis of results."""
