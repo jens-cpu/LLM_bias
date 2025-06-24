@@ -79,16 +79,28 @@ class BiasAnalyzer:
             print("Using 4-bit quantization for LLaMA-70B")
 
         # Tokenizer loading
-        tokenizer_kwargs = {"padding_side": "left"} if "gpt-j-6b" not in model_name.lower() else {"use_fast": False}
+        tokenizer_kwargs = {"padding_side": "left"}
+        if "gpt-j" in model_name.lower():
+            tokenizer_kwargs.update({"use_fast": False})
+        elif "qwen" in model_name.lower():
+            tokenizer_kwargs.update({"trust_remote_code": True})
+    
         self.tokenizer = AutoTokenizer.from_pretrained(model_path, **tokenizer_kwargs)
-        self.tokenizer.pad_token = self.tokenizer.eos_token
+        if not self.tokenizer.pad_token:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
 
         # Model loading
         model_kwargs = {
             "device_map": "auto",
             "torch_dtype": torch.float16 if "cuda" in self.device else torch.float32,
             "low_cpu_mem_usage": True,
+            "trust_remote_code": True
         }
+        if "qwen" in model_name.lower():
+            model_kwargs["use_flash_attention"] = True
+        elif "falcon" in model_name.lower():
+            model_kwargs["torch_dtype"] = torch.bfloat16
+    
         if quant_config:
             model_kwargs["quantization_config"] = quant_config
 
@@ -130,8 +142,14 @@ class BiasAnalyzer:
         self.sentiment = pipeline("sentiment-analysis", **sentiment_kwargs)
 
         # Toxicity model
-        self.tox_model = Detoxify('original')
-
+        try:
+            self.tox_model = Detoxify('original')
+        except Exception as e:
+            print(f"Could not load Detoxify: {e}")
+            print("Falling back to transformers pipeline")
+            self.tox_model = pipeline("text-classification",
+                                    model="unitary/toxic-bert",
+                                    device=self.device)
         print("All models loaded successfully.")
 
 
@@ -657,33 +675,29 @@ def main():
     args = parser.parse_args()
     #model_path = model_name
     #model_name = os.path.basename(model_path.rstrip("/"))
-    for model_name in args.models:
-        print(f"\n===== Running analysis for model: {model_name} =====")
-        # Use full path if it's a local model
-        if os.path.isdir(model_name):
-            model_path = model_name
-            model_name_clean = os.path.basename(model_name.rstrip("/"))
-        else:
-            model_path = model_name
-            model_name_clean = model_name.split("/")[-1]
-
-        # Adjust parameters for large models
+    for model_path in args.models:
+        print(f"\n===== Running analysis for model: {model_path} =====")
+        
+        # Handle local vs remote models
+        is_local = os.path.isdir(model_path)
+        model_name = os.path.basename(model_path.rstrip("/")) if is_local else model_path.split("/")[-1]
+        
+        # Adjust parameters based on model
         if "70b" in model_name.lower() or "8x7" in model_name.lower():
-            max_p = min(args.max_personas, 4)  # Reduced for large models
+            max_p = min(args.max_personas, 4)
             batch_size = 1
+            max_tokens = 100  # Reduced for very large models
+        elif "gpt-j" in model_name.lower():
+            max_p = min(200, args.max_personas)
+            batch_size = args.batch_size
+            max_tokens = 128
         else:
             max_p = args.max_personas
             batch_size = args.batch_size
-                # Special handling for GPT-J
-        
-        if "gpt-j" in model_name.lower():
-            max_p = min(200, max_p)  # Ensure we don't exceed 200
-            max_tokens = 128  # Reduce max tokens for GPT-J
-        else:
             max_tokens = 300
 
         config = {
-            "model_name": model_name_clean,
+            "model_name": model_name,
             "model_path": model_path,
             "output_dir": "results",
             "plot_dir": "plots",
@@ -691,9 +705,15 @@ def main():
             "max_personas": max_p,
             "generation_batch_size": batch_size,
             "max_new_tokens": max_tokens,
-            "random_seed": 44
+            "random_seed": 44,
+            "trust_remote_code": True  # Needed for many models
         }
 
+        # Special configurations for specific models
+        if "qwen" in model_name.lower():
+            config["use_flash_attention"] = True
+        elif "falcon" in model_name.lower():
+            config["torch_dtype"] = "bfloat16"
         try:
             analyzer = BiasAnalyzer(config)
             personas = analyzer.load_personas(config["persona_file"], config["max_personas"])
