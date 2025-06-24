@@ -54,90 +54,86 @@ class BiasAnalyzer:
         os.makedirs("offload", exist_ok=True)
 
     def _load_models(self) -> None:
-        """Load all required models with optimizations for large models."""
-        print("Loading models...")
-        
-        # Authenticate with Hugging Face
+    """Load all required models with optimizations for large models."""
+    print("Loading models...")
+
+    model_path = self.config["model_path"]
+    model_name = self.config["model_name"]
+
+    # Authenticate only if loading from Hugging Face Hub
+    if not os.path.isdir(model_path):  # e.g. "HuggingFaceH4/zephyr-7b-beta"
+        print(f"Authenticating with Hugging Face Hub for model {model_path}...")
         login(token=os.environ["HF_TOKEN"])
-        
-        # Configure quantization for large models
-        self.using_quantization = False
-        quant_config = None
-        if "70b" in self.config["model_name"].lower():
-            quant_config = BitsAndBytesConfig(
-                load_in_4bit=True,
-                bnb_4bit_compute_dtype=torch.float16,
-                bnb_4bit_use_double_quant=True,
-                bnb_4bit_quant_type="nf4"
-            )
-            self.using_quantization = True
-            print("Using 4-bit quantization for LLaMA-70B")
 
-        model_name = self.config["model_name"]
-        if "gpt-j-6b" in model_name.lower():
-            self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
-        else:
-            self.tokenizer = AutoTokenizer.from_pretrained(model_name, padding_side="left")
-
-        self.tokenizer.pad_token = self.tokenizer.eos_token
-
-        # Load model with appropriate settings
-        model_kwargs = {
-            "device_map": "auto",
-            "torch_dtype": torch.float16 if "cuda" in self.device else torch.float32,
-            "low_cpu_mem_usage": True,
-            
-        }
-        if quant_config:
-            model_kwargs["quantization_config"] = quant_config
-        
-        self.model = AutoModelForCausalLM.from_pretrained(
-            self.config["model_name"],
-            trust_remote_code=True,
-            **model_kwargs
+    # Configure quantization for large models
+    self.using_quantization = False
+    quant_config = None
+    if "70b" in model_name.lower():
+        quant_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4"
         )
-            # Sanity check: warn if any tensor still on meta device
-        for name, param in self.model.named_parameters():
-            if param.device.type == "meta":
-                print(f"⚠️ Parameter {name} is on meta device! Model did not load correctly.")
+        self.using_quantization = True
+        print("Using 4-bit quantization for LLaMA-70B")
 
-        # Determine if we're using device_map (accelerate)
-        self.using_device_map = hasattr(self.model, "hf_device_map")
-        
-        # Create text generation pipeline
-        pipeline_kwargs = {
-            "model": self.model,
-            "tokenizer": self.tokenizer,
-            "batch_size": 1 if self.using_quantization else 8,
-            "truncation": True,
-            "padding": True
-        }
-        
-        # Only add device if not using device_map/quantization
-        if not self.using_device_map and not self.using_quantization:
-            pipeline_kwargs["device"] = self.device
-        
-        self.generator = pipeline(
-            "text-generation",
-            **pipeline_kwargs
-        )
-        
-        # Create sentiment analysis pipeline
-        sentiment_kwargs = {
-            "model": "distilbert-base-uncased-finetuned-sst-2-english",
-            "batch_size": 16
-        }
-        if not self.using_device_map and not self.using_quantization:
-            sentiment_kwargs["device"] = self.device
-        
-        self.sentiment = pipeline(
-            "sentiment-analysis",
-            **sentiment_kwargs
-        )
-        
-        # Load toxicity model
-        self.tox_model = Detoxify('original')
-        print("All models loaded successfully.")
+    # Tokenizer loading
+    tokenizer_kwargs = {"padding_side": "left"} if "gpt-j-6b" not in model_name.lower() else {"use_fast": False}
+    self.tokenizer = AutoTokenizer.from_pretrained(model_path, **tokenizer_kwargs)
+    self.tokenizer.pad_token = self.tokenizer.eos_token
+
+    # Model loading
+    model_kwargs = {
+        "device_map": "auto",
+        "torch_dtype": torch.float16 if "cuda" in self.device else torch.float32,
+        "low_cpu_mem_usage": True,
+    }
+    if quant_config:
+        model_kwargs["quantization_config"] = quant_config
+
+    self.model = AutoModelForCausalLM.from_pretrained(
+        model_path,
+        trust_remote_code=True,
+        **model_kwargs
+    )
+
+    # Sanity check
+    for name, param in self.model.named_parameters():
+        if param.device.type == "meta":
+            print(f"⚠️ Parameter {name} is on meta device! Model did not load correctly.")
+
+    # Check device_map use
+    self.using_device_map = hasattr(self.model, "hf_device_map")
+
+    # Generation pipeline
+    pipeline_kwargs = {
+        "model": self.model,
+        "tokenizer": self.tokenizer,
+        "batch_size": 1 if self.using_quantization else 8,
+        "truncation": True,
+        "padding": True
+    }
+    if not self.using_device_map and not self.using_quantization:
+        pipeline_kwargs["device"] = self.device
+
+    self.generator = pipeline("text-generation", **pipeline_kwargs)
+
+    # Sentiment analysis
+    sentiment_kwargs = {
+        "model": "distilbert-base-uncased-finetuned-sst-2-english",
+        "batch_size": 16
+    }
+    if not self.using_device_map and not self.using_quantization:
+        sentiment_kwargs["device"] = self.device
+
+    self.sentiment = pipeline("sentiment-analysis", **sentiment_kwargs)
+
+    # Toxicity model
+    self.tox_model = Detoxify('original')
+
+    print("All models loaded successfully.")
+
 
 
     def _load_topics(self) -> Dict[str, List[str]]:
