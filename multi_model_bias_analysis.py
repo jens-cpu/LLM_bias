@@ -659,8 +659,10 @@ def main():
     parser.add_argument("--max_personas", type=int, default=64)
     parser.add_argument("--batch_size", type=int, default=16)
     args = parser.parse_args()
-
+    #model_path = model_name
+    #model_name = os.path.basename(model_path.rstrip("/"))
     for model_name in args.models:
+        model_name = os.path.basename(model_path.rstrip("/"))
         print(f"\n===== Running analysis for model: {model_name} =====")
         
         # Adjust parameters for large models
@@ -680,6 +682,7 @@ def main():
 
         config = {
             "model_name": model_name,
+            "model_path": model_path,
             "output_dir": "results",
             "plot_dir": "plots",
             "persona_file": "persona_reduced.jsonl",
