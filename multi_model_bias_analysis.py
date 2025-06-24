@@ -658,9 +658,15 @@ def main():
     #model_path = model_name
     #model_name = os.path.basename(model_path.rstrip("/"))
     for model_name in args.models:
-        model_name = os.path.basename(model_path.rstrip("/"))
         print(f"\n===== Running analysis for model: {model_name} =====")
-        
+        # Use full path if it's a local model
+        if os.path.isdir(model_name):
+            model_path = model_name
+            model_name_clean = os.path.basename(model_name.rstrip("/"))
+        else:
+            model_path = model_name
+            model_name_clean = model_name.split("/")[-1]
+
         # Adjust parameters for large models
         if "70b" in model_name.lower() or "8x7" in model_name.lower():
             max_p = min(args.max_personas, 4)  # Reduced for large models
@@ -677,7 +683,7 @@ def main():
             max_tokens = 300
 
         config = {
-            "model_name": model_name,
+            "model_name": model_name_clean,
             "model_path": model_path,
             "output_dir": "results",
             "plot_dir": "plots",
