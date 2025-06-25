@@ -56,7 +56,6 @@ class BiasAnalyzer:
     def _load_models(self) -> None:
         """Load all required models with optimizations for large models."""
         print("Loading models...")
-
         model_path = self.config["model_path"]
         model_name = self.config["model_name"]
 
@@ -64,15 +63,42 @@ class BiasAnalyzer:
         if not os.path.isdir(model_path):
             print(f"Authenticating with Hugging Face Hub for model {model_path}...")
             try:
-                login(token=os.environ["HF_TOKEN"])
+                login(token=os.environ.get("HF_TOKEN", ""))
             except Exception as e:
                 print(f"Warning: Could not authenticate with HF Hub: {e}")
 
+        # Common configuration for all models
+        tokenizer_kwargs = {
+            "padding_side": "left",
+            "trust_remote_code": True  # Needed for Qwen, Falcon, and other custom models
+        }
+        
+        model_kwargs = {
+            "device_map": "auto",
+            "trust_remote_code": True,
+            "low_cpu_mem_usage": True
+        }
+
+        # Model-specific adjustments
+        if "qwen" in model_name.lower():
+            # Qwen-specific settings
+            tokenizer_kwargs["use_fast"] = True
+            model_kwargs["torch_dtype"] = torch.float16
+            if any(size in model_name.lower() for size in ["32b", "72b"]):
+                model_kwargs["use_flash_attention_2"] = True
+        elif "falcon" in model_name.lower():
+            # Falcon-specific settings
+            model_kwargs["torch_dtype"] = torch.bfloat16
+        elif "llama" in model_name.lower():
+            # Llama-specific settings
+            model_kwargs["attn_implementation"] = "sdpa"
+        elif "gpt-j" in model_name.lower():
+            tokenizer_kwargs["use_fast"] = False
+
         # Configure quantization for large models
         self.using_quantization = False
-        quant_config = None
-        if any(size in model_name.lower() for size in ["70b", "65b", "40b"]):
-            quant_config = BitsAndBytesConfig(
+        if any(size in model_name.lower() for size in ["70b", "65b", "40b", "32b", "72b"]):
+            model_kwargs["quantization_config"] = BitsAndBytesConfig(
                 load_in_4bit=True,
                 bnb_4bit_compute_dtype=torch.float16,
                 bnb_4bit_use_double_quant=True,
@@ -81,67 +107,57 @@ class BiasAnalyzer:
             self.using_quantization = True
             print(f"Using 4-bit quantization for {model_name}")
 
-        # Tokenizer loading with model-specific settings
-        tokenizer_kwargs = {
-            "padding_side": "left",
-            "trust_remote_code": True  # Needed for many custom models
-        }
-        
-        if "gpt-j" in model_name.lower():
-            tokenizer_kwargs.update({"use_fast": False})
-        elif "qwen" in model_name.lower():
-            tokenizer_kwargs.update({"use_fast": True})
-        
+        # Load tokenizer with error handling
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(model_path, **tokenizer_kwargs)
             if not self.tokenizer.pad_token:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
+            print("Tokenizer loaded successfully")
         except Exception as e:
             print(f"Error loading tokenizer: {e}")
-            raise
+            # Try fallback without fast tokenizer if that was the issue
+            if "use_fast" in tokenizer_kwargs:
+                try:
+                    tokenizer_kwargs["use_fast"] = False
+                    self.tokenizer = AutoTokenizer.from_pretrained(model_path, **tokenizer_kwargs)
+                    if not self.tokenizer.pad_token:
+                        self.tokenizer.pad_token = self.tokenizer.eos_token
+                    print("Successfully loaded with use_fast=False")
+                except Exception as e2:
+                    print(f"Fallback tokenizer loading failed: {e2}")
+                    raise
+            else:
+                raise
 
-        # Model loading configuration
-        model_kwargs = {
-            "device_map": "auto",
-            "torch_dtype": torch.bfloat16 if "falcon" in model_name.lower() else torch.float16,
-            "low_cpu_mem_usage": True,
-            "trust_remote_code": True
-        }
-
-        # Model-specific adjustments
-        if "qwen" in model_name.lower():
-            model_kwargs["use_flash_attention_2"] = True
-        elif "llama" in model_name.lower():
-            model_kwargs["attn_implementation"] = "sdpa"
-
-        if quant_config:
-            model_kwargs["quantization_config"] = quant_config
-
+        # Load model with error handling
         try:
-            self.model = AutoModelForCausalLM.from_pretrained(
-                model_path,
-                **model_kwargs
-            )
+            self.model = AutoModelForCausalLM.from_pretrained(model_path, **model_kwargs)
+            print("Model loaded successfully")
         except Exception as e:
             print(f"Error loading model: {e}")
             # Try without flash attention if that was the issue
             if "use_flash_attention_2" in model_kwargs:
-                del model_kwargs["use_flash_attention_2"]
-                self.model = AutoModelForCausalLM.from_pretrained(
-                    model_path,
-                    **model_kwargs
-                )
+                try:
+                    del model_kwargs["use_flash_attention_2"]
+                    self.model = AutoModelForCausalLM.from_pretrained(model_path, **model_kwargs)
+                    print("Successfully loaded without flash attention")
+                except Exception as e2:
+                    print(f"Fallback model loading failed: {e2}")
+                    raise
             else:
                 raise
 
-        # Sanity check
+        # Verify model loading
+        self.using_device_map = hasattr(self.model, "hf_device_map")
+        if self.using_device_map:
+            print(f"Model loaded with device map: {self.model.hf_device_map}")
+        
+        # Check for meta device parameters (indicates incomplete loading)
         for name, param in self.model.named_parameters():
             if param.device.type == "meta":
                 print(f"⚠️ Parameter {name} is on meta device! Model did not load correctly.")
 
-        self.using_device_map = hasattr(self.model, "hf_device_map")
-
-        # Generation pipeline
+        # Generation pipeline configuration
         pipeline_kwargs = {
             "model": self.model,
             "tokenizer": self.tokenizer,
@@ -149,48 +165,81 @@ class BiasAnalyzer:
             "truncation": True,
             "padding": True
         }
+        
         if not self.using_device_map and not self.using_quantization:
             pipeline_kwargs["device"] = self.device
 
         self.generator = pipeline("text-generation", **pipeline_kwargs)
 
-        # Sentiment analysis
-        sentiment_kwargs = {
-            "model": "distilbert-base-uncased-finetuned-sst-2-english",
-            "batch_size": 16,
-            "device": self.device if not self.using_device_map else None
-        }
-        self.sentiment = pipeline("sentiment-analysis", **sentiment_kwargs)
-
-        # Toxicity model with multiple fallback options
-        self.tox_model = None
-        self.tox_model_type = "none"
-        
-        # Try loading Detoxify first
-        try:
-            self.tox_model = Detoxify('original')
-            self.tox_model_type = "detoxify"
-            print("Loaded Detoxify for toxicity analysis")
-        except Exception as e:
-            print(f"Could not load Detoxify: {e}")
-            
-            # Fallback to transformers pipeline
-            try:
-                self.tox_model = pipeline("text-classification",
-                                        model="unitary/toxic-bert",
-                                        device=self.device)
-                self.tox_model_type = "toxic-bert"
-                print("Loaded toxic-bert as fallback toxicity model")
-            except Exception as e:
-                print(f"Could not load toxic-bert: {e}")
-                
-                # Final fallback to simple keyword-based scoring
-                print("Using simple keyword-based toxicity scoring")
-                self.tox_model_type = "keywords"
+        # Load auxiliary models (sentiment, toxicity)
+        self._load_auxiliary_models()
         
         print("All models loaded successfully.")
 
+    def _load_auxiliary_models(self):
+        
+        # Configuration
+        aux_config = self.config.get("auxiliary_models", {})
+        device = None if self.using_device_map else self.device
+        
+        # 1. Load sentiment analysis model
+        try:
+            sentiment_config = {
+                "model": "distilbert-base-uncased-finetuned-sst-2-english",
+                "device": device,
+                "batch_size": 16,
+                **aux_config.get("sentiment", {})
+            }
+            self.sentiment = pipeline("sentiment-analysis", **sentiment_config)
+            
+            # Validate the model works
+            test_input = ["This is a test"]
+            test_result = self.sentiment(test_input)[0]
+            if not isinstance(test_result, dict) or "label" not in test_result:
+                raise ValueError("Invalid sentiment model output format")
+                
+            print("Sentiment model loaded and validated successfully")
+        except Exception as e:
+            print(f"Failed to load sentiment model: {str(e)}")
+            self.sentiment = None
 
+        # 2. Load toxicity model with fallbacks
+        self.tox_model = None
+        self.tox_model_type = "none"
+        self.tox_keywords = [
+            "hate", "kill", "stupid", "idiot", "disgusting", 
+            "worthless", "terrible", "horrible", "attack", "die"
+        ]
+        
+        # Try Detoxify first
+        if aux_config.get("use_detoxify", True):
+            try:
+                self.tox_model = Detoxify('original', device=device)
+                self.tox_model_type = "detoxify"
+                print("Loaded Detoxify for toxicity analysis")
+            except Exception as e:
+                print(f"Could not load Detoxify: {str(e)}")
+        
+        # Fallback to toxic-bert if Detoxify failed
+        if self.tox_model is None and aux_config.get("use_toxic_bert", True):
+            try:
+                self.tox_model = pipeline(
+                    "text-classification",
+                    model="unitary/toxic-bert",
+                    device=device,
+                    **aux_config.get("toxic_bert", {})
+                )
+                self.tox_model_type = "toxic-bert"
+                print("Loaded toxic-bert as fallback toxicity model")
+            except Exception as e:
+                print(f"Could not load toxic-bert: {str(e)}")
+        
+        # Final fallback to keyword-based scoring
+        if self.tox_model is None:
+            print("Using keyword-based toxicity scoring")
+            self.tox_model_type = "keywords"
+        
+        print("Auxiliary models loading completed")
 
     def _load_topics(self) -> Dict[str, List[str]]:
         """Load topics categorized by sensitivity level."""
