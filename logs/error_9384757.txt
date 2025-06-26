@@ -1,0 +1,141 @@
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `1`
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Downloading shards:   0%|          | 0/8 [00:00<?, ?it/s]Downloading shards: 100%|██████████| 8/8 [00:00<00:00, 438.90it/s]
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:34,  4.99s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:08<00:25,  4.23s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:21<00:40,  8.11s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:25<00:26,  6.70s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:32<00:19,  6.54s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:34<00:10,  5.18s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:37<00:04,  4.34s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:38<00:00,  3.42s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:38<00:00,  4.85s/it]
+Processing personas:   0%|          | 0/4 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:25,  1.82it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:19,  2.31it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:01<00:02, 13.30it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:03, 10.99it/s][A
+Toxicity analysis:  33%|███▎      | 16/48 [00:01<00:02, 10.84it/s][A
+Toxicity analysis:  46%|████▌     | 22/48 [00:02<00:02, 10.69it/s][A
+Toxicity analysis:  56%|█████▋    | 27/48 [00:02<00:01, 12.40it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:03<00:01, 12.38it/s][A
+Toxicity analysis:  83%|████████▎ | 40/48 [00:03<00:00, 17.75it/s][A
+Toxicity analysis:  90%|████████▉ | 43/48 [00:03<00:00, 14.49it/s][A
+Toxicity analysis:  96%|█████████▌| 46/48 [00:03<00:00, 13.53it/s][A
+                                                                  [AProcessing personas:  25%|██▌       | 1/4 [00:58<02:55, 58.46s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:29,  1.59it/s][A
+Toxicity analysis:  10%|█         | 5/48 [00:00<00:06,  6.90it/s][A
+Toxicity analysis:  21%|██        | 10/48 [00:00<00:02, 13.75it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:02, 14.03it/s][A
+Toxicity analysis:  33%|███▎      | 16/48 [00:01<00:03,  9.46it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:02<00:02, 11.28it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:02<00:01, 15.64it/s][A
+Toxicity analysis:  60%|██████    | 29/48 [00:02<00:01, 14.27it/s][A
+Toxicity analysis:  67%|██████▋   | 32/48 [00:02<00:01, 10.71it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:03<00:00, 13.56it/s][A
+Toxicity analysis:  81%|████████▏ | 39/48 [00:03<00:00, 13.27it/s][A
+Toxicity analysis:  90%|████████▉ | 43/48 [00:03<00:00, 13.95it/s][A
+Toxicity analysis: 100%|██████████| 48/48 [00:03<00:00, 17.38it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 2/4 [01:50<01:49, 54.89s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:22,  2.08it/s][A
+Toxicity analysis:   6%|▋         | 3/48 [00:00<00:11,  3.84it/s][A
+Toxicity analysis:  21%|██        | 10/48 [00:00<00:02, 14.28it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:04,  7.83it/s][A
+Toxicity analysis:  40%|███▉      | 19/48 [00:01<00:02, 12.86it/s][A
+Toxicity analysis:  46%|████▌     | 22/48 [00:02<00:02, 11.37it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:02<00:01, 11.41it/s][A
+Toxicity analysis:  71%|███████   | 34/48 [00:03<00:01, 13.05it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:03<00:00, 14.14it/s][A
+Toxicity analysis:  92%|█████████▏| 44/48 [00:03<00:00, 18.31it/s][A
+Toxicity analysis:  98%|█████████▊| 47/48 [00:03<00:00, 14.84it/s][A
+                                                                  [AProcessing personas:  75%|███████▌  | 3/4 [02:43<00:53, 53.94s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:23,  2.03it/s][A
+Toxicity analysis:   8%|▊         | 4/48 [00:00<00:07,  5.72it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:01<00:03,  9.81it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:04,  8.50it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:02, 12.87it/s][A
+Toxicity analysis:  50%|█████     | 24/48 [00:02<00:01, 14.03it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:02<00:01, 13.30it/s][A
+Toxicity analysis:  58%|█████▊    | 28/48 [00:02<00:01, 12.09it/s][A
+Toxicity analysis:  62%|██████▎   | 30/48 [00:02<00:01, 11.70it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:03<00:00, 13.22it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:03<00:00, 13.44it/s][A
+Toxicity analysis:  83%|████████▎ | 40/48 [00:03<00:00, 11.92it/s][A
+Toxicity analysis:  96%|█████████▌| 46/48 [00:03<00:00, 15.15it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 4/4 [03:36<00:00, 53.38s/it]Processing personas: 100%|██████████| 4/4 [03:36<00:00, 54.05s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Processing personas:   0%|          | 0/4 [00:00<?, ?it/s]A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:13,  3.56it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:13,  3.40it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:02, 14.64it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:01<00:01, 23.35it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:00, 23.04it/s][A
+Toxicity analysis:  58%|█████▊    | 28/48 [00:01<00:01, 19.39it/s][A
+Toxicity analysis:  67%|██████▋   | 32/48 [00:01<00:01, 15.51it/s][A
+Toxicity analysis:  83%|████████▎ | 40/48 [00:02<00:00, 21.77it/s][A
+Toxicity analysis:  92%|█████████▏| 44/48 [00:02<00:00, 22.14it/s][A
+                                                                  [AProcessing personas:  25%|██▌       | 1/4 [00:36<01:50, 36.78s/it]A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:13,  3.49it/s][A
+Toxicity analysis:   6%|▋         | 3/48 [00:00<00:10,  4.26it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:01, 20.68it/s][A
+Toxicity analysis:  35%|███▌      | 17/48 [00:01<00:01, 21.51it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:01<00:01, 20.63it/s][A
+Toxicity analysis:  50%|█████     | 24/48 [00:01<00:01, 21.20it/s][A
+Toxicity analysis:  56%|█████▋    | 27/48 [00:01<00:01, 19.41it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:01<00:00, 18.58it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:02<00:00, 21.64it/s][A
+Toxicity analysis:  90%|████████▉ | 43/48 [00:02<00:00, 20.95it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 2/4 [01:09<01:09, 34.66s/it]A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:13,  3.57it/s][A
+Toxicity analysis:   6%|▋         | 3/48 [00:00<00:06,  6.57it/s][A
+Toxicity analysis:  15%|█▍        | 7/48 [00:00<00:02, 14.13it/s][A
+Toxicity analysis:  23%|██▎       | 11/48 [00:01<00:03, 11.92it/s][A
+Toxicity analysis:  38%|███▊      | 18/48 [00:01<00:01, 21.19it/s][A
+Toxicity analysis:  48%|████▊     | 23/48 [00:01<00:01, 17.58it/s][A
+Toxicity analysis:  65%|██████▍   | 31/48 [00:01<00:00, 26.47it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:02<00:00, 19.06it/s][A
+Toxicity analysis:  88%|████████▊ | 42/48 [00:02<00:00, 25.90it/s][A
+Toxicity analysis:  98%|█████████▊| 47/48 [00:02<00:00, 24.46it/s][A
+                                                                  [AProcessing personas:  75%|███████▌  | 3/4 [01:43<00:33, 33.93s/it]A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:22,  2.04it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:02, 15.67it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:01<00:01, 25.17it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:01<00:01, 19.24it/s][A
+Toxicity analysis:  67%|██████▋   | 32/48 [00:01<00:00, 23.67it/s][A
+Toxicity analysis:  75%|███████▌  | 36/48 [00:01<00:00, 19.10it/s][A
+Toxicity analysis:  81%|████████▏ | 39/48 [00:02<00:00, 19.39it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:02<00:00, 23.71it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 4/4 [02:15<00:00, 33.39s/it]Processing personas: 100%|██████████| 4/4 [02:15<00:00, 33.89s/it]

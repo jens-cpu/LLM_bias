@@ -1,0 +1,400 @@
+{
+  "toxicity_stats": {
+    "count": 192.0,
+    "mean": 0.016478358200705163,
+    "std": 0.0658500604682153,
+    "min": 0.000529120268765837,
+    "25%": 0.0007178332743933424,
+    "50%": 0.0009944105986505747,
+    "75%": 0.0026188899064436555,
+    "max": 0.6683853268623352
+  },
+  "sentiment_stats": {
+    "count": 192.0,
+    "mean": 0.9452923679103454,
+    "std": 0.0941703032382242,
+    "min": 0.5831692218780518,
+    "25%": 0.9545116871595383,
+    "50%": 0.9887944161891937,
+    "75%": 0.9959356784820557,
+    "max": 0.9997318387031555
+  },
+  "by_ideology": [
+    {
+      "ideology": "Believes in hard work and providing for her family",
+      "toxicity_mean": 0.036835331605592124,
+      "toxicity_std": 0.04014238689727106,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9692031542460123,
+      "sentiment_score_std": 0.05058398788633403,
+      "identity_attack_mean": 0.0032493906328454614
+    },
+    {
+      "ideology": "Believes in individual freedom and community support",
+      "toxicity_mean": 0.0009311983982721964,
+      "toxicity_std": 0.00015378388157307715,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9672777454058329,
+      "sentiment_score_std": 0.029662128717093016,
+      "identity_attack_mean": 0.0001656394354843845
+    },
+    {
+      "ideology": "Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",
+      "toxicity_mean": 0.0009865268172385793,
+      "toxicity_std": 0.00017382813713610464,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9862123926480612,
+      "sentiment_score_std": 0.015072743663775976,
+      "identity_attack_mean": 0.00014847527684954306
+    },
+    {
+      "ideology": "Believes in personal freedom and small government",
+      "toxicity_mean": 0.0011088927858509123,
+      "toxicity_std": 0.0004826900747286816,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9978434443473816,
+      "sentiment_score_std": 0.0011317273629966864,
+      "identity_attack_mean": 0.0001791109146627908
+    },
+    {
+      "ideology": "Believes in social justice and equality",
+      "toxicity_mean": 0.007455777357487629,
+      "toxicity_std": 0.010816284973857594,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9504967530568441,
+      "sentiment_score_std": 0.0696052255442782,
+      "identity_attack_mean": 0.0021637075745578236
+    },
+    {
+      "ideology": "Believes in the importance of individual freedom and creativity",
+      "toxicity_mean": 0.007940106947595874,
+      "toxicity_std": 0.011043661187922648,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.8671785791714987,
+      "sentiment_score_std": 0.21814502156998533,
+      "identity_attack_mean": 0.00030669314340533066
+    },
+    {
+      "ideology": "Believes in the importance of understanding and appreciating different cultures",
+      "toxicity_mean": 0.005912037993160387,
+      "toxicity_std": 0.008310340283883893,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.8232554992039999,
+      "sentiment_score_std": 0.162147488049145,
+      "identity_attack_mean": 0.0007188617310021073
+    },
+    {
+      "ideology": "Believes in the interconnectedness of physical, mental, and community health",
+      "toxicity_mean": 0.0011767071361343067,
+      "toxicity_std": 0.0009855004970776603,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9930418928464254,
+      "sentiment_score_std": 0.004985093998573961,
+      "identity_attack_mean": 0.00015556725459949425
+    },
+    {
+      "ideology": "Conservative",
+      "toxicity_mean": 0.012583060742543782,
+      "toxicity_std": 0.046424191383514786,
+      "toxicity_count": 57,
+      "sentiment_score_mean": 0.9497990932380944,
+      "sentiment_score_std": 0.09800692840407389,
+      "identity_attack_mean": 0.0015482794278476942
+    },
+    {
+      "ideology": "Egalitarian",
+      "toxicity_mean": 0.0030525554320774972,
+      "toxicity_std": 0.0038206808942025418,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9880348443984985,
+      "sentiment_score_std": 0.013856959167020167,
+      "identity_attack_mean": 0.00020213966005637
+    },
+    {
+      "ideology": "Environmentalism",
+      "toxicity_mean": 0.0009002867930879196,
+      "toxicity_std": 0.00022924656728679532,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9074246684710184,
+      "sentiment_score_std": 0.11433092717186842,
+      "identity_attack_mean": 0.0001689381654917573
+    },
+    {
+      "ideology": "Feminist",
+      "toxicity_mean": 0.0014022959512658417,
+      "toxicity_std": 0.0009036715706294305,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9061874945958456,
+      "sentiment_score_std": 0.07109137772177425,
+      "identity_attack_mean": 0.00015513676044065505
+    },
+    {
+      "ideology": "Helping others, Promoting health and wellness",
+      "toxicity_mean": 0.022440214389159035,
+      "toxicity_std": 0.03710036134704303,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9480608503023783,
+      "sentiment_score_std": 0.04513539619509473,
+      "identity_attack_mean": 0.0021948058565612882
+    },
+    {
+      "ideology": "Liberal",
+      "toxicity_mean": 0.0256220049438222,
+      "toxicity_std": 0.10266324796281903,
+      "toxicity_count": 48,
+      "sentiment_score_mean": 0.9550213205317656,
+      "sentiment_score_std": 0.07213715705697685,
+      "identity_attack_mean": 0.0030057199631604212
+    },
+    {
+      "ideology": "Libertarian",
+      "toxicity_mean": 0.0006911861904275914,
+      "toxicity_std": 5.803547786985988e-05,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9265070954958597,
+      "sentiment_score_std": 0.10529153634614132,
+      "identity_attack_mean": 0.000145146560195523
+    },
+    {
+      "ideology": "Moderate",
+      "toxicity_mean": 0.0007423040418264767,
+      "toxicity_std": 0.00014152136536207466,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9856632550557455,
+      "sentiment_score_std": 0.01956817812068228,
+      "identity_attack_mean": 0.00014904663839843124
+    },
+    {
+      "ideology": "Not Applicable",
+      "toxicity_mean": 0.000876635720487684,
+      "toxicity_std": 0.00037682729107286616,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.8984469374020895,
+      "sentiment_score_std": 0.10989108145028516,
+      "identity_attack_mean": 0.000155842814516897
+    },
+    {
+      "ideology": "Not applicable",
+      "toxicity_mean": 0.02097211921742807,
+      "toxicity_std": 0.0604539011358627,
+      "toxicity_count": 12,
+      "sentiment_score_mean": 0.8881816864013672,
+      "sentiment_score_std": 0.13929921202582882,
+      "identity_attack_mean": 0.003776177436520811
+    },
+    {
+      "ideology": "Progressive",
+      "toxicity_mean": 0.0028407108685415653,
+      "toxicity_std": 0.0074523070475731555,
+      "toxicity_count": 18,
+      "sentiment_score_mean": 0.9234427611033121,
+      "sentiment_score_std": 0.12200068559759045,
+      "identity_attack_mean": 0.00022709772585787706
+    },
+    {
+      "ideology": "Social Justice",
+      "toxicity_mean": 0.030095389500881236,
+      "toxicity_std": 0.035921035563423694,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9878877600034078,
+      "sentiment_score_std": 0.006706646720729517,
+      "identity_attack_mean": 0.0059985231928294525
+    },
+    {
+      "ideology": "Social responsibility and equality",
+      "toxicity_mean": 0.0007904410983125368,
+      "toxicity_std": 0.00012680728261426066,
+      "toxicity_count": 3,
+      "sentiment_score_mean": 0.9939310749371847,
+      "sentiment_score_std": 0.0032035363039420012,
+      "identity_attack_mean": 0.00015115811159679046
+    },
+    {
+      "ideology": "Too young to define",
+      "toxicity_mean": 0.09065703069791198,
+      "toxicity_std": 0.14822684382568757,
+      "toxicity_count": 6,
+      "sentiment_score_mean": 0.9910754462083181,
+      "sentiment_score_std": 0.007000038074467103,
+      "identity_attack_mean": 0.034331838757983256
+    }
+  ],
+  "by_gender": [
+    {
+      "gender": "Female",
+      "toxicity_mean": 0.012512230632783866,
+      "toxicity_std": 0.03869642716654861,
+      "toxicity_count": 87,
+      "sentiment_score_mean": 0.942805894489946,
+      "sentiment_score_std": 0.0872213943827539,
+      "identity_attack_mean": 0.002481507526305183
+    },
+    {
+      "gender": "Male",
+      "toxicity_mean": 0.01976457818555424,
+      "toxicity_std": 0.08186175111110021,
+      "toxicity_count": 105,
+      "sentiment_score_mean": 0.9473525887443905,
+      "sentiment_score_std": 0.09993084493498952,
+      "identity_attack_mean": 0.003059550503357535
+    }
+  ],
+  "by_age": [
+    {
+      "age_group": "18_29",
+      "toxicity_mean": 0.01055209261054794,
+      "toxicity_std": 0.023249551848833382,
+      "toxicity_count": 24,
+      "sentiment_score_mean": 0.9583428626259168,
+      "sentiment_score_std": 0.07424522214687404,
+      "identity_attack_mean": 0.0014322351259276427
+    },
+    {
+      "age_group": "30_49",
+      "toxicity_mean": 0.02544005048184772,
+      "toxicity_std": 0.10247664572714782,
+      "toxicity_count": 48,
+      "sentiment_score_mean": 0.9604015002648035,
+      "sentiment_score_std": 0.08380950698874089,
+      "identity_attack_mean": 0.002045885249875331
+    },
+    {
+      "age_group": "50_64",
+      "toxicity_mean": 0.013441974670291902,
+      "toxicity_std": 0.040909674543572194,
+      "toxicity_count": 39,
+      "sentiment_score_mean": 0.932375295039935,
+      "sentiment_score_std": 0.10494781867916303,
+      "identity_attack_mean": 0.0012093142174238053
+    },
+    {
+      "age_group": "65_plus",
+      "toxicity_mean": 0.006666759064411927,
+      "toxicity_std": 0.03546752830329975,
+      "toxicity_count": 51,
+      "sentiment_score_mean": 0.9491907428292667,
+      "sentiment_score_std": 0.0877474650789439,
+      "identity_attack_mean": 0.002029918070583531
+    },
+    {
+      "age_group": "under_18",
+      "toxicity_mean": 0.027507680144238596,
+      "toxicity_std": 0.07924388728371182,
+      "toxicity_count": 30,
+      "sentiment_score_mean": 0.9208423177401225,
+      "sentiment_score_std": 0.11642769457757908,
+      "identity_attack_mean": 0.00846262488485081
+    }
+  ],
+  "by_religion": [
+    {
+      "religion": "Catholic",
+      "toxicity_mean": 0.037910510425313584,
+      "toxicity_std": 0.12649623771640087,
+      "toxicity_count": 36,
+      "sentiment_score_mean": 0.9480704234706031,
+      "sentiment_score_std": 0.10045302117540568,
+      "identity_attack_mean": 0.006279353717319382
+    },
+    {
+      "religion": "Other Christian",
+      "toxicity_mean": 0.0023855338513385504,
+      "toxicity_std": 0.006450260147461163,
+      "toxicity_count": 24,
+      "sentiment_score_mean": 0.9530238633354505,
+      "sentiment_score_std": 0.1018778948019871,
+      "identity_attack_mean": 0.00018850763384155775
+    },
+    {
+      "religion": "Other Non-Christian Religion",
+      "toxicity_mean": 0.005312877083876326,
+      "toxicity_std": 0.014437056843050394,
+      "toxicity_count": 24,
+      "sentiment_score_mean": 0.9504885251323382,
+      "sentiment_score_std": 0.0877824372134249,
+      "identity_attack_mean": 0.0009530148442233136
+    },
+    {
+      "religion": "Protestant",
+      "toxicity_mean": 0.011506244502155684,
+      "toxicity_std": 0.04175879131605925,
+      "toxicity_count": 78,
+      "sentiment_score_mean": 0.9502657506710444,
+      "sentiment_score_std": 0.08635881930540183,
+      "identity_attack_mean": 0.0024842376733431593
+    },
+    {
+      "religion": "Religiously Unaffiliated",
+      "toxicity_mean": 0.023893915520360073,
+      "toxicity_std": 0.05880378557139549,
+      "toxicity_count": 30,
+      "sentiment_score_mean": 0.9186857839425405,
+      "sentiment_score_std": 0.10584397403072109,
+      "identity_attack_mean": 0.002997338194109034
+    }
+  ],
+  "by_sensitivity": [
+    {
+      "topic_sensitivity": "high",
+      "toxicity_mean": 0.034613889083630056,
+      "toxicity_std": 0.10486123006464003,
+      "toxicity_count": 64,
+      "sentiment_score_mean": 0.9450000952929258,
+      "sentiment_score_std": 0.10192101769292904,
+      "identity_attack_mean": 0.007369572861080087
+    },
+    {
+      "topic_sensitivity": "medium",
+      "toxicity_mean": 0.002030027473665541,
+      "toxicity_std": 0.0036501434619539935,
+      "toxicity_count": 64,
+      "sentiment_score_mean": 0.9574446529150009,
+      "sentiment_score_std": 0.07110780334625547,
+      "identity_attack_mean": 0.0002749401030541776
+    },
+    {
+      "topic_sensitivity": "soft",
+      "toxicity_mean": 0.012791158044819895,
+      "toxicity_std": 0.03971336351241134,
+      "toxicity_count": 64,
+      "sentiment_score_mean": 0.9334323555231094,
+      "sentiment_score_std": 0.10558621247844843,
+      "identity_attack_mean": 0.0007483613740077999
+    }
+  ],
+  "fairness": {
+    "gender": {
+      "by_group": {
+        "toxicity_rate": {
+          "Female": 0.0,
+          "Male": 0.009523809523809525
+        }
+      },
+      "demographic_parity": 0.009523809523809525
+    },
+    "age_group": {
+      "by_group": {
+        "toxicity_rate": {
+          "18_29": 0.0,
+          "30_49": 0.020833333333333332,
+          "50_64": 0.0,
+          "65_plus": 0.0,
+          "under_18": 0.0
+        }
+      },
+      "demographic_parity": 0.020833333333333332
+    },
+    "religion": {
+      "by_group": {
+        "toxicity_rate": {
+          "Catholic": 0.027777777777777776,
+          "Other Christian": 0.0,
+          "Other Non-Christian Religion": 0.0,
+          "Protestant": 0.0,
+          "Religiously Unaffiliated": 0.0
+        }
+      },
+      "demographic_parity": 0.027777777777777776
+    }
+  }
+}

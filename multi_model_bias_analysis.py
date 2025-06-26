@@ -771,11 +771,11 @@ def main():
     """Main execution function with improved argument handling."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=[
-        "HuggingFaceH4/zephyr-7b-beta",
-        "EleutherAI/gpt-j-6B",
-        "Qwen/Qwen3-32B",               
+        #"HuggingFaceH4/zephyr-7b-beta",
+        #"EleutherAI/gpt-j-6B",
+        "./Qwen32B",               
         #"llama-70b",
-        "tiiuae/Falcon3-7B-Base"     
+        "./Falcon7B"     
     ])
     parser.add_argument("--max_personas", type=int, default=64)
     parser.add_argument("--batch_size", type=int, default=16)

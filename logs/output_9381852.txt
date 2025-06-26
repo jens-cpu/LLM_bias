@@ -1,0 +1,53 @@
+================================================================================
+JobID = 9381852
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu238
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu238 at Tue Jun 24 11:34:51 CEST 2025
+Using Python: /usr/local/bin/python
+Memory info:
+              total        used        free      shared  buff/cache   available
+Mem:          1.0Ti       9.0Gi       992Gi       6.2Gi       6.5Gi       988Gi
+Swap:            0B          0B          0B
+
+===== Running analysis for model: HuggingFaceH4/zephyr-7b-beta =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 64 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/HuggingFaceH4_zephyr_7b_beta
+Analysis completed for model: HuggingFaceH4/zephyr-7b-beta ✅
+
+===== Running analysis for model: EleutherAI/gpt-j-6B =====
+Loading models...
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 64 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/EleutherAI_gpt_j_6B
+Analysis completed for model: EleutherAI/gpt-j-6B ✅
+
+===== Running analysis for model: Qwen32B =====
+Loading models...
+❌ Error processing model Qwen32B: data did not match any variant of untagged enum ModelWrapper at line 757479 column 3
+
+===== Running analysis for model: Falcon7B =====
+Loading models...
+❌ Error processing model Falcon7B: data did not match any variant of untagged enum ModelWrapper at line 664575 column 3
+============ Job Information ===================================================
+Submitted: 2025-06-24T11:33:40
+Started: 2025-06-24T11:34:26
+Ended: 2025-06-24T11:48:39
+Elapsed: 15 min, Limit: 720 min, Difference: 705 min
+CPUs: 12, Nodes: 1
+Estimated Consumption: 262.50 core-hours
+================================================================================

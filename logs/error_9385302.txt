@@ -1,0 +1,117 @@
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `1`
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Downloading shards:   0%|          | 0/8 [00:00<?, ?it/s]Downloading shards: 100%|██████████| 8/8 [00:00<00:00, 759.65it/s]
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:06<00:43,  6.25s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:09<00:27,  4.55s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:19<00:35,  7.17s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:25<00:26,  6.56s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:28<00:16,  5.39s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:31<00:08,  4.42s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:34<00:03,  3.84s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:35<00:00,  3.07s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:35<00:00,  4.43s/it]
+Processing personas:   0%|          | 0/4 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:24,  1.91it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:19,  2.33it/s][A
+Toxicity analysis:  23%|██▎       | 11/48 [00:01<00:02, 15.54it/s][A
+Toxicity analysis:  29%|██▉       | 14/48 [00:01<00:03,  9.07it/s][A
+Toxicity analysis:  46%|████▌     | 22/48 [00:01<00:01, 15.80it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:02<00:02, 11.29it/s][A
+Toxicity analysis:  58%|█████▊    | 28/48 [00:02<00:01, 11.74it/s][A
+Toxicity analysis:  71%|███████   | 34/48 [00:02<00:00, 17.43it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:03<00:00, 12.82it/s][A
+Toxicity analysis:  88%|████████▊ | 42/48 [00:03<00:00, 14.53it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:03<00:00, 15.85it/s][A
+Toxicity analysis: 100%|██████████| 48/48 [00:03<00:00, 16.58it/s][A
+                                                                  [AProcessing personas:  25%|██▌       | 1/4 [00:57<02:51, 57.18s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:28,  1.62it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:17,  2.60it/s][A
+Toxicity analysis:  21%|██        | 10/48 [00:00<00:02, 15.83it/s][A
+Toxicity analysis:  29%|██▉       | 14/48 [00:01<00:02, 12.44it/s][A
+Toxicity analysis:  35%|███▌      | 17/48 [00:01<00:02, 12.02it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:02<00:02, 10.76it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:02<00:01, 12.34it/s][A
+Toxicity analysis:  65%|██████▍   | 31/48 [00:02<00:01, 13.83it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:02<00:01, 12.59it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:03<00:00, 16.59it/s][A
+Toxicity analysis:  85%|████████▌ | 41/48 [00:03<00:00, 15.03it/s][A
+Toxicity analysis:  90%|████████▉ | 43/48 [00:03<00:00, 13.25it/s][A
+Toxicity analysis: 100%|██████████| 48/48 [00:03<00:00, 18.60it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 2/4 [01:49<01:48, 54.25s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:22,  2.06it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:19,  2.32it/s][A
+Toxicity analysis:  21%|██        | 10/48 [00:01<00:04,  9.48it/s][A
+Toxicity analysis:  38%|███▊      | 18/48 [00:01<00:02, 11.78it/s][A
+Toxicity analysis:  46%|████▌     | 22/48 [00:02<00:02, 12.05it/s][A
+Toxicity analysis:  62%|██████▎   | 30/48 [00:02<00:01, 13.42it/s][A
+Toxicity analysis:  71%|███████   | 34/48 [00:03<00:01, 13.12it/s][A
+Toxicity analysis:  88%|████████▊ | 42/48 [00:03<00:00, 16.25it/s][A
+Toxicity analysis:  92%|█████████▏| 44/48 [00:03<00:00, 12.32it/s][A
+                                                                  [AProcessing personas:  75%|███████▌  | 3/4 [02:42<00:53, 53.56s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:42,  1.10it/s][A
+Toxicity analysis:  25%|██▌       | 12/48 [00:01<00:02, 15.64it/s][A
+Toxicity analysis:  38%|███▊      | 18/48 [00:01<00:02, 11.11it/s][A
+Toxicity analysis:  46%|████▌     | 22/48 [00:01<00:01, 13.20it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:02<00:01, 11.35it/s][A
+Toxicity analysis:  60%|██████    | 29/48 [00:02<00:01, 11.32it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:02<00:01, 12.92it/s][A
+Toxicity analysis:  75%|███████▌  | 36/48 [00:03<00:01, 11.11it/s][A
+Toxicity analysis:  83%|████████▎ | 40/48 [00:03<00:00, 13.17it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:03<00:00, 14.35it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 4/4 [03:34<00:00, 53.18s/it]Processing personas: 100%|██████████| 4/4 [03:34<00:00, 53.68s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Processing personas:   0%|          | 0/4 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:13,  3.51it/s][A
+Toxicity analysis:   8%|▊         | 4/48 [00:00<00:04,  9.25it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:02, 14.84it/s][A
+Toxicity analysis:  38%|███▊      | 18/48 [00:01<00:01, 20.20it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:01, 18.64it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:01<00:00, 24.99it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:01<00:00, 21.68it/s][A
+Toxicity analysis:  92%|█████████▏| 44/48 [00:02<00:00, 28.60it/s][A
+Toxicity analysis: 100%|██████████| 48/48 [00:02<00:00, 20.12it/s][A
+                                                                  [AProcessing personas:  25%|██▌       | 1/4 [00:32<01:36, 32.20s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:13,  3.60it/s][A
+Toxicity analysis:   6%|▋         | 3/48 [00:00<00:06,  6.90it/s][A
+Toxicity analysis:  23%|██▎       | 11/48 [00:00<00:02, 17.41it/s][A
+Toxicity analysis:  29%|██▉       | 14/48 [00:00<00:02, 16.00it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:01<00:01, 19.52it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:01<00:01, 20.76it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:01<00:00, 21.83it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:01<00:00, 23.02it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:02<00:00, 23.55it/s][A
+Toxicity analysis: 100%|██████████| 48/48 [00:02<00:00, 23.79it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 2/4 [01:04<01:04, 32.02s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:13,  3.43it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:11,  4.17it/s][A
+Toxicity analysis:   6%|▋         | 3/48 [00:00<00:11,  3.96it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:01, 18.61it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:01, 22.09it/s][A
+Toxicity analysis:  48%|████▊     | 23/48 [00:01<00:01, 18.99it/s][A
+Toxicity analysis:  62%|██████▎   | 30/48 [00:01<00:00, 21.36it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:01<00:00, 21.69it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:02<00:00, 21.30it/s][A
+Toxicity analysis:  88%|████████▊ | 42/48 [00:02<00:00, 23.17it/s][A
+Toxicity analysis:  98%|█████████▊| 47/48 [00:02<00:00, 27.94it/s][A
+                                                                  [AProcessing personas:  75%|███████▌  | 3/4 [01:38<00:33, 33.22s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:12,  3.68it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:09,  4.69it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:01, 22.81it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:01, 21.08it/s][A
+Toxicity analysis:  33%|███▎      | 16/48 [00:00<00:01, 18.81it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:01, 19.53it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:00, 23.83it/s][A
+Toxicity analysis:  58%|█████▊    | 28/48 [00:01<00:01, 19.38it/s][A
+Toxicity analysis:  67%|██████▋   | 32/48 [00:01<00:00, 22.16it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:01<00:00, 19.01it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:02<00:00, 26.09it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 4/4 [02:10<00:00, 32.78s/it]Processing personas: 100%|██████████| 4/4 [02:10<00:00, 32.71s/it]

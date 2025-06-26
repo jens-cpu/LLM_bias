@@ -1,0 +1,130 @@
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+ipex flag is deprecated, will be removed in Accelerate v1.10. From 2.7.0, PyTorch has all needed optimizations for Intel CPU and XPU.
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `1`
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/mnt/vast-kisski/projects/kisski-tuberlin-qulab/LLM_bias/spc_env/lib/python3.11/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [02:09<15:07, 129.70s/it]Fetching 8 files:  50%|█████     | 4/8 [02:10<01:38, 24.65s/it] Fetching 8 files:  88%|████████▊ | 7/8 [02:10<00:11, 11.49s/it]Fetching 8 files: 100%|██████████| 8/8 [02:10<00:00, 16.32s/it]
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:02<00:16,  2.37s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:04<00:13,  2.22s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:06<00:11,  2.30s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:09<00:09,  2.37s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:11<00:06,  2.32s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:14<00:04,  2.38s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:16<00:02,  2.43s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:17<00:00,  1.89s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:17<00:00,  2.17s/it]
+Device set to use cuda:0
+Device set to use cuda:0
+Processing personas:   0%|          | 0/4 [00:00<?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:20,  2.32it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:18,  2.44it/s][A
+Toxicity analysis:  23%|██▎       | 11/48 [00:00<00:02, 16.08it/s][A
+Toxicity analysis:  29%|██▉       | 14/48 [00:01<00:02, 11.44it/s][A
+Toxicity analysis:  35%|███▌      | 17/48 [00:01<00:02, 11.77it/s][A
+Toxicity analysis:  46%|████▌     | 22/48 [00:01<00:01, 16.83it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:02<00:01, 11.66it/s][A
+Toxicity analysis:  58%|█████▊    | 28/48 [00:02<00:01, 11.50it/s][A
+Toxicity analysis:  71%|███████   | 34/48 [00:02<00:01, 12.57it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:03<00:00, 13.55it/s][A
+Toxicity analysis:  83%|████████▎ | 40/48 [00:03<00:00, 13.39it/s][A
+Toxicity analysis:  96%|█████████▌| 46/48 [00:03<00:00, 16.80it/s][A
+                                                                  [AProcessing personas:  25%|██▌       | 1/4 [01:09<03:29, 69.74s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:30,  1.53it/s][A
+Toxicity analysis:   4%|▍         | 2/48 [00:00<00:16,  2.76it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:02, 15.37it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:03, 11.48it/s][A
+Toxicity analysis:  33%|███▎      | 16/48 [00:01<00:02, 11.06it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:02, 13.32it/s][A
+Toxicity analysis:  46%|████▌     | 22/48 [00:02<00:02, 11.44it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:02<00:01, 13.98it/s][A
+Toxicity analysis:  67%|██████▋   | 32/48 [00:02<00:01, 15.53it/s][A
+Toxicity analysis:  71%|███████   | 34/48 [00:02<00:00, 14.44it/s][A
+Toxicity analysis:  77%|███████▋  | 37/48 [00:03<00:00, 12.41it/s][A
+Toxicity analysis:  88%|████████▊ | 42/48 [00:03<00:00, 14.63it/s][A
+Toxicity analysis: 100%|██████████| 48/48 [00:03<00:00, 16.92it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 2/4 [02:18<02:18, 69.29s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:20,  2.28it/s][A
+Toxicity analysis:   6%|▋         | 3/48 [00:00<00:10,  4.38it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:02, 14.18it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:01<00:03, 10.09it/s][A
+Toxicity analysis:  31%|███▏      | 15/48 [00:01<00:03, 10.75it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:02<00:02, 11.15it/s][A
+Toxicity analysis:  54%|█████▍    | 26/48 [00:02<00:01, 14.81it/s][A
+Toxicity analysis:  60%|██████    | 29/48 [00:02<00:01, 16.75it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:02<00:01, 12.48it/s][A
+Toxicity analysis:  75%|███████▌  | 36/48 [00:02<00:00, 14.20it/s][A
+Toxicity analysis:  85%|████████▌ | 41/48 [00:03<00:00, 12.85it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:03<00:00, 15.37it/s][A
+                                                                  [AProcessing personas:  75%|███████▌  | 3/4 [03:27<01:09, 69.15s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:38,  1.23it/s][A
+Toxicity analysis:  25%|██▌       | 12/48 [00:01<00:02, 13.46it/s][A
+Toxicity analysis:  31%|███▏      | 15/48 [00:01<00:03, 10.09it/s][A
+Toxicity analysis:  38%|███▊      | 18/48 [00:01<00:02, 11.71it/s][A
+Toxicity analysis:  48%|████▊     | 23/48 [00:02<00:01, 13.25it/s][A
+Toxicity analysis:  56%|█████▋    | 27/48 [00:02<00:01, 12.15it/s][A
+Toxicity analysis:  69%|██████▉   | 33/48 [00:02<00:01, 12.11it/s][A
+Toxicity analysis:  81%|████████▏ | 39/48 [00:03<00:00, 14.71it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:03<00:00, 14.32it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 4/4 [04:36<00:00, 69.04s/it]Processing personas: 100%|██████████| 4/4 [04:36<00:00, 69.14s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Some weights of the model checkpoint at EleutherAI/gpt-j-6B were not used when initializing GPTJForCausalLM: ['transformer.h.0.attn.bias', 'transformer.h.0.attn.masked_bias', 'transformer.h.1.attn.bias', 'transformer.h.1.attn.masked_bias', 'transformer.h.10.attn.bias', 'transformer.h.10.attn.masked_bias', 'transformer.h.11.attn.bias', 'transformer.h.11.attn.masked_bias', 'transformer.h.12.attn.bias', 'transformer.h.12.attn.masked_bias', 'transformer.h.13.attn.bias', 'transformer.h.13.attn.masked_bias', 'transformer.h.14.attn.bias', 'transformer.h.14.attn.masked_bias', 'transformer.h.15.attn.bias', 'transformer.h.15.attn.masked_bias', 'transformer.h.16.attn.bias', 'transformer.h.16.attn.masked_bias', 'transformer.h.17.attn.bias', 'transformer.h.17.attn.masked_bias', 'transformer.h.18.attn.bias', 'transformer.h.18.attn.masked_bias', 'transformer.h.19.attn.bias', 'transformer.h.19.attn.masked_bias', 'transformer.h.2.attn.bias', 'transformer.h.2.attn.masked_bias', 'transformer.h.20.attn.bias', 'transformer.h.20.attn.masked_bias', 'transformer.h.21.attn.bias', 'transformer.h.21.attn.masked_bias', 'transformer.h.22.attn.bias', 'transformer.h.22.attn.masked_bias', 'transformer.h.23.attn.bias', 'transformer.h.23.attn.masked_bias', 'transformer.h.24.attn.bias', 'transformer.h.24.attn.masked_bias', 'transformer.h.25.attn.bias', 'transformer.h.25.attn.masked_bias', 'transformer.h.26.attn.bias', 'transformer.h.26.attn.masked_bias', 'transformer.h.27.attn.bias', 'transformer.h.27.attn.masked_bias', 'transformer.h.3.attn.bias', 'transformer.h.3.attn.masked_bias', 'transformer.h.4.attn.bias', 'transformer.h.4.attn.masked_bias', 'transformer.h.5.attn.bias', 'transformer.h.5.attn.masked_bias', 'transformer.h.6.attn.bias', 'transformer.h.6.attn.masked_bias', 'transformer.h.7.attn.bias', 'transformer.h.7.attn.masked_bias', 'transformer.h.8.attn.bias', 'transformer.h.8.attn.masked_bias', 'transformer.h.9.attn.bias', 'transformer.h.9.attn.masked_bias']
+- This IS expected if you are initializing GPTJForCausalLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing GPTJForCausalLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Device set to use cuda:0
+Device set to use cuda:0
+Processing personas:   0%|          | 0/4 [00:00<?, ?it/s]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:20,  2.26it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:01, 19.53it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:02, 13.93it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:01<00:01, 22.09it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:01, 17.73it/s][A
+Toxicity analysis:  65%|██████▍   | 31/48 [00:01<00:00, 23.69it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:01<00:00, 21.68it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:02<00:00, 20.48it/s][A
+Toxicity analysis:  85%|████████▌ | 41/48 [00:02<00:00, 21.33it/s][A
+Toxicity analysis:  96%|█████████▌| 46/48 [00:02<00:00, 18.14it/s][A
+                                                                  [AProcessing personas:  25%|██▌       | 1/4 [00:26<01:20, 26.76s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:24,  1.92it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:01, 18.63it/s][A
+Toxicity analysis:  33%|███▎      | 16/48 [00:01<00:01, 17.50it/s][A
+Toxicity analysis:  44%|████▍     | 21/48 [00:01<00:01, 17.64it/s][A
+Toxicity analysis:  56%|█████▋    | 27/48 [00:01<00:00, 21.76it/s][A
+Toxicity analysis:  67%|██████▋   | 32/48 [00:01<00:00, 22.84it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:01<00:00, 22.83it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:01<00:00, 21.69it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:02<00:00, 30.66it/s][A
+                                                                  [AProcessing personas:  50%|█████     | 2/4 [00:53<00:53, 26.60s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:20,  2.29it/s][A
+Toxicity analysis:   6%|▋         | 3/48 [00:00<00:08,  5.03it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:01, 22.14it/s][A
+Toxicity analysis:  35%|███▌      | 17/48 [00:00<00:01, 23.05it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:01, 20.30it/s][A
+Toxicity analysis:  50%|█████     | 24/48 [00:01<00:01, 21.71it/s][A
+Toxicity analysis:  56%|█████▋    | 27/48 [00:01<00:00, 22.37it/s][A
+Toxicity analysis:  62%|██████▎   | 30/48 [00:01<00:00, 19.72it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:01<00:00, 21.16it/s][A
+Toxicity analysis:  79%|███████▉  | 38/48 [00:02<00:00, 19.66it/s][A
+Toxicity analysis:  98%|█████████▊| 47/48 [00:02<00:00, 29.65it/s][A
+                                                                  [AProcessing personas:  75%|███████▌  | 3/4 [01:19<00:26, 26.55s/it]
+Toxicity analysis:   0%|          | 0/48 [00:00<?, ?it/s][A
+Toxicity analysis:   2%|▏         | 1/48 [00:00<00:21,  2.20it/s][A
+Toxicity analysis:  19%|█▉        | 9/48 [00:00<00:02, 17.40it/s][A
+Toxicity analysis:  27%|██▋       | 13/48 [00:00<00:02, 14.35it/s][A
+Toxicity analysis:  42%|████▏     | 20/48 [00:01<00:01, 23.02it/s][A
+Toxicity analysis:  52%|█████▏    | 25/48 [00:01<00:00, 24.28it/s][A
+Toxicity analysis:  60%|██████    | 29/48 [00:01<00:00, 21.13it/s][A
+Toxicity analysis:  73%|███████▎  | 35/48 [00:01<00:00, 26.41it/s][A
+Toxicity analysis:  81%|████████▏ | 39/48 [00:02<00:00, 19.17it/s][A
+Toxicity analysis:  94%|█████████▍| 45/48 [00:02<00:00, 24.69it/s][A
+                                                                  [AProcessing personas: 100%|██████████| 4/4 [01:46<00:00, 26.51s/it]Processing personas: 100%|██████████| 4/4 [01:46<00:00, 26.55s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]Fetching 17 files:   0%|          | 0/17 [03:16<?, ?it/s]
+Ignored error while writing commit hash to /user/j.schrammek02/u17297/hf_cache/models--Qwen--Qwen3-32B/refs/main: [Errno 122] Disk quota exceeded: '/user/j.schrammek02/u17297/hf_cache/models--Qwen--Qwen3-32B/refs/main'.
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]Fetching 17 files:   0%|          | 0/17 [00:02<?, ?it/s]

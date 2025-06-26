@@ -1,0 +1,39 @@
+================================================================================
+JobID = 9385213
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu223
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu223 at Tue Jun 24 13:32:24 CEST 2025
+Using Python: /usr/local/bin/python
+Memory info:
+              total        used        free      shared  buff/cache   available
+Mem:          1.0Ti       9.1Gi       992Gi       6.2Gi       6.5Gi       988Gi
+Swap:            0B          0B          0B
+
+===== Running analysis for model: HuggingFaceH4/zephyr-7b-beta =====
+Loading models...
+Authenticating with Hugging Face Hub for model HuggingFaceH4/zephyr-7b-beta...
+❌ Error processing model zephyr-7b-beta: transformers.models.auto.auto_factory._BaseAutoModelClass.from_pretrained() got multiple values for keyword argument 'trust_remote_code'
+
+===== Running analysis for model: EleutherAI/gpt-j-6B =====
+Loading models...
+Authenticating with Hugging Face Hub for model EleutherAI/gpt-j-6B...
+❌ Error processing model gpt-j-6B: transformers.models.auto.auto_factory._BaseAutoModelClass.from_pretrained() got multiple values for keyword argument 'trust_remote_code'
+
+===== Running analysis for model: ./Qwen32B =====
+Loading models...
+❌ Error processing model Qwen32B: data did not match any variant of untagged enum ModelWrapper at line 757479 column 3
+
+===== Running analysis for model: ./Falcon7B =====
+Loading models...
+❌ Error processing model Falcon7B: data did not match any variant of untagged enum ModelWrapper at line 664575 column 3
+============ Job Information ===================================================
+Submitted: 2025-06-24T13:31:57
+Started: 2025-06-24T13:31:59
+Ended: 2025-06-24T13:32:47
+Elapsed: 1 min, Limit: 720 min, Difference: 719 min
+CPUs: 12, Nodes: 1
+Estimated Consumption: 17.50 core-hours
+================================================================================

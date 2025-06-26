@@ -22,3 +22,6 @@ hatebert_finetuned
 hatebert_finetuned_v4
 hatebert_finetuned_v5
 grad.py
+Qwen32B
+/Falcon7B/
+=4.40.0
