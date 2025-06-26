@@ -418,7 +418,7 @@ class BiasAnalyzer:
         generation_params = {
             "max_new_tokens": self.config.get("max_new_tokens", 100),
             "do_sample": True,
-            "temperature": 0.7,
+            "temperature": 1.1,
             "top_p": 0.9,
             "top_k": 50,
             "num_return_sequences": 1,
@@ -790,7 +790,7 @@ def main():
         model_name = os.path.basename(model_path.rstrip("/")) if is_local else model_path.split("/")[-1]
         
         # Adjust parameters based on model
-        if "70b" in model_name.lower() or "8x7" in model_name.lower():
+        if "Qwen32B" in model_name.lower() or "8x7" in model_name.lower():
             max_p = min(args.max_personas, 4)
             batch_size = 1
             max_tokens = 100  # Reduced for very large models
@@ -812,8 +812,9 @@ def main():
             "max_personas": max_p,
             "generation_batch_size": batch_size,
             "max_new_tokens": max_tokens,
+            "max_length": 400,  # Input truncation limit
             "random_seed": 44,
-            "trust_remote_code": True  # Needed for many models
+            "trust_remote_code": True  
         }
 
         # Special configurations for specific models
@@ -826,7 +827,7 @@ def main():
             personas = analyzer.load_personas(config["persona_file"], config["max_personas"])
             
             # Process in smaller chunks for large models
-            if "70b" in model_name.lower():
+            if "Qwen32B" in model_name.lower():
                 chunk_size = 2
                 all_results = []
                 for i in range(0, len(personas), chunk_size):
