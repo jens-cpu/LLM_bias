@@ -771,8 +771,8 @@ def main():
     """Main execution function with improved argument handling."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=[
-        #"HuggingFaceH4/zephyr-7b-beta",
-        #"EleutherAI/gpt-j-6B",
+       # "HuggingFaceH4/zephyr-7b-beta",
+        "EleutherAI/gpt-j-6B",
         "./Qwen32B",               
         #"llama-70b",
         "./Falcon7B"     
