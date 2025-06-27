@@ -1,0 +1,2 @@
+group1,group2,meandiff,p-adj,lower,upper,reject,metric,grouping
+50_64,under_18,-0.0868,0.0273,-0.1673,-0.0064,True,sentiment_score,age_group
