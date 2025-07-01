@@ -1,0 +1,2 @@
+group,metric,method,stat,p,effect_size
+gender,sentiment_score,mannwhitney,804.0,0.02200972859084077,0.27665317139001344

@@ -1,0 +1,483 @@
+group1,group2,p-adj,reject,metric,grouping,meandiff
+30_49,18_29,1.0,False,toxicity,age_group,-0.0009363064358088498
+50_64,18_29,1.0,False,toxicity,age_group,-0.0008732825459819846
+65_plus,18_29,1.0,False,toxicity,age_group,4.870320973329647e-05
+under_18,18_29,0.23124481754157392,False,toxicity,age_group,0.0019723082305669465
+18_29,30_49,1.0,False,toxicity,age_group,0.0009363064358088498
+50_64,30_49,1.0,False,toxicity,age_group,6.302388982686513e-05
+65_plus,30_49,1.0,False,toxicity,age_group,0.0009850096455421462
+under_18,30_49,0.013923080446791034,True,toxicity,age_group,0.002908614666375796
+18_29,50_64,1.0,False,toxicity,age_group,0.0008732825459819846
+30_49,50_64,1.0,False,toxicity,age_group,-6.302388982686513e-05
+65_plus,50_64,1.0,False,toxicity,age_group,0.0009219857557152811
+under_18,50_64,0.017676637588583198,True,toxicity,age_group,0.0028455907765489313
+18_29,65_plus,1.0,False,toxicity,age_group,-4.870320973329647e-05
+30_49,65_plus,1.0,False,toxicity,age_group,-0.0009850096455421462
+50_64,65_plus,1.0,False,toxicity,age_group,-0.0009219857557152811
+under_18,65_plus,0.10650755384157197,False,toxicity,age_group,0.00192360502083365
+18_29,under_18,0.23124481754157392,False,toxicity,age_group,-0.0019723082305669465
+30_49,under_18,0.013923080446791034,True,toxicity,age_group,-0.002908614666375796
+50_64,under_18,0.017676637588583198,True,toxicity,age_group,-0.0028455907765489313
+65_plus,under_18,0.10650755384157197,False,toxicity,age_group,-0.00192360502083365
+Believes in individual freedom and community support,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.005591851814339568
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006160402476477134
+Believes in personal freedom and small government,Believes in hard work and providing for her family,0.1916564903044966,False,toxicity,ideology,-0.007100011648920668
+Believes in social justice and equality,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.0070062161151630345
+Believes in the importance of individual freedom and creativity,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006707124140424067
+Believes in the importance of understanding and appreciating different cultures,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006950966373551634
+"Believes in the interconnectedness of physical, mental, and community health",Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006972246648122901
+Conservative,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.0063143186914538536
+Egalitarian,Believes in hard work and providing for her family,0.3304520328016358,False,toxicity,ideology,-0.0070791247223193675
+Environmentalism,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006774102124230334
+Feminist,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.0068731789748805346
+"Helping others, Promoting health and wellness",Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.005219958839006701
+Liberal,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.004613699989325449
+Libertarian,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006352261407300868
+Moderate,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006364689868253968
+Not Applicable,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.003757104976102734
+Not applicable,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.0004196699786310513
+Progressive,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006400182080041207
+Social Justice,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006658712770634668
+Social responsibility and equality,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.006930304419559768
+Too young to define,Believes in hard work and providing for her family,1.0,False,toxicity,ideology,-0.005652751191519218
+Believes in hard work and providing for her family,Believes in individual freedom and community support,1.0,False,toxicity,ideology,0.005591851814339568
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0005685506621375667
+Believes in personal freedom and small government,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0015081598345811002
+Believes in social justice and equality,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0014143643008234668
+Believes in the importance of individual freedom and creativity,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0011152723260845
+Believes in the importance of understanding and appreciating different cultures,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0013591145592120667
+"Believes in the interconnectedness of physical, mental, and community health",Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0013803948337833332
+Conservative,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0007224668771142861
+Egalitarian,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0014872729079798003
+Environmentalism,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0011822503098907668
+Feminist,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0012813271605409669
+"Helping others, Promoting health and wellness",Believes in individual freedom and community support,1.0,False,toxicity,ideology,0.0003718929753328665
+Liberal,Believes in individual freedom and community support,1.0,False,toxicity,ideology,0.0009781518250141187
+Libertarian,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0007604095929613002
+Moderate,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0007728380539143999
+Not Applicable,Believes in individual freedom and community support,1.0,False,toxicity,ideology,0.0018347468382368336
+Not applicable,Believes in individual freedom and community support,1.0,False,toxicity,ideology,0.005172181835708516
+Progressive,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0008083302657016394
+Social Justice,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0010668609562951
+Social responsibility and equality,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-0.0013384526052201999
+Too young to define,Believes in individual freedom and community support,1.0,False,toxicity,ideology,-6.0899377179650035e-05
+Believes in hard work and providing for her family,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,0.006160402476477134
+Believes in individual freedom and community support,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,0.0005685506621375667
+Believes in personal freedom and small government,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0009396091724435334
+Believes in social justice and equality,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0008458136386859001
+Believes in the importance of individual freedom and creativity,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0005467216639469333
+Believes in the importance of understanding and appreciating different cultures,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0007905638970745
+"Believes in the interconnectedness of physical, mental, and community health","Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0008118441716457667
+Conservative,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0001539162149767194
+Egalitarian,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0009187222458422335
+Environmentalism,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0006136996477532
+Feminist,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0007127764984034001
+"Helping others, Promoting health and wellness","Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,0.0009404436374704332
+Liberal,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,0.0015467024871516854
+Libertarian,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.00019185893082373346
+Moderate,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.00020428739177683324
+Not Applicable,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,0.0024032975003744003
+Not applicable,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,0.005740732497846083
+Progressive,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0002397796035640727
+Social Justice,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0004983102941575333
+Social responsibility and equality,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,-0.0007699019430826333
+Too young to define,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",1.0,False,toxicity,ideology,0.0005076512849579167
+Believes in hard work and providing for her family,Believes in personal freedom and small government,0.1916564903044966,False,toxicity,ideology,0.007100011648920668
+Believes in individual freedom and community support,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0015081598345811002
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0009396091724435334
+Believes in social justice and equality,Believes in personal freedom and small government,1.0,False,toxicity,ideology,9.379553375763329e-05
+Believes in the importance of individual freedom and creativity,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.00039288750849660015
+Believes in the importance of understanding and appreciating different cultures,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.00014904527536903345
+"Believes in the interconnectedness of physical, mental, and community health",Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.00012776500079776675
+Conservative,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.000785692957466814
+Egalitarian,Believes in personal freedom and small government,1.0,False,toxicity,ideology,2.0886926601299937e-05
+Environmentalism,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0003259095246903334
+Feminist,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.00022683267404013333
+"Helping others, Promoting health and wellness",Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0018800528099139667
+Liberal,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.002486311659595219
+Libertarian,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0007477502416198
+Moderate,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0007353217806667002
+Not Applicable,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.003342906672817934
+Not applicable,Believes in personal freedom and small government,0.08825913955567428,False,toxicity,ideology,0.006680341670289617
+Progressive,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0006998295688794607
+Social Justice,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.00044129887828600015
+Social responsibility and equality,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.00016970722936090013
+Too young to define,Believes in personal freedom and small government,1.0,False,toxicity,ideology,0.0014472604574014502
+Believes in hard work and providing for her family,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0070062161151630345
+Believes in individual freedom and community support,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0014143643008234668
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Believes in social justice and equality,1.0,False,toxicity,ideology,0.0008458136386859001
+Believes in personal freedom and small government,Believes in social justice and equality,1.0,False,toxicity,ideology,-9.379553375763329e-05
+Believes in the importance of individual freedom and creativity,Believes in social justice and equality,1.0,False,toxicity,ideology,0.00029909197473896687
+Believes in the importance of understanding and appreciating different cultures,Believes in social justice and equality,1.0,False,toxicity,ideology,5.5249741611400165e-05
+"Believes in the interconnectedness of physical, mental, and community health",Believes in social justice and equality,1.0,False,toxicity,ideology,3.396946704013347e-05
+Conservative,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0006918974237091807
+Egalitarian,Believes in social justice and equality,1.0,False,toxicity,ideology,-7.290860715633335e-05
+Environmentalism,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0002321139909327001
+Feminist,Believes in social justice and equality,1.0,False,toxicity,ideology,0.00013303714028250005
+"Helping others, Promoting health and wellness",Believes in social justice and equality,1.0,False,toxicity,ideology,0.0017862572761563333
+Liberal,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0023925161258375855
+Libertarian,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0006539547078621667
+Moderate,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0006415262469090669
+Not Applicable,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0032491111390603004
+Not applicable,Believes in social justice and equality,1.0,False,toxicity,ideology,0.006586546136531983
+Progressive,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0006060340351218274
+Social Justice,Believes in social justice and equality,1.0,False,toxicity,ideology,0.00034750334452836686
+Social responsibility and equality,Believes in social justice and equality,1.0,False,toxicity,ideology,7.591169560326684e-05
+Too young to define,Believes in social justice and equality,1.0,False,toxicity,ideology,0.0013534649236438168
+Believes in hard work and providing for her family,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.006707124140424067
+Believes in individual freedom and community support,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.0011152723260845
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.0005467216639469333
+Believes in personal freedom and small government,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-0.00039288750849660015
+Believes in social justice and equality,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-0.00029909197473896687
+Believes in the importance of understanding and appreciating different cultures,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-0.0002438422331275667
+"Believes in the interconnectedness of physical, mental, and community health",Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-0.0002651225076988334
+Conservative,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.00039280544897021385
+Egalitarian,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-0.0003720005818953002
+Environmentalism,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-6.697798380626678e-05
+Feminist,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-0.00016605483445646682
+"Helping others, Promoting health and wellness",Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.0014871653014173665
+Liberal,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.002093424151098619
+Libertarian,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.0003548627331231998
+Moderate,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.0003424342721701
+Not Applicable,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.0029500191643213334
+Not applicable,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.006287454161793016
+Progressive,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.00030694206038286054
+Social Justice,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,4.8411369789399996e-05
+Social responsibility and equality,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,-0.00022318027913570003
+Too young to define,Believes in the importance of individual freedom and creativity,1.0,False,toxicity,ideology,0.00105437294890485
+Believes in hard work and providing for her family,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.006950966373551634
+Believes in individual freedom and community support,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0013591145592120667
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0007905638970745
+Believes in personal freedom and small government,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,-0.00014904527536903345
+Believes in social justice and equality,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,-5.5249741611400165e-05
+Believes in the importance of individual freedom and creativity,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0002438422331275667
+"Believes in the interconnectedness of physical, mental, and community health",Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,-2.1280274571266696e-05
+Conservative,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0006366476820977806
+Egalitarian,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,-0.0001281583487677335
+Environmentalism,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.00017686424932129993
+Feminist,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,7.778739867109988e-05
+"Helping others, Promoting health and wellness",Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0017310075345449332
+Liberal,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0023372663842261853
+Libertarian,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0005987049662507665
+Moderate,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0005862765052976667
+Not Applicable,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0031938613974489003
+Not applicable,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.006531296394920583
+Progressive,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0005507842935104272
+Social Justice,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0002922536029169667
+Social responsibility and equality,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,2.0661953991866675e-05
+Too young to define,Believes in the importance of understanding and appreciating different cultures,1.0,False,toxicity,ideology,0.0012982151820324166
+Believes in hard work and providing for her family,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.006972246648122901
+Believes in individual freedom and community support,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0013803948337833332
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature","Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0008118441716457667
+Believes in personal freedom and small government,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,-0.00012776500079776675
+Believes in social justice and equality,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,-3.396946704013347e-05
+Believes in the importance of individual freedom and creativity,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0002651225076988334
+Believes in the importance of understanding and appreciating different cultures,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,2.1280274571266696e-05
+Conservative,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0006579279566690472
+Egalitarian,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,-0.00010687807419646682
+Environmentalism,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.00019814452389256662
+Feminist,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,9.906767324236658e-05
+"Helping others, Promoting health and wellness","Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0017522878091161998
+Liberal,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.002358546658797452
+Libertarian,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0006199852408220332
+Moderate,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0006075567798689334
+Not Applicable,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.003215141672020167
+Not applicable,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.00655257666949185
+Progressive,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0005720645680816939
+Social Justice,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0003135338774882334
+Social responsibility and equality,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,4.194222856313337e-05
+Too young to define,"Believes in the interconnectedness of physical, mental, and community health",1.0,False,toxicity,ideology,0.0013194954566036832
+Believes in hard work and providing for her family,Conservative,1.0,False,toxicity,ideology,0.0063143186914538536
+Believes in individual freedom and community support,Conservative,1.0,False,toxicity,ideology,0.0007224668771142861
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Conservative,1.0,False,toxicity,ideology,0.0001539162149767194
+Believes in personal freedom and small government,Conservative,1.0,False,toxicity,ideology,-0.000785692957466814
+Believes in social justice and equality,Conservative,1.0,False,toxicity,ideology,-0.0006918974237091807
+Believes in the importance of individual freedom and creativity,Conservative,1.0,False,toxicity,ideology,-0.00039280544897021385
+Believes in the importance of understanding and appreciating different cultures,Conservative,1.0,False,toxicity,ideology,-0.0006366476820977806
+"Believes in the interconnectedness of physical, mental, and community health",Conservative,1.0,False,toxicity,ideology,-0.0006579279566690472
+Egalitarian,Conservative,1.0,False,toxicity,ideology,-0.0007648060308655141
+Environmentalism,Conservative,1.0,False,toxicity,ideology,-0.0004597834327764806
+Feminist,Conservative,1.0,False,toxicity,ideology,-0.0005588602834266807
+"Helping others, Promoting health and wellness",Conservative,1.0,False,toxicity,ideology,0.0010943598524471526
+Liberal,Conservative,1.0,False,toxicity,ideology,0.0017006187021284048
+Libertarian,Conservative,1.0,False,toxicity,ideology,-3.7942715847014055e-05
+Moderate,Conservative,1.0,False,toxicity,ideology,-5.037117680011384e-05
+Not Applicable,Conservative,1.0,False,toxicity,ideology,0.0025572137153511195
+Not applicable,Conservative,1.0,False,toxicity,ideology,0.005894648712822802
+Progressive,Conservative,1.0,False,toxicity,ideology,-8.586338858735331e-05
+Social Justice,Conservative,1.0,False,toxicity,ideology,-0.00034439407918081385
+Social responsibility and equality,Conservative,1.0,False,toxicity,ideology,-0.0006159857281059139
+Too young to define,Conservative,1.0,False,toxicity,ideology,0.0006615674999346361
+Believes in hard work and providing for her family,Egalitarian,0.3304520328016358,False,toxicity,ideology,0.0070791247223193675
+Believes in individual freedom and community support,Egalitarian,1.0,False,toxicity,ideology,0.0014872729079798003
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Egalitarian,1.0,False,toxicity,ideology,0.0009187222458422335
+Believes in personal freedom and small government,Egalitarian,1.0,False,toxicity,ideology,-2.0886926601299937e-05
+Believes in social justice and equality,Egalitarian,1.0,False,toxicity,ideology,7.290860715633335e-05
+Believes in the importance of individual freedom and creativity,Egalitarian,1.0,False,toxicity,ideology,0.0003720005818953002
+Believes in the importance of understanding and appreciating different cultures,Egalitarian,1.0,False,toxicity,ideology,0.0001281583487677335
+"Believes in the interconnectedness of physical, mental, and community health",Egalitarian,1.0,False,toxicity,ideology,0.00010687807419646682
+Conservative,Egalitarian,1.0,False,toxicity,ideology,0.0007648060308655141
+Environmentalism,Egalitarian,1.0,False,toxicity,ideology,0.00030502259808903344
+Feminist,Egalitarian,1.0,False,toxicity,ideology,0.0002059457474388334
+"Helping others, Promoting health and wellness",Egalitarian,1.0,False,toxicity,ideology,0.0018591658833126668
+Liberal,Egalitarian,1.0,False,toxicity,ideology,0.002465424732993919
+Libertarian,Egalitarian,1.0,False,toxicity,ideology,0.0007268633150185
+Moderate,Egalitarian,1.0,False,toxicity,ideology,0.0007144348540654002
+Not Applicable,Egalitarian,1.0,False,toxicity,ideology,0.003322019746216634
+Not applicable,Egalitarian,0.1820007185820884,False,toxicity,ideology,0.006659454743688316
+Progressive,Egalitarian,1.0,False,toxicity,ideology,0.0006789426422781608
+Social Justice,Egalitarian,1.0,False,toxicity,ideology,0.0004204119516847002
+Social responsibility and equality,Egalitarian,1.0,False,toxicity,ideology,0.0001488203027596002
+Too young to define,Egalitarian,1.0,False,toxicity,ideology,0.0014263735308001502
+Believes in hard work and providing for her family,Environmentalism,1.0,False,toxicity,ideology,0.006774102124230334
+Believes in individual freedom and community support,Environmentalism,1.0,False,toxicity,ideology,0.0011822503098907668
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Environmentalism,1.0,False,toxicity,ideology,0.0006136996477532
+Believes in personal freedom and small government,Environmentalism,1.0,False,toxicity,ideology,-0.0003259095246903334
+Believes in social justice and equality,Environmentalism,1.0,False,toxicity,ideology,-0.0002321139909327001
+Believes in the importance of individual freedom and creativity,Environmentalism,1.0,False,toxicity,ideology,6.697798380626678e-05
+Believes in the importance of understanding and appreciating different cultures,Environmentalism,1.0,False,toxicity,ideology,-0.00017686424932129993
+"Believes in the interconnectedness of physical, mental, and community health",Environmentalism,1.0,False,toxicity,ideology,-0.00019814452389256662
+Conservative,Environmentalism,1.0,False,toxicity,ideology,0.0004597834327764806
+Egalitarian,Environmentalism,1.0,False,toxicity,ideology,-0.00030502259808903344
+Feminist,Environmentalism,1.0,False,toxicity,ideology,-9.907685065020004e-05
+"Helping others, Promoting health and wellness",Environmentalism,1.0,False,toxicity,ideology,0.0015541432852236334
+Liberal,Environmentalism,1.0,False,toxicity,ideology,0.0021604021349048855
+Libertarian,Environmentalism,1.0,False,toxicity,ideology,0.00042184071692946657
+Moderate,Environmentalism,1.0,False,toxicity,ideology,0.0004094122559763668
+Not Applicable,Environmentalism,1.0,False,toxicity,ideology,0.0030169971481276005
+Not applicable,Environmentalism,1.0,False,toxicity,ideology,0.006354432145599283
+Progressive,Environmentalism,1.0,False,toxicity,ideology,0.0003739200441891273
+Social Justice,Environmentalism,1.0,False,toxicity,ideology,0.00011538935359566677
+Social responsibility and equality,Environmentalism,1.0,False,toxicity,ideology,-0.00015620229532943325
+Too young to define,Environmentalism,1.0,False,toxicity,ideology,0.0011213509327111168
+Believes in hard work and providing for her family,Feminist,1.0,False,toxicity,ideology,0.0068731789748805346
+Believes in individual freedom and community support,Feminist,1.0,False,toxicity,ideology,0.0012813271605409669
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Feminist,1.0,False,toxicity,ideology,0.0007127764984034001
+Believes in personal freedom and small government,Feminist,1.0,False,toxicity,ideology,-0.00022683267404013333
+Believes in social justice and equality,Feminist,1.0,False,toxicity,ideology,-0.00013303714028250005
+Believes in the importance of individual freedom and creativity,Feminist,1.0,False,toxicity,ideology,0.00016605483445646682
+Believes in the importance of understanding and appreciating different cultures,Feminist,1.0,False,toxicity,ideology,-7.778739867109988e-05
+"Believes in the interconnectedness of physical, mental, and community health",Feminist,1.0,False,toxicity,ideology,-9.906767324236658e-05
+Conservative,Feminist,1.0,False,toxicity,ideology,0.0005588602834266807
+Egalitarian,Feminist,1.0,False,toxicity,ideology,-0.0002059457474388334
+Environmentalism,Feminist,1.0,False,toxicity,ideology,9.907685065020004e-05
+"Helping others, Promoting health and wellness",Feminist,1.0,False,toxicity,ideology,0.0016532201358738334
+Liberal,Feminist,1.0,False,toxicity,ideology,0.0022594789855550856
+Libertarian,Feminist,1.0,False,toxicity,ideology,0.0005209175675796666
+Moderate,Feminist,1.0,False,toxicity,ideology,0.0005084891066265668
+Not Applicable,Feminist,1.0,False,toxicity,ideology,0.0031160739987778005
+Not applicable,Feminist,1.0,False,toxicity,ideology,0.006453508996249483
+Progressive,Feminist,1.0,False,toxicity,ideology,0.00047299689483932736
+Social Justice,Feminist,1.0,False,toxicity,ideology,0.00021446620424586682
+Social responsibility and equality,Feminist,1.0,False,toxicity,ideology,-5.712544467923321e-05
+Too young to define,Feminist,1.0,False,toxicity,ideology,0.0012204277833613168
+Believes in hard work and providing for her family,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,0.005219958839006701
+Believes in individual freedom and community support,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0003718929753328665
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature","Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0009404436374704332
+Believes in personal freedom and small government,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0018800528099139667
+Believes in social justice and equality,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0017862572761563333
+Believes in the importance of individual freedom and creativity,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0014871653014173665
+Believes in the importance of understanding and appreciating different cultures,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0017310075345449332
+"Believes in the interconnectedness of physical, mental, and community health","Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0017522878091161998
+Conservative,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0010943598524471526
+Egalitarian,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0018591658833126668
+Environmentalism,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0015541432852236334
+Feminist,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0016532201358738334
+Liberal,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,0.0006062588496812522
+Libertarian,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0011323025682941667
+Moderate,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0011447310292472665
+Not Applicable,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,0.001462853862903967
+Not applicable,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,0.00480028886037565
+Progressive,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.001180223241034506
+Social Justice,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0014387539316279665
+Social responsibility and equality,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.0017103455805530664
+Too young to define,"Helping others, Promoting health and wellness",1.0,False,toxicity,ideology,-0.00043279235251251656
+Believes in hard work and providing for her family,Liberal,1.0,False,toxicity,ideology,0.004613699989325449
+Believes in individual freedom and community support,Liberal,1.0,False,toxicity,ideology,-0.0009781518250141187
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Liberal,1.0,False,toxicity,ideology,-0.0015467024871516854
+Believes in personal freedom and small government,Liberal,1.0,False,toxicity,ideology,-0.002486311659595219
+Believes in social justice and equality,Liberal,1.0,False,toxicity,ideology,-0.0023925161258375855
+Believes in the importance of individual freedom and creativity,Liberal,1.0,False,toxicity,ideology,-0.002093424151098619
+Believes in the importance of understanding and appreciating different cultures,Liberal,1.0,False,toxicity,ideology,-0.0023372663842261853
+"Believes in the interconnectedness of physical, mental, and community health",Liberal,1.0,False,toxicity,ideology,-0.002358546658797452
+Conservative,Liberal,1.0,False,toxicity,ideology,-0.0017006187021284048
+Egalitarian,Liberal,1.0,False,toxicity,ideology,-0.002465424732993919
+Environmentalism,Liberal,1.0,False,toxicity,ideology,-0.0021604021349048855
+Feminist,Liberal,1.0,False,toxicity,ideology,-0.0022594789855550856
+"Helping others, Promoting health and wellness",Liberal,1.0,False,toxicity,ideology,-0.0006062588496812522
+Libertarian,Liberal,1.0,False,toxicity,ideology,-0.0017385614179754188
+Moderate,Liberal,1.0,False,toxicity,ideology,-0.0017509898789285186
+Not Applicable,Liberal,1.0,False,toxicity,ideology,0.000856595013222715
+Not applicable,Liberal,1.0,False,toxicity,ideology,0.004194030010694398
+Progressive,Liberal,1.0,False,toxicity,ideology,-0.001786482090715758
+Social Justice,Liberal,1.0,False,toxicity,ideology,-0.0020450127813092184
+Social responsibility and equality,Liberal,1.0,False,toxicity,ideology,-0.0023166044302343185
+Too young to define,Liberal,1.0,False,toxicity,ideology,-0.0010390512021937687
+Believes in hard work and providing for her family,Libertarian,1.0,False,toxicity,ideology,0.006352261407300868
+Believes in individual freedom and community support,Libertarian,1.0,False,toxicity,ideology,0.0007604095929613002
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Libertarian,1.0,False,toxicity,ideology,0.00019185893082373346
+Believes in personal freedom and small government,Libertarian,1.0,False,toxicity,ideology,-0.0007477502416198
+Believes in social justice and equality,Libertarian,1.0,False,toxicity,ideology,-0.0006539547078621667
+Believes in the importance of individual freedom and creativity,Libertarian,1.0,False,toxicity,ideology,-0.0003548627331231998
+Believes in the importance of understanding and appreciating different cultures,Libertarian,1.0,False,toxicity,ideology,-0.0005987049662507665
+"Believes in the interconnectedness of physical, mental, and community health",Libertarian,1.0,False,toxicity,ideology,-0.0006199852408220332
+Conservative,Libertarian,1.0,False,toxicity,ideology,3.7942715847014055e-05
+Egalitarian,Libertarian,1.0,False,toxicity,ideology,-0.0007268633150185
+Environmentalism,Libertarian,1.0,False,toxicity,ideology,-0.00042184071692946657
+Feminist,Libertarian,1.0,False,toxicity,ideology,-0.0005209175675796666
+"Helping others, Promoting health and wellness",Libertarian,1.0,False,toxicity,ideology,0.0011323025682941667
+Liberal,Libertarian,1.0,False,toxicity,ideology,0.0017385614179754188
+Moderate,Libertarian,1.0,False,toxicity,ideology,-1.2428460953099784e-05
+Not Applicable,Libertarian,1.0,False,toxicity,ideology,0.002595156431198134
+Not applicable,Libertarian,1.0,False,toxicity,ideology,0.005932591428669817
+Progressive,Libertarian,1.0,False,toxicity,ideology,-4.7920672740339254e-05
+Social Justice,Libertarian,1.0,False,toxicity,ideology,-0.0003064513633337998
+Social responsibility and equality,Libertarian,1.0,False,toxicity,ideology,-0.0005780430122588998
+Too young to define,Libertarian,1.0,False,toxicity,ideology,0.0006995102157816501
+Believes in hard work and providing for her family,Moderate,1.0,False,toxicity,ideology,0.006364689868253968
+Believes in individual freedom and community support,Moderate,1.0,False,toxicity,ideology,0.0007728380539143999
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Moderate,1.0,False,toxicity,ideology,0.00020428739177683324
+Believes in personal freedom and small government,Moderate,1.0,False,toxicity,ideology,-0.0007353217806667002
+Believes in social justice and equality,Moderate,1.0,False,toxicity,ideology,-0.0006415262469090669
+Believes in the importance of individual freedom and creativity,Moderate,1.0,False,toxicity,ideology,-0.0003424342721701
+Believes in the importance of understanding and appreciating different cultures,Moderate,1.0,False,toxicity,ideology,-0.0005862765052976667
+"Believes in the interconnectedness of physical, mental, and community health",Moderate,1.0,False,toxicity,ideology,-0.0006075567798689334
+Conservative,Moderate,1.0,False,toxicity,ideology,5.037117680011384e-05
+Egalitarian,Moderate,1.0,False,toxicity,ideology,-0.0007144348540654002
+Environmentalism,Moderate,1.0,False,toxicity,ideology,-0.0004094122559763668
+Feminist,Moderate,1.0,False,toxicity,ideology,-0.0005084891066265668
+"Helping others, Promoting health and wellness",Moderate,1.0,False,toxicity,ideology,0.0011447310292472665
+Liberal,Moderate,1.0,False,toxicity,ideology,0.0017509898789285186
+Libertarian,Moderate,1.0,False,toxicity,ideology,1.2428460953099784e-05
+Not Applicable,Moderate,1.0,False,toxicity,ideology,0.0026075848921512336
+Not applicable,Moderate,1.0,False,toxicity,ideology,0.005945019889622916
+Progressive,Moderate,1.0,False,toxicity,ideology,-3.549221178723947e-05
+Social Justice,Moderate,1.0,False,toxicity,ideology,-0.0002940229023807
+Social responsibility and equality,Moderate,1.0,False,toxicity,ideology,-0.0005656145513058
+Too young to define,Moderate,1.0,False,toxicity,ideology,0.0007119386767347499
+Believes in hard work and providing for her family,Not Applicable,1.0,False,toxicity,ideology,0.003757104976102734
+Believes in individual freedom and community support,Not Applicable,1.0,False,toxicity,ideology,-0.0018347468382368336
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Not Applicable,1.0,False,toxicity,ideology,-0.0024032975003744003
+Believes in personal freedom and small government,Not Applicable,1.0,False,toxicity,ideology,-0.003342906672817934
+Believes in social justice and equality,Not Applicable,1.0,False,toxicity,ideology,-0.0032491111390603004
+Believes in the importance of individual freedom and creativity,Not Applicable,1.0,False,toxicity,ideology,-0.0029500191643213334
+Believes in the importance of understanding and appreciating different cultures,Not Applicable,1.0,False,toxicity,ideology,-0.0031938613974489003
+"Believes in the interconnectedness of physical, mental, and community health",Not Applicable,1.0,False,toxicity,ideology,-0.003215141672020167
+Conservative,Not Applicable,1.0,False,toxicity,ideology,-0.0025572137153511195
+Egalitarian,Not Applicable,1.0,False,toxicity,ideology,-0.003322019746216634
+Environmentalism,Not Applicable,1.0,False,toxicity,ideology,-0.0030169971481276005
+Feminist,Not Applicable,1.0,False,toxicity,ideology,-0.0031160739987778005
+"Helping others, Promoting health and wellness",Not Applicable,1.0,False,toxicity,ideology,-0.001462853862903967
+Liberal,Not Applicable,1.0,False,toxicity,ideology,-0.000856595013222715
+Libertarian,Not Applicable,1.0,False,toxicity,ideology,-0.002595156431198134
+Moderate,Not Applicable,1.0,False,toxicity,ideology,-0.0026075848921512336
+Not applicable,Not Applicable,1.0,False,toxicity,ideology,0.0033374349974716827
+Progressive,Not Applicable,1.0,False,toxicity,ideology,-0.002643077103938473
+Social Justice,Not Applicable,1.0,False,toxicity,ideology,-0.002901607794531934
+Social responsibility and equality,Not Applicable,1.0,False,toxicity,ideology,-0.0031731994434570335
+Too young to define,Not Applicable,1.0,False,toxicity,ideology,-0.0018956462154164837
+Believes in hard work and providing for her family,Not applicable,1.0,False,toxicity,ideology,0.0004196699786310513
+Believes in individual freedom and community support,Not applicable,1.0,False,toxicity,ideology,-0.005172181835708516
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Not applicable,1.0,False,toxicity,ideology,-0.005740732497846083
+Believes in personal freedom and small government,Not applicable,0.08825913955567428,False,toxicity,ideology,-0.006680341670289617
+Believes in social justice and equality,Not applicable,1.0,False,toxicity,ideology,-0.006586546136531983
+Believes in the importance of individual freedom and creativity,Not applicable,1.0,False,toxicity,ideology,-0.006287454161793016
+Believes in the importance of understanding and appreciating different cultures,Not applicable,1.0,False,toxicity,ideology,-0.006531296394920583
+"Believes in the interconnectedness of physical, mental, and community health",Not applicable,1.0,False,toxicity,ideology,-0.00655257666949185
+Conservative,Not applicable,1.0,False,toxicity,ideology,-0.005894648712822802
+Egalitarian,Not applicable,0.1820007185820884,False,toxicity,ideology,-0.006659454743688316
+Environmentalism,Not applicable,1.0,False,toxicity,ideology,-0.006354432145599283
+Feminist,Not applicable,1.0,False,toxicity,ideology,-0.006453508996249483
+"Helping others, Promoting health and wellness",Not applicable,1.0,False,toxicity,ideology,-0.00480028886037565
+Liberal,Not applicable,1.0,False,toxicity,ideology,-0.004194030010694398
+Libertarian,Not applicable,1.0,False,toxicity,ideology,-0.005932591428669817
+Moderate,Not applicable,1.0,False,toxicity,ideology,-0.005945019889622916
+Not Applicable,Not applicable,1.0,False,toxicity,ideology,-0.0033374349974716827
+Progressive,Not applicable,0.2874563109213978,False,toxicity,ideology,-0.005980512101410156
+Social Justice,Not applicable,1.0,False,toxicity,ideology,-0.0062390427920036165
+Social responsibility and equality,Not applicable,1.0,False,toxicity,ideology,-0.006510634440928717
+Too young to define,Not applicable,1.0,False,toxicity,ideology,-0.005233081212888166
+Believes in hard work and providing for her family,Progressive,1.0,False,toxicity,ideology,0.006400182080041207
+Believes in individual freedom and community support,Progressive,1.0,False,toxicity,ideology,0.0008083302657016394
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Progressive,1.0,False,toxicity,ideology,0.0002397796035640727
+Believes in personal freedom and small government,Progressive,1.0,False,toxicity,ideology,-0.0006998295688794607
+Believes in social justice and equality,Progressive,1.0,False,toxicity,ideology,-0.0006060340351218274
+Believes in the importance of individual freedom and creativity,Progressive,1.0,False,toxicity,ideology,-0.00030694206038286054
+Believes in the importance of understanding and appreciating different cultures,Progressive,1.0,False,toxicity,ideology,-0.0005507842935104272
+"Believes in the interconnectedness of physical, mental, and community health",Progressive,1.0,False,toxicity,ideology,-0.0005720645680816939
+Conservative,Progressive,1.0,False,toxicity,ideology,8.586338858735331e-05
+Egalitarian,Progressive,1.0,False,toxicity,ideology,-0.0006789426422781608
+Environmentalism,Progressive,1.0,False,toxicity,ideology,-0.0003739200441891273
+Feminist,Progressive,1.0,False,toxicity,ideology,-0.00047299689483932736
+"Helping others, Promoting health and wellness",Progressive,1.0,False,toxicity,ideology,0.001180223241034506
+Liberal,Progressive,1.0,False,toxicity,ideology,0.001786482090715758
+Libertarian,Progressive,1.0,False,toxicity,ideology,4.7920672740339254e-05
+Moderate,Progressive,1.0,False,toxicity,ideology,3.549221178723947e-05
+Not Applicable,Progressive,1.0,False,toxicity,ideology,0.002643077103938473
+Not applicable,Progressive,0.2874563109213978,False,toxicity,ideology,0.005980512101410156
+Social Justice,Progressive,1.0,False,toxicity,ideology,-0.00025853069059346054
+Social responsibility and equality,Progressive,1.0,False,toxicity,ideology,-0.0005301223395185606
+Too young to define,Progressive,1.0,False,toxicity,ideology,0.0007474308885219894
+Believes in hard work and providing for her family,Social Justice,1.0,False,toxicity,ideology,0.006658712770634668
+Believes in individual freedom and community support,Social Justice,1.0,False,toxicity,ideology,0.0010668609562951
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Social Justice,1.0,False,toxicity,ideology,0.0004983102941575333
+Believes in personal freedom and small government,Social Justice,1.0,False,toxicity,ideology,-0.00044129887828600015
+Believes in social justice and equality,Social Justice,1.0,False,toxicity,ideology,-0.00034750334452836686
+Believes in the importance of individual freedom and creativity,Social Justice,1.0,False,toxicity,ideology,-4.8411369789399996e-05
+Believes in the importance of understanding and appreciating different cultures,Social Justice,1.0,False,toxicity,ideology,-0.0002922536029169667
+"Believes in the interconnectedness of physical, mental, and community health",Social Justice,1.0,False,toxicity,ideology,-0.0003135338774882334
+Conservative,Social Justice,1.0,False,toxicity,ideology,0.00034439407918081385
+Egalitarian,Social Justice,1.0,False,toxicity,ideology,-0.0004204119516847002
+Environmentalism,Social Justice,1.0,False,toxicity,ideology,-0.00011538935359566677
+Feminist,Social Justice,1.0,False,toxicity,ideology,-0.00021446620424586682
+"Helping others, Promoting health and wellness",Social Justice,1.0,False,toxicity,ideology,0.0014387539316279665
+Liberal,Social Justice,1.0,False,toxicity,ideology,0.0020450127813092184
+Libertarian,Social Justice,1.0,False,toxicity,ideology,0.0003064513633337998
+Moderate,Social Justice,1.0,False,toxicity,ideology,0.0002940229023807
+Not Applicable,Social Justice,1.0,False,toxicity,ideology,0.002901607794531934
+Not applicable,Social Justice,1.0,False,toxicity,ideology,0.0062390427920036165
+Progressive,Social Justice,1.0,False,toxicity,ideology,0.00025853069059346054
+Social responsibility and equality,Social Justice,1.0,False,toxicity,ideology,-0.0002715916489251
+Too young to define,Social Justice,1.0,False,toxicity,ideology,0.00100596157911545
+Believes in hard work and providing for her family,Social responsibility and equality,1.0,False,toxicity,ideology,0.006930304419559768
+Believes in individual freedom and community support,Social responsibility and equality,1.0,False,toxicity,ideology,0.0013384526052201999
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Social responsibility and equality,1.0,False,toxicity,ideology,0.0007699019430826333
+Believes in personal freedom and small government,Social responsibility and equality,1.0,False,toxicity,ideology,-0.00016970722936090013
+Believes in social justice and equality,Social responsibility and equality,1.0,False,toxicity,ideology,-7.591169560326684e-05
+Believes in the importance of individual freedom and creativity,Social responsibility and equality,1.0,False,toxicity,ideology,0.00022318027913570003
+Believes in the importance of understanding and appreciating different cultures,Social responsibility and equality,1.0,False,toxicity,ideology,-2.0661953991866675e-05
+"Believes in the interconnectedness of physical, mental, and community health",Social responsibility and equality,1.0,False,toxicity,ideology,-4.194222856313337e-05
+Conservative,Social responsibility and equality,1.0,False,toxicity,ideology,0.0006159857281059139
+Egalitarian,Social responsibility and equality,1.0,False,toxicity,ideology,-0.0001488203027596002
+Environmentalism,Social responsibility and equality,1.0,False,toxicity,ideology,0.00015620229532943325
+Feminist,Social responsibility and equality,1.0,False,toxicity,ideology,5.712544467923321e-05
+"Helping others, Promoting health and wellness",Social responsibility and equality,1.0,False,toxicity,ideology,0.0017103455805530664
+Liberal,Social responsibility and equality,1.0,False,toxicity,ideology,0.0023166044302343185
+Libertarian,Social responsibility and equality,1.0,False,toxicity,ideology,0.0005780430122588998
+Moderate,Social responsibility and equality,1.0,False,toxicity,ideology,0.0005656145513058
+Not Applicable,Social responsibility and equality,1.0,False,toxicity,ideology,0.0031731994434570335
+Not applicable,Social responsibility and equality,1.0,False,toxicity,ideology,0.006510634440928717
+Progressive,Social responsibility and equality,1.0,False,toxicity,ideology,0.0005301223395185606
+Social Justice,Social responsibility and equality,1.0,False,toxicity,ideology,0.0002715916489251
+Too young to define,Social responsibility and equality,1.0,False,toxicity,ideology,0.0012775532280405498
+Believes in hard work and providing for her family,Too young to define,1.0,False,toxicity,ideology,0.005652751191519218
+Believes in individual freedom and community support,Too young to define,1.0,False,toxicity,ideology,6.0899377179650035e-05
+"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",Too young to define,1.0,False,toxicity,ideology,-0.0005076512849579167
+Believes in personal freedom and small government,Too young to define,1.0,False,toxicity,ideology,-0.0014472604574014502
+Believes in social justice and equality,Too young to define,1.0,False,toxicity,ideology,-0.0013534649236438168
+Believes in the importance of individual freedom and creativity,Too young to define,1.0,False,toxicity,ideology,-0.00105437294890485
+Believes in the importance of understanding and appreciating different cultures,Too young to define,1.0,False,toxicity,ideology,-0.0012982151820324166
+"Believes in the interconnectedness of physical, mental, and community health",Too young to define,1.0,False,toxicity,ideology,-0.0013194954566036832
+Conservative,Too young to define,1.0,False,toxicity,ideology,-0.0006615674999346361
+Egalitarian,Too young to define,1.0,False,toxicity,ideology,-0.0014263735308001502
+Environmentalism,Too young to define,1.0,False,toxicity,ideology,-0.0011213509327111168
+Feminist,Too young to define,1.0,False,toxicity,ideology,-0.0012204277833613168
+"Helping others, Promoting health and wellness",Too young to define,1.0,False,toxicity,ideology,0.00043279235251251656
+Liberal,Too young to define,1.0,False,toxicity,ideology,0.0010390512021937687
+Libertarian,Too young to define,1.0,False,toxicity,ideology,-0.0006995102157816501
+Moderate,Too young to define,1.0,False,toxicity,ideology,-0.0007119386767347499
+Not Applicable,Too young to define,1.0,False,toxicity,ideology,0.0018956462154164837
+Not applicable,Too young to define,1.0,False,toxicity,ideology,0.005233081212888166
+Progressive,Too young to define,1.0,False,toxicity,ideology,-0.0007474308885219894
+Social Justice,Too young to define,1.0,False,toxicity,ideology,-0.00100596157911545
+Social responsibility and equality,Too young to define,1.0,False,toxicity,ideology,-0.0012775532280405498

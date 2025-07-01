@@ -1,0 +1,3 @@
+group1,group2,p-adj,reject,metric,grouping,meandiff
+Male,Female,0.0037532957746660997,True,sentiment_score,gender,-0.05429328646254439
+Female,Male,0.0037532957746660997,True,sentiment_score,gender,0.05429328646254439

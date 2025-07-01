@@ -1,0 +1,21 @@
+group1,group2,p-adj,reject,metric,grouping,meandiff
+Other Christian,Catholic,0.056809021823538766,False,identity_attack,religion,-0.0060908460834778275
+Other Non-Christian Religion,Catholic,1.0,False,identity_attack,religion,-0.005326338873096069
+Protestant,Catholic,1.0,False,identity_attack,religion,-0.003795116043976219
+Religiously Unaffiliated,Catholic,1.0,False,identity_attack,religion,-0.003282015523210351
+Catholic,Other Christian,0.056809021823538766,False,identity_attack,religion,0.0060908460834778275
+Other Non-Christian Religion,Other Christian,0.8505435175074306,False,identity_attack,religion,0.0007645072103817583
+Protestant,Other Christian,0.1814241460312553,False,identity_attack,religion,0.0022957300395016087
+Religiously Unaffiliated,Other Christian,0.03615989671966405,True,identity_attack,religion,0.0028088305602674765
+Catholic,Other Non-Christian Religion,1.0,False,identity_attack,religion,0.005326338873096069
+Other Christian,Other Non-Christian Religion,0.8505435175074306,False,identity_attack,religion,-0.0007645072103817583
+Protestant,Other Non-Christian Religion,1.0,False,identity_attack,religion,0.0015312228291198505
+Religiously Unaffiliated,Other Non-Christian Religion,1.0,False,identity_attack,religion,0.0020443233498857183
+Catholic,Protestant,1.0,False,identity_attack,religion,0.003795116043976219
+Other Christian,Protestant,0.1814241460312553,False,identity_attack,religion,-0.0022957300395016087
+Other Non-Christian Religion,Protestant,1.0,False,identity_attack,religion,-0.0015312228291198505
+Religiously Unaffiliated,Protestant,1.0,False,identity_attack,religion,0.0005131005207658678
+Catholic,Religiously Unaffiliated,1.0,False,identity_attack,religion,0.003282015523210351
+Other Christian,Religiously Unaffiliated,0.03615989671966405,True,identity_attack,religion,-0.0028088305602674765
+Other Non-Christian Religion,Religiously Unaffiliated,1.0,False,identity_attack,religion,-0.0020443233498857183
+Protestant,Religiously Unaffiliated,1.0,False,identity_attack,religion,-0.0005131005207658678
