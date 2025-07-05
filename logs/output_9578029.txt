@@ -1,0 +1,97 @@
+================================================================================
+JobID = 9578029
+User = u17297, Account = kisski-tuberlin-qulab
+Partition = kisski-h100, Nodelist = ggpu239
+================================================================================
+HF_TOKEN is : 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
+PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
+Running on: ggpu239 at Sat Jul  5 11:55:44 CEST 2025
+Using Python: /usr/local/bin/python
+Memory info:
+              total        used        free      shared  buff/cache   available
+Mem:          1.0Ti       9.7Gi       991Gi       6.4Gi       6.8Gi       987Gi
+Swap:            0B          0B          0B
+
+===== Running analysis for model: HuggingFaceH4/zephyr-7b-beta =====
+Loading models...
+Authenticating with Hugging Face Hub for model HuggingFaceH4/zephyr-7b-beta...
+Tokenizer loaded successfully
+Model loaded successfully
+Model loaded with device map: {'': 0}
+Sentiment model loaded and validated successfully
+Loaded Detoxify for toxicity analysis
+Auxiliary models loading completed
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 96 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/zephyr_7b_beta
+Analysis completed for model: zephyr-7b-beta ✅
+
+===== Running analysis for model: EleutherAI/gpt-j-6B =====
+Loading models...
+Authenticating with Hugging Face Hub for model EleutherAI/gpt-j-6B...
+Tokenizer loaded successfully
+Model loaded successfully
+Model loaded with device map: {'': 0}
+Sentiment model loaded and validated successfully
+Loaded Detoxify for toxicity analysis
+Auxiliary models loading completed
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 96 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/gpt_j_6B
+Analysis completed for model: gpt-j-6B ✅
+
+===== Running analysis for model: ./Qwen32B =====
+Loading models...
+Using 4-bit quantization for Qwen32B
+Tokenizer loaded successfully
+Error loading model: FlashAttention2 has been toggled on, but it cannot be used due to the following error: the package flash_attn seems to be not installed. Please refer to the documentation of https://huggingface.co/docs/transformers/perf_infer_gpu_one#flashattention-2 to install Flash Attention 2.
+Successfully loaded without flash attention
+Model loaded with device map: {'': 0}
+Sentiment model loaded and validated successfully
+Loaded Detoxify for toxicity analysis
+Auxiliary models loading completed
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 96 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/Qwen32B
+Analysis completed for model: Qwen32B ✅
+
+===== Running analysis for model: ./Falcon7B =====
+Loading models...
+Tokenizer loaded successfully
+Model loaded successfully
+Model loaded with device map: {'': 0}
+Sentiment model loaded and validated successfully
+Loaded Detoxify for toxicity analysis
+Auxiliary models loading completed
+All models loaded successfully.
+Loading personas from persona_reduced.jsonl...
+Successfully loaded 96 personas.
+Generating responses...
+Analyzing results...
+Generating visualizations...
+Saving results...
+Results saved to results/Falcon7B
+Analysis completed for model: Falcon7B ✅
+============ Job Information ===================================================
+Submitted: 2025-07-05T11:54:23
+Started: 2025-07-05T11:55:20
+Ended: 2025-07-05T14:01:18
+Elapsed: 126 min, Limit: 720 min, Difference: 594 min
+CPUs: 12, Nodes: 1
+Estimated Consumption: 2205.00 core-hours
+================================================================================

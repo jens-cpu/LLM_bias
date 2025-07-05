@@ -771,13 +771,13 @@ def main():
     """Main execution function with improved argument handling."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=[
-       # "HuggingFaceH4/zephyr-7b-beta",
+        "HuggingFaceH4/zephyr-7b-beta",
         "EleutherAI/gpt-j-6B",
         "./Qwen32B",               
         #"llama-70b",
         "./Falcon7B"     
     ])
-    parser.add_argument("--max_personas", type=int, default=64)
+    parser.add_argument("--max_personas", type=int, default=96)
     parser.add_argument("--batch_size", type=int, default=16)
     args = parser.parse_args()
     #model_path = model_name
@@ -791,8 +791,8 @@ def main():
         
         # Adjust parameters based on model
         if "Qwen32B" in model_name.lower() or "8x7" in model_name.lower():
-            max_p = min(args.max_personas, 4)
-            batch_size = 1
+            #max_p = min(args.max_personas, 4)
+            #batch_size = 1
             max_tokens = 100  # Reduced for very large models
         elif "gpt-j" in model_name.lower():
             max_p = min(200, args.max_personas)
