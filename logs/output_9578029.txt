@@ -1,9 +1,10 @@
+nano run_analysis.sh
 ================================================================================
 JobID = 9578029
 User = u17297, Account = kisski-tuberlin-qulab
 Partition = kisski-h100, Nodelist = ggpu239
 ================================================================================
-HF_TOKEN is : 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
+	
 PERSPECTIVE_API_KEY is : AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA
 Running on: ggpu239 at Sat Jul  5 11:55:44 CEST 2025
 Using Python: /usr/local/bin/python
