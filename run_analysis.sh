@@ -8,7 +8,6 @@
 #SBATCH --cpus-per-task=12
 #SBATCH --time=12:00:00
 
-export HF_TOKEN="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"
 export PERSPECTIVE_API_KEY="AIzaSyCDtSOFBvNKeeh5I2rFkYOpBD0BpXuvgUA"
 export HF_HOME=$HOME/hf_cache
 export TRANSFORMERS_CACHE=$HOME/hf_cache
