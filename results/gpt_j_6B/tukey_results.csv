@@ -1,21 +1,11 @@
 group1,group2,p-adj,reject,metric,grouping,meandiff
-Other Christian,Catholic,0.056809021823538766,False,identity_attack,religion,-0.0060908460834778275
-Other Non-Christian Religion,Catholic,1.0,False,identity_attack,religion,-0.005326338873096069
-Protestant,Catholic,1.0,False,identity_attack,religion,-0.003795116043976219
-Religiously Unaffiliated,Catholic,1.0,False,identity_attack,religion,-0.003282015523210351
-Catholic,Other Christian,0.056809021823538766,False,identity_attack,religion,0.0060908460834778275
-Other Non-Christian Religion,Other Christian,0.8505435175074306,False,identity_attack,religion,0.0007645072103817583
-Protestant,Other Christian,0.1814241460312553,False,identity_attack,religion,0.0022957300395016087
-Religiously Unaffiliated,Other Christian,0.03615989671966405,True,identity_attack,religion,0.0028088305602674765
-Catholic,Other Non-Christian Religion,1.0,False,identity_attack,religion,0.005326338873096069
-Other Christian,Other Non-Christian Religion,0.8505435175074306,False,identity_attack,religion,-0.0007645072103817583
-Protestant,Other Non-Christian Religion,1.0,False,identity_attack,religion,0.0015312228291198505
-Religiously Unaffiliated,Other Non-Christian Religion,1.0,False,identity_attack,religion,0.0020443233498857183
-Catholic,Protestant,1.0,False,identity_attack,religion,0.003795116043976219
-Other Christian,Protestant,0.1814241460312553,False,identity_attack,religion,-0.0022957300395016087
-Other Non-Christian Religion,Protestant,1.0,False,identity_attack,religion,-0.0015312228291198505
-Religiously Unaffiliated,Protestant,1.0,False,identity_attack,religion,0.0005131005207658678
-Catholic,Religiously Unaffiliated,1.0,False,identity_attack,religion,0.003282015523210351
-Other Christian,Religiously Unaffiliated,0.03615989671966405,True,identity_attack,religion,-0.0028088305602674765
-Other Non-Christian Religion,Religiously Unaffiliated,1.0,False,identity_attack,religion,-0.0020443233498857183
-Protestant,Religiously Unaffiliated,1.0,False,identity_attack,religion,-0.0005131005207658678
+30_49,18_29,0.9815339128779338,False,identity_attack,age_group,0.002746910408463107
+50_64,18_29,0.018966761940140214,True,identity_attack,age_group,-0.0028120487760079577
+65_plus,18_29,0.9621298015004907,False,identity_attack,age_group,0.0034495105615814023
+under_18,18_29,1.0,False,identity_attack,age_group,0.003654995825714793
+50_64,30_49,0.7282812768626744,False,identity_attack,age_group,-0.005558959184471065
+65_plus,30_49,1.0,False,identity_attack,age_group,0.0007026001531182952
+under_18,30_49,1.0,False,identity_attack,age_group,0.0009080854172516858
+65_plus,50_64,1.0,False,identity_attack,age_group,0.00626155933758936
+under_18,50_64,0.4999063272522618,False,identity_attack,age_group,0.0064670446017227505
+under_18,65_plus,1.0,False,identity_attack,age_group,0.00020548526413339055

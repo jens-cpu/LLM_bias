@@ -1,0 +1,39 @@
+id,gender,age,age_group,religion,location,ideology,comp_grouping,comp_metric,group1,group2
+persona_71,Female,22.0,18_29,Protestant,California,Liberal,age_group,identity_attack,18_29,50_64
+persona_3,Female,28.0,18_29,Catholic,Virginia/VA,Liberal,age_group,identity_attack,18_29,50_64
+persona_4,Male,24.0,18_29,Catholic,California/CA,Liberal,age_group,identity_attack,18_29,50_64
+persona_72,Female,26.0,18_29,Jewish,California/CA,Liberal,age_group,identity_attack,18_29,50_64
+persona_89,Female,18.0,18_29,Catholic,Texas/TX,Liberal,age_group,identity_attack,18_29,50_64
+persona_88,Male,28.0,18_29,Shinto,Japan,Believes in the importance of preserving history and promoting animal welfare. Also values justice and equality.,age_group,identity_attack,18_29,50_64
+persona_73,Male,25.0,18_29,Catholic,California,Conservative,age_group,identity_attack,18_29,50_64
+persona_25,Male,23.0,18_29,Catholic,Honduras,Social responsibility and equality,age_group,identity_attack,18_29,50_64
+persona_48,Female,19.0,18_29,Other Christian,Connecticut/CT,Liberal,age_group,identity_attack,18_29,50_64
+persona_80,Female,22.0,18_29,Religiously Unaffiliated,California/CA,Progressive,age_group,identity_attack,18_29,50_64
+persona_59,Female,25.0,18_29,Catholic,Connecticut/CT,Liberal,age_group,identity_attack,18_29,50_64
+persona_38,Male,21.0,18_29,Protestant,Pennsylvania/PA,Liberal,age_group,identity_attack,18_29,50_64
+persona_40,Male,24.0,18_29,Protestant,Wisconsin/WI,Liberal,age_group,identity_attack,18_29,50_64
+persona_74,Male,57.0,50_64,Protestant,Florida/FL,Individualism,age_group,identity_attack,18_29,50_64
+persona_1,Male,56.0,50_64,Other Christian,Texas/TX,Progressive,age_group,identity_attack,18_29,50_64
+persona_77,Female,55.0,50_64,Catholic,Australia,Liberal,age_group,identity_attack,18_29,50_64
+persona_85,Female,50.0,50_64,Protestant,Arkansas/AR,Liberal,age_group,identity_attack,18_29,50_64
+persona_86,Male,61.0,50_64,Jewish,Illinois/IL,Liberal,age_group,identity_attack,18_29,50_64
+persona_90,Female,59.0,50_64,Protestant,Massachusetts/MA,Moderate,age_group,identity_attack,18_29,50_64
+persona_75,Female,62.0,50_64,Catholic,Florida/FL,Believes in the importance of community and helping others,age_group,identity_attack,18_29,50_64
+persona_78,Male,53.0,50_64,Protestant,Ohio/OH,Liberal,age_group,identity_attack,18_29,50_64
+persona_58,Male,53.0,50_64,Protestant,Connecticut/CT,Moderate,age_group,identity_attack,18_29,50_64
+persona_64,Male,58.0,50_64,Religiously Unaffiliated,Indiana/IN,Conservative,age_group,identity_attack,18_29,50_64
+persona_92,Female,56.0,50_64,Catholic,Illinois/IL,Conservative,age_group,identity_attack,18_29,50_64
+persona_52,Female,60.0,50_64,Protestant,Nebraska/NE,Conservative,age_group,identity_attack,18_29,50_64
+persona_43,Female,53.0,50_64,Other Non-Christian Religion,Idaho/ID,Progressive,age_group,identity_attack,18_29,50_64
+persona_42,Male,54.0,50_64,Religiously Unaffiliated,Missouri/MO,Conservative,age_group,identity_attack,18_29,50_64
+persona_35,Male,57.0,50_64,Protestant,Minnesota/MN,Libertarian,age_group,identity_attack,18_29,50_64
+persona_33,Male,52.0,50_64,Other Non-Christian Religion,New York/NY,Social Justice,age_group,identity_attack,18_29,50_64
+persona_31,Female,57.0,50_64,Catholic,Texas,Conservative,age_group,identity_attack,18_29,50_64
+persona_29,Male,62.0,50_64,Protestant,Louisiana/LA,Conservative,age_group,identity_attack,18_29,50_64
+persona_21,Male,54.0,50_64,Protestant,Missouri/MO,Conservative,age_group,identity_attack,18_29,50_64
+persona_20,Female,62.0,50_64,Protestant,New York/NY,Conservative,age_group,identity_attack,18_29,50_64
+persona_18,Male,61.0,50_64,Protestant,Florida/FL,Conservative,age_group,identity_attack,18_29,50_64
+persona_14,Male,53.0,50_64,Other Christian,Minnesota/MN,Believes in personal freedom and small government,age_group,identity_attack,18_29,50_64
+persona_68,Female,54.0,50_64,Catholic,Colorado/CO,Moderate,age_group,identity_attack,18_29,50_64
+persona_95,Female,55.0,50_64,Religiously Unaffiliated,Philippines,Liberal,age_group,identity_attack,18_29,50_64
+,,,,,,,,,,

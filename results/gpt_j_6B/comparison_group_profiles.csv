@@ -1,0 +1,4 @@
+grouping,group,metric,count,gender_top1,gender_top2,religion_top1,religion_top2,religion_top3,location_top1,location_top2,location_top3,ideology_top1,ideology_top2,ideology_top3
+age_group,18_29,identity_attack,39.0,"Female (21, 53.8%)","Male (18, 46.2%)","Catholic (18, 46.2%)","Protestant (9, 23.1%)","Other Christian (3, 7.7%)","California/CA (9, 23.1%)","Connecticut/CT (6, 15.4%)","California (6, 15.4%)","Liberal (27, 69.2%)","Social responsibility and equality (3, 7.7%)","Conservative (3, 7.7%)"
+age_group,50_64,identity_attack,72.0,"Male (39, 54.2%)","Female (33, 45.8%)","Protestant (33, 45.8%)","Catholic (15, 20.8%)","Religiously Unaffiliated (9, 12.5%)","Florida/FL (9, 12.5%)","New York/NY (6, 8.3%)","Missouri/MO (6, 8.3%)","Conservative (27, 37.5%)","Liberal (15, 20.8%)","Moderate (9, 12.5%)"
+,,,,,,,,,,,,,,

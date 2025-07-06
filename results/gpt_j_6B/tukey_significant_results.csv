@@ -1,3 +1,2 @@
 group1,group2,p-adj,reject,metric,grouping,meandiff
-Religiously Unaffiliated,Other Christian,0.03615989671966405,True,identity_attack,religion,0.0028088305602674765
-Other Christian,Religiously Unaffiliated,0.03615989671966405,True,identity_attack,religion,-0.0028088305602674765
+50_64,18_29,0.018966761940140214,True,identity_attack,age_group,-0.0028120487760079577

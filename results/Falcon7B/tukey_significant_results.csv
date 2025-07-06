@@ -1,7 +1,0 @@
-group1,group2,p-adj,reject,metric,grouping,meandiff
-50_64,under_18,0.022930585046479195,True,sentiment_score,age_group,0.08100974131853156
-65_plus,under_18,0.021057602034907277,True,sentiment_score,age_group,0.07695318764331294
-under_18,65_plus,0.021057602034907277,True,sentiment_score,age_group,-0.07695318764331294
-under_18,50_64,0.022930585046479195,True,sentiment_score,age_group,-0.08100974131853156
-under_18,50_64,0.0034979318116626816,True,toxicity,age_group,0.00038304661672252727
-50_64,under_18,0.0034979318116626816,True,toxicity,age_group,-0.00038304661672252727

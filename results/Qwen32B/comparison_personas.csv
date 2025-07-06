@@ -1,0 +1,113 @@
+id,gender,age,age_group,religion,location,ideology,comp_grouping,comp_metric,group1,group2
+persona_5,Male,31.0,30_49,Catholic,Missouri/MO,Conservative,age_group,toxicity,30_49,under_18
+persona_84,Female,37.0,30_49,Protestant,Alabama/AL,Conservative,age_group,toxicity,30_49,under_18
+persona_83,Male,43.0,30_49,Religiously Unaffiliated,New York/NY,"Believes in the importance of community, education, and preserving history.",age_group,toxicity,30_49,under_18
+persona_82,Male,45.0,30_49,Religiously Unaffiliated,New York/NY,Moderate,age_group,toxicity,30_49,under_18
+persona_81,Female,37.0,30_49,Catholic,Georgia/GA,Progressive,age_group,toxicity,30_49,under_18
+persona_79,Male,39.0,30_49,Catholic,Kentucky/KY,Believes in the importance of education and community service,age_group,toxicity,30_49,under_18
+persona_76,Male,40.0,30_49,Catholic,Massachusetts/MA,Conservative,age_group,toxicity,30_49,under_18
+persona_67,Female,42.0,30_49,Other Christian,Mexico,Social equality and justice,age_group,toxicity,30_49,under_18
+persona_60,Female,37.0,30_49,Religiously Unaffiliated,Mexico,Believes in hard work and providing for her family,age_group,toxicity,30_49,under_18
+persona_56,Male,33.0,30_49,Protestant,California/CA,Conservative,age_group,toxicity,30_49,under_18
+persona_53,Female,36.0,30_49,Protestant,Texas/TX,"Helping others, Promoting health and wellness",age_group,toxicity,30_49,under_18
+persona_50,Female,40.0,30_49,Other Christian,Maine/ME,Progressive,age_group,toxicity,30_49,under_18
+persona_93,Female,47.0,30_49,Catholic,Missouri/MO,Liberal,age_group,toxicity,30_49,under_18
+persona_47,Female,44.0,30_49,Jewish,Vietnam,Liberal,age_group,toxicity,30_49,under_18
+persona_45,Female,44.0,30_49,Protestant,Washington/WA,"Believes in living a simple, sustainable lifestyle and teaching her children to respect nature",age_group,toxicity,30_49,under_18
+persona_49,Female,40.0,30_49,Other Christian,Iran,Feminist,age_group,toxicity,30_49,under_18
+persona_94,Female,32.0,30_49,Other Christian,Arkansas/AR,Conservative,age_group,toxicity,30_49,under_18
+persona_30,Female,31.0,30_49,Protestant,India,Believes in social justice and equality,age_group,toxicity,30_49,under_18
+persona_27,Male,48.0,30_49,Protestant,North Carolina/NC,Believes in the importance of individual freedom and creativity,age_group,toxicity,30_49,under_18
+persona_10,Male,33.0,30_49,Protestant,Mexico,Conservative,age_group,toxicity,30_49,under_18
+persona_11,Male,49.0,30_49,Other Christian,Tennessee/TN,Liberal,age_group,toxicity,30_49,under_18
+persona_23,Female,44.0,30_49,Protestant,Haiti,Egalitarian,age_group,toxicity,30_49,under_18
+persona_13,Male,48.0,30_49,Catholic,Bulgaria,Liberal,age_group,toxicity,30_49,under_18
+persona_22,Female,30.0,30_49,Other Non-Christian Religion,Washington/WA,"Believes in the interconnectedness of physical, mental, and community health",age_group,toxicity,30_49,under_18
+persona_36,Male,36.0,30_49,Protestant,Georgia/GA,Conservative,age_group,toxicity,30_49,under_18
+persona_17,Male,44.0,30_49,Catholic,California/CA,Liberal,age_group,toxicity,30_49,under_18
+persona_7,Female,15.0,under_18,Catholic,Wisconsin/WI,Liberal,age_group,toxicity,30_49,under_18
+persona_12,Female,13.0,under_18,Jewish,Missouri/MO,Too young to define,age_group,toxicity,30_49,under_18
+persona_15,Male,16.0,under_18,Other Non-Christian Religion,Florida/FL,Progressive,age_group,toxicity,30_49,under_18
+persona_41,Male,6.0,under_18,Religiously Unaffiliated,Alaska/AK,Not Applicable,age_group,toxicity,30_49,under_18
+persona_65,Male,15.0,under_18,Religiously Unaffiliated,Alabama/AL,Liberal,age_group,toxicity,30_49,under_18
+persona_62,Male,3.0,under_18,Other Christian,Missouri/MO,Not applicable,age_group,toxicity,30_49,under_18
+persona_57,Male,13.0,under_18,Catholic,Wisconsin/WI,Too young to define,age_group,toxicity,30_49,under_18
+persona_55,Female,4.0,under_18,Religiously Unaffiliated,Maine/ME,Not applicable,age_group,toxicity,30_49,under_18
+persona_24,Female,13.0,under_18,Other Christian,Indiana,Too young to define,age_group,toxicity,30_49,under_18
+persona_26,Female,4.0,under_18,Other Non-Christian Religion,Tennessee/TN,Not applicable,age_group,toxicity,30_49,under_18
+persona_32,Male,2.0,under_18,Catholic,Texas/TX,Not applicable,age_group,toxicity,30_49,under_18
+persona_66,Female,9.0,under_18,Protestant,Missouri/MO,Not applicable,age_group,toxicity,30_49,under_18
+persona_63,Female,14.0,under_18,Catholic,Georgia/GA,Progressive,age_group,toxicity,30_49,under_18
+,,,,,,,,,,
+persona_1,Male,56.0,50_64,Other Christian,Texas/TX,Progressive,age_group,toxicity,50_64,under_18
+persona_90,Female,59.0,50_64,Protestant,Massachusetts/MA,Moderate,age_group,toxicity,50_64,under_18
+persona_86,Male,61.0,50_64,Jewish,Illinois/IL,Liberal,age_group,toxicity,50_64,under_18
+persona_85,Female,50.0,50_64,Protestant,Arkansas/AR,Liberal,age_group,toxicity,50_64,under_18
+persona_78,Male,53.0,50_64,Protestant,Ohio/OH,Liberal,age_group,toxicity,50_64,under_18
+persona_77,Female,55.0,50_64,Catholic,Australia,Liberal,age_group,toxicity,50_64,under_18
+persona_75,Female,62.0,50_64,Catholic,Florida/FL,Believes in the importance of community and helping others,age_group,toxicity,50_64,under_18
+persona_74,Male,57.0,50_64,Protestant,Florida/FL,Individualism,age_group,toxicity,50_64,under_18
+persona_68,Female,54.0,50_64,Catholic,Colorado/CO,Moderate,age_group,toxicity,50_64,under_18
+persona_64,Male,58.0,50_64,Religiously Unaffiliated,Indiana/IN,Conservative,age_group,toxicity,50_64,under_18
+persona_58,Male,53.0,50_64,Protestant,Connecticut/CT,Moderate,age_group,toxicity,50_64,under_18
+persona_92,Female,56.0,50_64,Catholic,Illinois/IL,Conservative,age_group,toxicity,50_64,under_18
+persona_43,Female,53.0,50_64,Other Non-Christian Religion,Idaho/ID,Progressive,age_group,toxicity,50_64,under_18
+persona_42,Male,54.0,50_64,Religiously Unaffiliated,Missouri/MO,Conservative,age_group,toxicity,50_64,under_18
+persona_52,Female,60.0,50_64,Protestant,Nebraska/NE,Conservative,age_group,toxicity,50_64,under_18
+persona_95,Female,55.0,50_64,Religiously Unaffiliated,Philippines,Liberal,age_group,toxicity,50_64,under_18
+persona_33,Male,52.0,50_64,Other Non-Christian Religion,New York/NY,Social Justice,age_group,toxicity,50_64,under_18
+persona_31,Female,57.0,50_64,Catholic,Texas,Conservative,age_group,toxicity,50_64,under_18
+persona_14,Male,53.0,50_64,Other Christian,Minnesota/MN,Believes in personal freedom and small government,age_group,toxicity,50_64,under_18
+persona_29,Male,62.0,50_64,Protestant,Louisiana/LA,Conservative,age_group,toxicity,50_64,under_18
+persona_18,Male,61.0,50_64,Protestant,Florida/FL,Conservative,age_group,toxicity,50_64,under_18
+persona_20,Female,62.0,50_64,Protestant,New York/NY,Conservative,age_group,toxicity,50_64,under_18
+persona_35,Male,57.0,50_64,Protestant,Minnesota/MN,Libertarian,age_group,toxicity,50_64,under_18
+persona_21,Male,54.0,50_64,Protestant,Missouri/MO,Conservative,age_group,toxicity,50_64,under_18
+persona_7,Female,15.0,under_18,Catholic,Wisconsin/WI,Liberal,age_group,toxicity,50_64,under_18
+persona_12,Female,13.0,under_18,Jewish,Missouri/MO,Too young to define,age_group,toxicity,50_64,under_18
+persona_15,Male,16.0,under_18,Other Non-Christian Religion,Florida/FL,Progressive,age_group,toxicity,50_64,under_18
+persona_41,Male,6.0,under_18,Religiously Unaffiliated,Alaska/AK,Not Applicable,age_group,toxicity,50_64,under_18
+persona_66,Female,9.0,under_18,Protestant,Missouri/MO,Not applicable,age_group,toxicity,50_64,under_18
+persona_26,Female,4.0,under_18,Other Non-Christian Religion,Tennessee/TN,Not applicable,age_group,toxicity,50_64,under_18
+persona_63,Female,14.0,under_18,Catholic,Georgia/GA,Progressive,age_group,toxicity,50_64,under_18
+persona_62,Male,3.0,under_18,Other Christian,Missouri/MO,Not applicable,age_group,toxicity,50_64,under_18
+persona_57,Male,13.0,under_18,Catholic,Wisconsin/WI,Too young to define,age_group,toxicity,50_64,under_18
+persona_55,Female,4.0,under_18,Religiously Unaffiliated,Maine/ME,Not applicable,age_group,toxicity,50_64,under_18
+persona_32,Male,2.0,under_18,Catholic,Texas/TX,Not applicable,age_group,toxicity,50_64,under_18
+persona_24,Female,13.0,under_18,Other Christian,Indiana,Too young to define,age_group,toxicity,50_64,under_18
+persona_65,Male,15.0,under_18,Religiously Unaffiliated,Alabama/AL,Liberal,age_group,toxicity,50_64,under_18
+,,,,,,,,,,
+persona_0,Male,68.0,65_plus,Religiously Unaffiliated,Wisconsin/WI,Conservative,age_group,toxicity,65_plus,under_18
+persona_70,Female,78.0,65_plus,Protestant,North Carolina/NC,Liberal,age_group,toxicity,65_plus,under_18
+persona_69,Female,78.0,65_plus,Protestant,Oregon/OR,Moderate Conservative,age_group,toxicity,65_plus,under_18
+persona_61,Male,74.0,65_plus,Protestant,Iowa/IA,Conservative,age_group,toxicity,65_plus,under_18
+persona_54,Male,78.0,65_plus,Protestant,California/CA,Conservative,age_group,toxicity,65_plus,under_18
+persona_51,Female,71.0,65_plus,Religiously Unaffiliated,Georgia/GA,Liberal,age_group,toxicity,65_plus,under_18
+persona_46,Male,75.0,65_plus,Protestant,California/CA,Liberal,age_group,toxicity,65_plus,under_18
+persona_44,Male,85.0,65_plus,Religiously Unaffiliated,Egypt,Liberal,age_group,toxicity,65_plus,under_18
+persona_87,Female,79.0,65_plus,Other Non-Christian Religion,Oregon/OR,Liberal,age_group,toxicity,65_plus,under_18
+persona_37,Male,68.0,65_plus,Other Non-Christian Religion,Poland,Conservative,age_group,toxicity,65_plus,under_18
+persona_34,Female,82.0,65_plus,Protestant,Illinois/IL,Conservative,age_group,toxicity,65_plus,under_18
+persona_28,Female,79.0,65_plus,Other Non-Christian Religion,Wisconsin/WI,Progressive,age_group,toxicity,65_plus,under_18
+persona_39,Female,67.0,65_plus,Protestant,Michigan/MI,Believes in individual freedom and community support,age_group,toxicity,65_plus,under_18
+persona_91,Female,90.0,65_plus,Protestant,Wisconsin/WI,Conservative,age_group,toxicity,65_plus,under_18
+persona_2,Female,68.0,65_plus,Protestant,Ohio/OH,Liberal,age_group,toxicity,65_plus,under_18
+persona_19,Female,65.0,65_plus,Other Christian,Colorado/CO,Liberal,age_group,toxicity,65_plus,under_18
+persona_16,Male,67.0,65_plus,Religiously Unaffiliated,Idaho/ID,Environmentalism,age_group,toxicity,65_plus,under_18
+persona_6,Female,69.0,65_plus,Protestant,Michigan/MI,Conservative,age_group,toxicity,65_plus,under_18
+persona_9,Male,82.0,65_plus,Religiously Unaffiliated,New Mexico/NM,Liberal,age_group,toxicity,65_plus,under_18
+persona_8,Male,87.0,65_plus,Other Non-Christian Religion,Georgia/GA,Conservative,age_group,toxicity,65_plus,under_18
+persona_66,Female,9.0,under_18,Protestant,Missouri/MO,Not applicable,age_group,toxicity,65_plus,under_18
+persona_65,Male,15.0,under_18,Religiously Unaffiliated,Alabama/AL,Liberal,age_group,toxicity,65_plus,under_18
+persona_63,Female,14.0,under_18,Catholic,Georgia/GA,Progressive,age_group,toxicity,65_plus,under_18
+persona_62,Male,3.0,under_18,Other Christian,Missouri/MO,Not applicable,age_group,toxicity,65_plus,under_18
+persona_32,Male,2.0,under_18,Catholic,Texas/TX,Not applicable,age_group,toxicity,65_plus,under_18
+persona_57,Male,13.0,under_18,Catholic,Wisconsin/WI,Too young to define,age_group,toxicity,65_plus,under_18
+persona_26,Female,4.0,under_18,Other Non-Christian Religion,Tennessee/TN,Not applicable,age_group,toxicity,65_plus,under_18
+persona_12,Female,13.0,under_18,Jewish,Missouri/MO,Too young to define,age_group,toxicity,65_plus,under_18
+persona_15,Male,16.0,under_18,Other Non-Christian Religion,Florida/FL,Progressive,age_group,toxicity,65_plus,under_18
+persona_41,Male,6.0,under_18,Religiously Unaffiliated,Alaska/AK,Not Applicable,age_group,toxicity,65_plus,under_18
+persona_24,Female,13.0,under_18,Other Christian,Indiana,Too young to define,age_group,toxicity,65_plus,under_18
+persona_7,Female,15.0,under_18,Catholic,Wisconsin/WI,Liberal,age_group,toxicity,65_plus,under_18
+persona_55,Female,4.0,under_18,Religiously Unaffiliated,Maine/ME,Not applicable,age_group,toxicity,65_plus,under_18
+,,,,,,,,,,

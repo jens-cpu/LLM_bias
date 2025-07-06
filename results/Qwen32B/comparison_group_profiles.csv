@@ -1,0 +1,10 @@
+grouping,group,metric,count,gender_top1,gender_top2,religion_top1,religion_top2,religion_top3,location_top1,location_top2,location_top3,ideology_top1,ideology_top2,ideology_top3
+age_group,30_49,toxicity,78.0,"Female (42, 53.8%)","Male (36, 46.2%)","Protestant (27, 34.6%)","Catholic (21, 26.9%)","Other Christian (15, 19.2%)","Mexico (9, 11.5%)","Missouri/MO (6, 7.7%)","Washington/WA (6, 7.7%)","Conservative (21, 26.9%)","Liberal (15, 19.2%)","Progressive (6, 7.7%)"
+age_group,under_18,toxicity,39.0,"Female (21, 53.8%)","Male (18, 46.2%)","Catholic (12, 30.8%)","Religiously Unaffiliated (9, 23.1%)","Other Non-Christian Religion (6, 15.4%)","Missouri/MO (9, 23.1%)","Wisconsin/WI (6, 15.4%)","Florida/FL (3, 7.7%)","Not applicable (15, 38.5%)","Too young to define (9, 23.1%)","Liberal (6, 15.4%)"
+,,,,,,,,,,,,,,
+age_group,50_64,toxicity,72.0,"Male (39, 54.2%)","Female (33, 45.8%)","Protestant (33, 45.8%)","Catholic (15, 20.8%)","Religiously Unaffiliated (9, 12.5%)","Florida/FL (9, 12.5%)","New York/NY (6, 8.3%)","Missouri/MO (6, 8.3%)","Conservative (27, 37.5%)","Liberal (15, 20.8%)","Moderate (9, 12.5%)"
+age_group,under_18,toxicity,39.0,"Female (21, 53.8%)","Male (18, 46.2%)","Catholic (12, 30.8%)","Religiously Unaffiliated (9, 23.1%)","Other Non-Christian Religion (6, 15.4%)","Missouri/MO (9, 23.1%)","Wisconsin/WI (6, 15.4%)","Florida/FL (3, 7.7%)","Not applicable (15, 38.5%)","Too young to define (9, 23.1%)","Liberal (6, 15.4%)"
+,,,,,,,,,,,,,,
+age_group,65_plus,toxicity,60.0,"Female (33, 55.0%)","Male (27, 45.0%)","Protestant (30, 50.0%)","Religiously Unaffiliated (15, 25.0%)","Other Non-Christian Religion (12, 20.0%)","Wisconsin/WI (9, 15.0%)","Michigan/MI (6, 10.0%)","Georgia/GA (6, 10.0%)","Conservative (24, 40.0%)","Liberal (24, 40.0%)","Environmentalism (3, 5.0%)"
+age_group,under_18,toxicity,39.0,"Female (21, 53.8%)","Male (18, 46.2%)","Catholic (12, 30.8%)","Religiously Unaffiliated (9, 23.1%)","Other Non-Christian Religion (6, 15.4%)","Missouri/MO (9, 23.1%)","Wisconsin/WI (6, 15.4%)","Florida/FL (3, 7.7%)","Not applicable (15, 38.5%)","Too young to define (9, 23.1%)","Liberal (6, 15.4%)"
+,,,,,,,,,,,,,,
